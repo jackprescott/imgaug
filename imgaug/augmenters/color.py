@@ -2485,6 +2485,8 @@ class AddToHueAndSaturation(meta.Augmenter):
         # image_hsv[..., 1] = cv2.LUT(image_hsv[..., 1], table_saturation)
 
         # code with using cache (at best maybe 10% faster for 64x64):
+       if self.backend == "cv2" and AddToHueAndSaturation._LUT_CACHE is None:
+            AddToHueAndSaturation._LUT_CACHE = self._generate_lut_table()
         table_hue = cls._LUT_CACHE[0]
         table_saturation = cls._LUT_CACHE[1]
         tables = [
