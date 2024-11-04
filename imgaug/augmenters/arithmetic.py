@@ -37,7 +37,7 @@ import imageio
 import numpy as np
 import cv2
 
-import imgaug as ia
+import imgaug.imgaug as ia
 from . import meta
 from .. import parameters as iap
 from .. import dtypes as iadt
@@ -1812,7 +1812,7 @@ class Add(meta.Augmenter):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.Add(10)
 
     Always adds a value of 10 to all channels of all pixels of all input
@@ -1959,7 +1959,7 @@ class AddElementwise(meta.Augmenter):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.AddElementwise(10)
 
     Always adds a value of 10 to all channels of all pixels of all input
@@ -2097,7 +2097,7 @@ class AdditiveGaussianNoise(AddElementwise):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.AdditiveGaussianNoise(scale=0.1*255)
 
     Adds gaussian noise from the distribution ``N(0, 0.1*255)`` to images.
@@ -2220,7 +2220,7 @@ class AdditiveLaplaceNoise(AddElementwise):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.AdditiveLaplaceNoise(scale=0.1*255)
 
     Adds laplace noise from the distribution ``Laplace(0, 0.1*255)`` to images.
@@ -2330,7 +2330,7 @@ class AdditivePoissonNoise(AddElementwise):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.AdditivePoissonNoise(lam=5.0)
 
     Adds poisson noise sampled from a poisson distribution with a ``lambda``
@@ -2429,7 +2429,7 @@ class Multiply(meta.Augmenter):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.Multiply(2.0)
 
     Multiplies all images by a factor of ``2``, making the images significantly
@@ -2572,7 +2572,7 @@ class MultiplyElementwise(meta.Augmenter):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.MultiplyElementwise(2.0)
 
     Multiply all images by a factor of ``2.0``, making them significantly
@@ -2803,7 +2803,7 @@ class Cutout(meta.Augmenter):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.Cutout(nb_iterations=2)
 
     Fill per image two random areas, by default with grayish pixels.
@@ -3056,7 +3056,7 @@ class Dropout(MultiplyElementwise):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.Dropout(0.02)
 
     Drops ``2`` percent of all pixels.
@@ -3244,7 +3244,7 @@ class CoarseDropout(MultiplyElementwise):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.CoarseDropout(0.02, size_percent=0.5)
 
     Drops ``2`` percent of all pixels on a lower-resolution image that has
@@ -3381,14 +3381,14 @@ class Dropout2d(meta.Augmenter):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.Dropout2d(p=0.5)
 
     Create a dropout augmenter that drops on average half of all image
     channels. Dropped channels will be filled with zeros. At least one
     channel is kept unaltered in each image (default setting).
 
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.Dropout2d(p=0.5, nb_keep_channels=0)
 
     Create a dropout augmenter that drops on average half of all image
@@ -3573,7 +3573,7 @@ class TotalDropout(meta.Augmenter):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.TotalDropout(1.0)
 
     Create an augmenter that sets *all* components of all images to zero.
@@ -3730,13 +3730,13 @@ class ReplaceElementwise(meta.Augmenter):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = ReplaceElementwise(0.05, [0, 255])
 
     Replaces ``5`` percent of all pixels in each image by either ``0``
     or ``255``.
 
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = ReplaceElementwise(0.1, [0, 255], per_channel=0.5)
 
     For ``50%`` of all images, replace ``10%`` of all pixels with either the
@@ -3746,7 +3746,7 @@ class ReplaceElementwise(meta.Augmenter):
     very rare for each pixel to have all channels replaced by ``255`` or
     ``0``.
 
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> import imgaug.parameters as iap
     >>> aug = ReplaceElementwise(0.1, iap.Normal(128, 0.4*128), per_channel=0.5)
 
@@ -3754,7 +3754,7 @@ class ReplaceElementwise(meta.Augmenter):
     Both the replacement mask and the gaussian noise are sampled channelwise
     for ``50%`` of all images.
 
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> import imgaug.parameters as iap
     >>> aug = ReplaceElementwise(
     >>>     iap.FromLowerResolution(iap.Binomial(0.1), size_px=8),
@@ -3885,12 +3885,12 @@ class SaltAndPepper(ReplaceElementwise):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.SaltAndPepper(0.05)
 
     Replace ``5%`` of all pixels with salt and pepper noise.
 
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.SaltAndPepper(0.05, per_channel=True)
 
     Replace *channelwise* ``5%`` of all pixels with salt and pepper
@@ -3953,7 +3953,7 @@ class ImpulseNoise(SaltAndPepper):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.ImpulseNoise(0.1)
 
     Replace ``10%`` of all pixels with impulse noise.
@@ -4077,7 +4077,7 @@ class CoarseSaltAndPepper(ReplaceElementwise):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.CoarseSaltAndPepper(0.05, size_percent=(0.01, 0.1))
 
     Marks ``5%`` of all pixels in a mask to be replaced by salt/pepper
@@ -4183,7 +4183,7 @@ class Salt(ReplaceElementwise):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.Salt(0.05)
 
     Replace ``5%`` of all pixels with salt noise (white-ish colors).
@@ -4308,7 +4308,7 @@ class CoarseSalt(ReplaceElementwise):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.CoarseSalt(0.05, size_percent=(0.01, 0.1))
 
     Mark ``5%`` of all pixels in a mask to be replaced by salt
@@ -4410,7 +4410,7 @@ class Pepper(ReplaceElementwise):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.Pepper(0.05)
 
     Replace ``5%`` of all pixels with pepper noise (black-ish colors).
@@ -4532,7 +4532,7 @@ class CoarsePepper(ReplaceElementwise):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.CoarsePepper(0.05, size_percent=(0.01, 0.1))
 
     Mark ``5%`` of all pixels in a mask to be replaced by pepper
@@ -4664,7 +4664,7 @@ class Invert(meta.Augmenter):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.Invert(0.1)
 
     Inverts the colors in ``10`` percent of all images.
@@ -4855,7 +4855,7 @@ class Solarize(Invert):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.Solarize(0.5, threshold=(32, 128))
 
     Invert the colors in ``50`` percent of all images for pixels with a
@@ -4935,7 +4935,7 @@ def ContrastNormalization(alpha=1.0, per_channel=False,
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> iaa.ContrastNormalization((0.5, 1.5))
 
     Decreases oder improves contrast per image by a random factor between
@@ -5017,7 +5017,7 @@ class JpegCompression(meta.Augmenter):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.JpegCompression(compression=(70, 99))
 
     Remove high frequency components in images via JPEG compression with

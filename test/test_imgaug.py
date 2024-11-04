@@ -20,7 +20,7 @@ import numpy as np
 import six.moves as sm
 import cv2
 
-import imgaug as ia
+import imgaug.imgaug as ia
 from imgaug import dtypes as iadt
 import imgaug.random as iarandom
 from imgaug.testutils import assertWarns

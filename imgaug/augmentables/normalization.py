@@ -158,7 +158,7 @@ def normalize_images(images):
 
 def normalize_heatmaps(inputs, shapes=None):
     # TODO get rid of this deferred import
-    from imgaug.augmentables.heatmaps import HeatmapsOnImage
+    from imgaug.imgaug.augmentables.heatmaps import HeatmapsOnImage
 
     shapes = _preprocess_shapes(shapes)
     ntype = estimate_heatmaps_norm_type(inputs)
@@ -189,7 +189,7 @@ def normalize_heatmaps(inputs, shapes=None):
 
 def normalize_segmentation_maps(inputs, shapes=None):
     # TODO get rid of this deferred import
-    from imgaug.augmentables.segmaps import SegmentationMapsOnImage
+    from imgaug.imgaug.augmentables.segmaps import SegmentationMapsOnImage
 
     shapes = _preprocess_shapes(shapes)
     ntype = estimate_segmaps_norm_type(inputs)
@@ -232,7 +232,7 @@ def normalize_segmentation_maps(inputs, shapes=None):
 
 def normalize_keypoints(inputs, shapes=None):
     # TODO get rid of this deferred import
-    from imgaug.augmentables.kps import Keypoint, KeypointsOnImage
+    from imgaug.imgaug.augmentables.kps import Keypoint, KeypointsOnImage
 
     shapes = _preprocess_shapes(shapes)
     ntype = estimate_keypoints_norm_type(inputs)
@@ -305,7 +305,7 @@ def normalize_keypoints(inputs, shapes=None):
 
 def normalize_bounding_boxes(inputs, shapes=None):
     # TODO get rid of this deferred import
-    from imgaug.augmentables.bbs import BoundingBox, BoundingBoxesOnImage
+    from imgaug.imgaug.augmentables.bbs import BoundingBox, BoundingBoxesOnImage
 
     shapes = _preprocess_shapes(shapes)
     ntype = estimate_bounding_boxes_norm_type(inputs)
@@ -388,7 +388,7 @@ def normalize_bounding_boxes(inputs, shapes=None):
 
 def normalize_polygons(inputs, shapes=None):
     # TODO get rid of this deferred import
-    from imgaug.augmentables.polys import Polygon, PolygonsOnImage
+    from imgaug.imgaug.augmentables.polys import Polygon, PolygonsOnImage
 
     return _normalize_polygons_and_line_strings(
         cls_single=Polygon,
@@ -401,7 +401,7 @@ def normalize_polygons(inputs, shapes=None):
 
 def normalize_line_strings(inputs, shapes=None):
     # TODO get rid of this deferred import
-    from imgaug.augmentables.lines import LineString, LineStringsOnImage
+    from imgaug.imgaug.augmentables.lines import LineString, LineStringsOnImage
 
     return _normalize_polygons_and_line_strings(
         cls_single=LineString,
@@ -886,7 +886,7 @@ def _invert_normalize_polygons_and_line_strings(inputs, inputs_old,
                                                 get_entities_func,
                                                 get_points_func):
     # TODO get rid of this deferred import
-    from imgaug.augmentables.kps import Keypoint
+    from imgaug.imgaug.augmentables.kps import Keypoint
 
     ntype = estimate_ntype_func(inputs_old)
     if ntype == "None":

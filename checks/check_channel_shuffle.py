@@ -1,5 +1,5 @@
 from imgaug import augmenters as iaa
-import imgaug as ia
+import imgaug.imgaug as ia
 import imgaug.random as iarandom
 
 iarandom.seed(1)

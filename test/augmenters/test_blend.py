@@ -20,17 +20,17 @@ except ImportError:
 import numpy as np
 import six.moves as sm
 
-import imgaug as ia
+import imgaug.imgaug as ia
 from imgaug import augmenters as iaa
 from imgaug import parameters as iap
 from imgaug import dtypes as iadt
-from imgaug.augmenters import blend
+from imgaug.imgaug.augmenters import blend
 from imgaug.testutils import (
     keypoints_equal, reseed, assert_cbaois_equal,
     runtest_pickleable_uint8_img, is_parameter_instance)
-from imgaug.augmentables.heatmaps import HeatmapsOnImage
-from imgaug.augmentables.segmaps import SegmentationMapsOnImage
-from imgaug.augmentables.batches import _BatchInAugmentation
+from imgaug.imgaug.augmentables.heatmaps import HeatmapsOnImage
+from imgaug.imgaug.augmentables.segmaps import SegmentationMapsOnImage
+from imgaug.imgaug.augmentables.batches import _BatchInAugmentation
 
 
 class Test_blend_alpha(unittest.TestCase):

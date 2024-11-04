@@ -271,7 +271,7 @@ class HeatmapsOnImage(IAugmentable):
 
         Returns
         -------
-        imgaug.augmentables.heatmaps.HeatmapsOnImage
+        imgaug.imgaug.augmentables.heatmaps.HeatmapsOnImage
             Inverted heatmap.
 
         """
@@ -313,7 +313,7 @@ class HeatmapsOnImage(IAugmentable):
 
         Returns
         -------
-        imgaug.augmentables.heatmaps.HeatmapsOnImage
+        imgaug.imgaug.augmentables.heatmaps.HeatmapsOnImage
             Padded heatmaps of height ``H'=H+top+bottom`` and
             width ``W'=W+left+right``.
 
@@ -366,7 +366,7 @@ class HeatmapsOnImage(IAugmentable):
 
         Returns
         -------
-        imgaug.augmentables.heatmaps.HeatmapsOnImage
+        imgaug.imgaug.augmentables.heatmaps.HeatmapsOnImage
             Padded heatmaps as :class:`HeatmapsOnImage` instance.
 
         tuple of int
@@ -404,7 +404,7 @@ class HeatmapsOnImage(IAugmentable):
 
         Returns
         -------
-        imgaug.augmentables.heatmaps.HeatmapsOnImage
+        imgaug.imgaug.augmentables.heatmaps.HeatmapsOnImage
             Heatmaps after average pooling.
 
         """
@@ -426,7 +426,7 @@ class HeatmapsOnImage(IAugmentable):
 
         Returns
         -------
-        imgaug.augmentables.heatmaps.HeatmapsOnImage
+        imgaug.imgaug.augmentables.heatmaps.HeatmapsOnImage
             Heatmaps after max-pooling.
 
         """
@@ -458,7 +458,7 @@ class HeatmapsOnImage(IAugmentable):
 
         Returns
         -------
-        imgaug.augmentables.heatmaps.HeatmapsOnImage
+        imgaug.imgaug.augmentables.heatmaps.HeatmapsOnImage
             Resized heatmaps object.
 
         """
@@ -527,7 +527,7 @@ class HeatmapsOnImage(IAugmentable):
 
         Returns
         -------
-        imgaug.augmentables.heatmaps.HeatmapsOnImage
+        imgaug.imgaug.augmentables.heatmaps.HeatmapsOnImage
             Heatmaps object.
 
         """
@@ -571,7 +571,7 @@ class HeatmapsOnImage(IAugmentable):
 
         Returns
         -------
-        imgaug.augmentables.heatmaps.HeatmapsOnImage
+        imgaug.imgaug.augmentables.heatmaps.HeatmapsOnImage
             Heatmaps object.
 
         """
@@ -662,7 +662,7 @@ class HeatmapsOnImage(IAugmentable):
 
         Returns
         -------
-        imgaug.augmentables.heatmaps.HeatmapsOnImage
+        imgaug.imgaug.augmentables.heatmaps.HeatmapsOnImage
             Shallow copy.
 
         """
@@ -673,7 +673,7 @@ class HeatmapsOnImage(IAugmentable):
 
         Returns
         -------
-        imgaug.augmentables.heatmaps.HeatmapsOnImage
+        imgaug.imgaug.augmentables.heatmaps.HeatmapsOnImage
             Deep copy.
 
         """

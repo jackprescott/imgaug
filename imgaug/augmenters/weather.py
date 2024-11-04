@@ -17,7 +17,7 @@ from __future__ import print_function, division, absolute_import
 
 import numpy as np
 
-import imgaug as ia
+import imgaug.imgaug as ia
 from . import meta, arithmetic, blur, contrast, color as colorlib
 from .. import parameters as iap
 from .. import dtypes as iadt
@@ -99,7 +99,7 @@ class FastSnowyLandscape(meta.Augmenter):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.FastSnowyLandscape(
     >>>     lightness_threshold=140,
     >>>     lightness_multiplier=2.5
@@ -547,7 +547,7 @@ class Clouds(meta.SomeOf):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.Clouds()
 
     Create an augmenter that adds clouds to images.
@@ -650,7 +650,7 @@ class Fog(CloudLayer):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.Fog()
 
     Create an augmenter that adds fog to images.
@@ -1178,7 +1178,7 @@ class Snowflakes(meta.SomeOf):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.Snowflakes(flake_size=(0.1, 0.4), speed=(0.01, 0.05))
 
     Add snowflakes to small images (around ``96x128``).
@@ -1401,7 +1401,7 @@ class Rain(meta.SomeOf):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.Rain(speed=(0.1, 0.3))
 
     Add rain to small images (around ``96x128``).

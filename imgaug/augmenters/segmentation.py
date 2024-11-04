@@ -16,14 +16,14 @@ from abc import ABCMeta, abstractmethod
 
 import numpy as np
 # use skimage.segmentation instead `from skimage import segmentation` here,
-# because otherwise unittest seems to mix up imgaug.augmenters.segmentation
+# because otherwise unittest seems to mix up imgaug.imgaug.augmenters.segmentation
 # with skimage.segmentation for whatever reason
 import skimage.segmentation
 import skimage.measure
 import six
 import six.moves as sm
 
-import imgaug as ia
+import imgaug.imgaug as ia
 from . import meta
 from .. import random as iarandom
 from .. import parameters as iap
@@ -193,7 +193,7 @@ class Superpixels(meta.Augmenter):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.Superpixels(p_replace=1.0, n_segments=64)
 
     Generate around ``64`` superpixels per image and replace all of them with
@@ -667,7 +667,7 @@ class Voronoi(meta.Augmenter):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> points_sampler = iaa.RegularGridPointsSampler(n_cols=20, n_rows=40)
     >>> aug = iaa.Voronoi(points_sampler)
 
@@ -848,7 +848,7 @@ class UniformVoronoi(Voronoi):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.UniformVoronoi((100, 500))
 
     Sample for each image uniformly the number of voronoi cells ``N`` from the
@@ -1010,7 +1010,7 @@ class RegularGridVoronoi(Voronoi):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.RegularGridVoronoi(10, 20)
 
     Place a regular grid of ``10x20`` (``height x width``) coordinates on
@@ -1187,7 +1187,7 @@ class RelativeRegularGridVoronoi(Voronoi):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.RelativeRegularGridVoronoi(0.1, 0.25)
 
     Place a regular grid of ``R x C`` coordinates on each image, where
@@ -1329,7 +1329,7 @@ class RegularGridPointsSampler(IPointsSampler):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> sampler = iaa.RegularGridPointsSampler(
     >>>     n_rows=(5, 20),
     >>>     n_cols=50)
@@ -1460,7 +1460,7 @@ class RelativeRegularGridPointsSampler(IPointsSampler):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> sampler = iaa.RelativeRegularGridPointsSampler(
     >>>     n_rows_frac=(0.01, 0.1),
     >>>     n_cols_frac=0.2)
@@ -1548,7 +1548,7 @@ class DropoutPointsSampler(IPointsSampler):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> sampler = iaa.DropoutPointsSampler(
     >>>     iaa.RegularGridPointsSampler(10, 20),
     >>>     0.2)
@@ -1667,7 +1667,7 @@ class UniformPointsSampler(IPointsSampler):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> sampler = iaa.UniformPointsSampler(500)
 
     Create a point sampler that generates an array of ``500`` random points for
@@ -1746,7 +1746,7 @@ class SubsamplingPointsSampler(IPointsSampler):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> sampler = iaa.SubsamplingPointsSampler(
     >>>     iaa.RelativeRegularGridPointsSampler(0.1, 0.2),
     >>>     50

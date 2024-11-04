@@ -15,12 +15,12 @@ except ImportError:
 import numpy as np
 import cv2
 
-import imgaug as ia
+import imgaug.imgaug as ia
 from imgaug import augmenters as iaa
 from imgaug import random as iarandom
 from imgaug.testutils import reseed, runtest_pickleable_uint8_img
-import imgaug.augmenters.color as colorlib
-import imgaug.augmenters.artistic as artisticlib
+import imgaug.imgaug.augmenters.color as colorlib
+import imgaug.imgaug.augmenters.artistic as artisticlib
 
 
 class Test_stylize_cartoon(unittest.TestCase):

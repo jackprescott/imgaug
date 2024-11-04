@@ -33,9 +33,9 @@ import numpy as np
 import six
 import six.moves as sm
 
-import imgaug as ia
-from imgaug.augmentables.batches import (Batch, UnnormalizedBatch,
-                                         _BatchInAugmentation)
+import imgaug.imgaug as ia
+from imgaug.imgaug.augmentables.batches import (Batch, UnnormalizedBatch,
+                                             _BatchInAugmentation)
 from .. import parameters as iap
 from .. import random as iarandom
 from . import base as iabase
@@ -187,7 +187,7 @@ class _maybe_deterministic_ctx(object):  # pylint: disable=invalid-name
 
     Parameters
     ----------
-    random_state : imgaug.random.RNG or imgaug.augmenters.meta.Augmenter
+    random_state : imgaug.random.RNG or imgaug.imgaug.augmenters.meta.Augmenter
         The RNG to reset. If this is an augmenter, then the augmenter's
         RNG will be used.
 
@@ -343,7 +343,7 @@ class Augmenter(object):
 
         Parameters
         ----------
-        batches : imgaug.augmentables.batches.Batch or imgaug.augmentables.batches.UnnormalizedBatch or iterable of imgaug.augmentables.batches.Batch or iterable of imgaug.augmentables.batches.UnnormalizedBatch
+        batches : imgaug.imgaug.augmentables.batches.Batch or imgaug.imgaug.augmentables.batches.UnnormalizedBatch or iterable of imgaug.imgaug.augmentables.batches.Batch or iterable of imgaug.imgaug.augmentables.batches.UnnormalizedBatch
             A single batch or a list of batches to augment.
 
         hooks : None or imgaug.HooksImages, optional
@@ -363,7 +363,7 @@ class Augmenter(object):
 
         Yields
         -------
-        imgaug.augmentables.batches.Batch or imgaug.augmentables.batches.UnnormalizedBatch or iterable of imgaug.augmentables.batches.Batch or iterable of imgaug.augmentables.batches.UnnormalizedBatch
+        imgaug.imgaug.augmentables.batches.Batch or imgaug.imgaug.augmentables.batches.UnnormalizedBatch or iterable of imgaug.imgaug.augmentables.batches.Batch or iterable of imgaug.imgaug.augmentables.batches.UnnormalizedBatch
             Augmented batches.
 
         """
@@ -447,8 +447,8 @@ class Augmenter(object):
                                      "imgaug.UnnormalizedBatch"]:
                 ia.warn_deprecated(
                     "Received an input in augment_batches() that was not an "
-                    "instance of imgaug.augmentables.batches.Batch "
-                    "or imgaug.augmentables.batches.UnnormalizedBatch, but "
+                    "instance of imgaug.imgaug.augmentables.batches.Batch "
+                    "or imgaug.imgaug.augmentables.batches.UnnormalizedBatch, but "
                     "instead %s. This is deprecated. Use augment() for such "
                     "data or wrap it in a Batch instance." % (
                         batch_orig_dt,))
@@ -558,7 +558,7 @@ class Augmenter(object):
 
         Parameters
         ----------
-        batch : imgaug.augmentables.batches.Batch or imgaug.augmentables.batches.UnnormalizedBatch or imgaug.augmentables.batch._BatchInAugmentation
+        batch : imgaug.imgaug.augmentables.batches.Batch or imgaug.imgaug.augmentables.batches.UnnormalizedBatch or imgaug.imgaug.augmentables.batch._BatchInAugmentation
             A single batch to augment.
 
             If :class:`imgaug.augmentables.batches.UnnormalizedBatch`
@@ -568,7 +568,7 @@ class Augmenter(object):
             If :class:`imgaug.augmentables.batches._BatchInAugmentation`,
             then all attributes may be modified in-place.
 
-        parents : None or list of imgaug.augmenters.Augmenter, optional
+        parents : None or list of imgaug.imgaug.augmenters.Augmenter, optional
             Parent augmenters that have previously been called before the
             call to this function. Usually you can leave this parameter as
             ``None``. It is set automatically for child augmenters.
@@ -579,7 +579,7 @@ class Augmenter(object):
 
         Returns
         -------
-        imgaug.augmentables.batches.Batch or imgaug.augmentables.batches.UnnormalizedBatch
+        imgaug.imgaug.augmentables.batches.Batch or imgaug.imgaug.augmentables.batches.UnnormalizedBatch
             Augmented batch.
 
         """
@@ -687,14 +687,14 @@ class Augmenter(object):
 
         Parameters
         ----------
-        batch : imgaug.augmentables.batches._BatchInAugmentation
+        batch : imgaug.imgaug.augmentables.batches._BatchInAugmentation
             The normalized batch to augment. May be changed in-place.
 
         random_state : imgaug.random.RNG
             The random state to use for all sampling tasks during the
             augmentation.
 
-        parents : list of imgaug.augmenters.meta.Augmenter
+        parents : list of imgaug.imgaug.augmenters.meta.Augmenter
             See :func:`~imgaug.augmenters.meta.Augmenter.augment_batch_`.
 
         hooks : imgaug.imgaug.HooksImages or None
@@ -702,7 +702,7 @@ class Augmenter(object):
 
         Returns
         -------
-        imgaug.augmentables.batches._BatchInAugmentation
+        imgaug.imgaug.augmentables.batches._BatchInAugmentation
             The augmented batch.
 
         """
@@ -792,7 +792,7 @@ class Augmenter(object):
             varies by augmenter -- see the respective augmenter-specific
             documentation for more details.
 
-        parents : None or list of imgaug.augmenters.Augmenter, optional
+        parents : None or list of imgaug.imgaug.augmenters.Augmenter, optional
             Parent augmenters that have previously been called before the
             call to this function. Usually you can leave this parameter as
             ``None``. It is set automatically for child augmenters.
@@ -811,7 +811,7 @@ class Augmenter(object):
 
         Examples
         --------
-        >>> import imgaug.augmenters as iaa
+        >>> import imgaug.imgaug.augmenters as iaa
         >>> import numpy as np
         >>> aug = iaa.GaussianBlur((0.0, 3.0))
         >>> # create empty example images
@@ -863,7 +863,7 @@ class Augmenter(object):
             The random state to use for all sampling tasks during the
             augmentation.
 
-        parents : list of imgaug.augmenters.meta.Augmenter
+        parents : list of imgaug.imgaug.augmenters.meta.Augmenter
             See :func:`~imgaug.augmenters.meta.Augmenter.augment_images`.
 
         hooks : imgaug.imgaug.HooksImages or None
@@ -882,11 +882,11 @@ class Augmenter(object):
 
         Parameters
         ----------
-        heatmaps : imgaug.augmentables.heatmaps.HeatmapsOnImage or list of imgaug.augmentables.heatmaps.HeatmapsOnImage
+        heatmaps : imgaug.imgaug.augmentables.heatmaps.HeatmapsOnImage or list of imgaug.imgaug.augmentables.heatmaps.HeatmapsOnImage
             Heatmap(s) to augment. Either a single heatmap or a list of
             heatmaps.
 
-        parents : None or list of imgaug.augmenters.meta.Augmenter, optional
+        parents : None or list of imgaug.imgaug.augmenters.meta.Augmenter, optional
             Parent augmenters that have previously been called before the
             call to this function. Usually you can leave this parameter as
             ``None``.
@@ -898,7 +898,7 @@ class Augmenter(object):
 
         Returns
         -------
-        imgaug.augmentables.heatmaps.HeatmapsOnImage or list of imgaug.augmentables.heatmaps.HeatmapsOnImage
+        imgaug.imgaug.augmentables.heatmaps.HeatmapsOnImage or list of imgaug.imgaug.augmentables.heatmaps.HeatmapsOnImage
             Corresponding augmented heatmap(s).
 
         """
@@ -926,10 +926,10 @@ class Augmenter(object):
 
         Parameters
         ----------
-        heatmaps : list of imgaug.augmentables.heatmaps.HeatmapsOnImage
+        heatmaps : list of imgaug.imgaug.augmentables.heatmaps.HeatmapsOnImage
             Heatmaps to augment. They may be changed in-place.
 
-        parents : list of imgaug.augmenters.meta.Augmenter
+        parents : list of imgaug.imgaug.augmenters.meta.Augmenter
             See :func:`~imgaug.augmenters.meta.Augmenter.augment_heatmaps`.
 
         hooks : imgaug.imgaug.HooksHeatmaps or None
@@ -937,7 +937,7 @@ class Augmenter(object):
 
         Returns
         ----------
-        images : list of imgaug.augmentables.heatmaps.HeatmapsOnImage
+        images : list of imgaug.imgaug.augmentables.heatmaps.HeatmapsOnImage
             The augmented heatmaps.
 
         """
@@ -948,11 +948,11 @@ class Augmenter(object):
 
         Parameters
         ----------
-        segmaps : imgaug.augmentables.segmaps.SegmentationMapsOnImage or list of imgaug.augmentables.segmaps.SegmentationMapsOnImage
+        segmaps : imgaug.imgaug.augmentables.segmaps.SegmentationMapsOnImage or list of imgaug.imgaug.augmentables.segmaps.SegmentationMapsOnImage
             Segmentation map(s) to augment. Either a single segmentation map
             or a list of segmentation maps.
 
-        parents : None or list of imgaug.augmenters.meta.Augmenter, optional
+        parents : None or list of imgaug.imgaug.augmenters.meta.Augmenter, optional
             Parent augmenters that have previously been called before the
             call to this function. Usually you can leave this parameter as
             ``None``. It is set automatically for child augmenters.
@@ -963,7 +963,7 @@ class Augmenter(object):
 
         Returns
         -------
-        imgaug.augmentables.segmaps.SegmentationMapsOnImage or list of imgaug.augmentables.segmaps.SegmentationMapsOnImage
+        imgaug.imgaug.augmentables.segmaps.SegmentationMapsOnImage or list of imgaug.imgaug.augmentables.segmaps.SegmentationMapsOnImage
             Corresponding augmented segmentation map(s).
 
         """
@@ -994,10 +994,10 @@ class Augmenter(object):
 
         Parameters
         ----------
-        segmaps : list of imgaug.augmentables.segmaps.SegmentationMapsOnImage
+        segmaps : list of imgaug.imgaug.augmentables.segmaps.SegmentationMapsOnImage
             Segmentation maps to augment. They may be changed in-place.
 
-        parents : list of imgaug.augmenters.meta.Augmenter
+        parents : list of imgaug.imgaug.augmenters.meta.Augmenter
             See
             :func:`~imgaug.augmenters.meta.Augmenter.augment_segmentation_maps`.
 
@@ -1007,7 +1007,7 @@ class Augmenter(object):
 
         Returns
         ----------
-        images : list of imgaug.augmentables.segmaps.SegmentationMapsOnImage
+        images : list of imgaug.imgaug.augmentables.segmaps.SegmentationMapsOnImage
             The augmented segmentation maps.
 
         """
@@ -1028,9 +1028,9 @@ class Augmenter(object):
         before augmenting images and their corresponding keypoints,
         e.g. by
 
-        >>> import imgaug.augmenters as iaa
-        >>> from imgaug.augmentables.kps import Keypoint
-        >>> from imgaug.augmentables.kps import KeypointsOnImage
+        >>> import imgaug.imgaug.augmenters as iaa
+        >>> from imgaug.imgaug.augmentables.kps import Keypoint
+        >>> from imgaug.imgaug.augmentables.kps import KeypointsOnImage
         >>> A = B = C = np.zeros((10, 10), dtype=np.uint8)
         >>> Ak = Bk = Ck = KeypointsOnImage([Keypoint(2, 2)], (10, 10))
         >>> seq = iaa.Fliplr(0.5)
@@ -1050,14 +1050,14 @@ class Augmenter(object):
 
         Parameters
         ----------
-        keypoints_on_images : imgaug.augmentables.kps.KeypointsOnImage or list of imgaug.augmentables.kps.KeypointsOnImage
+        keypoints_on_images : imgaug.imgaug.augmentables.kps.KeypointsOnImage or list of imgaug.imgaug.augmentables.kps.KeypointsOnImage
             The keypoints/landmarks to augment.
             Either a single instance of
             :class:`~imgaug.augmentables.kps.KeypointsOnImage` or a list of
             such instances. Each instance must contain the keypoints of a
             single image.
 
-        parents : None or list of imgaug.augmenters.meta.Augmenter, optional
+        parents : None or list of imgaug.imgaug.augmenters.meta.Augmenter, optional
             Parent augmenters that have previously been called before the
             call to this function. Usually you can leave this parameter as
             ``None``. It is set automatically for child augmenters.
@@ -1068,7 +1068,7 @@ class Augmenter(object):
 
         Returns
         -------
-        imgaug.augmentables.kps.KeypointsOnImage or list of imgaug.augmentables.kps.KeypointsOnImage
+        imgaug.imgaug.augmentables.kps.KeypointsOnImage or list of imgaug.imgaug.augmentables.kps.KeypointsOnImage
             Augmented keypoints.
 
         """
@@ -1099,13 +1099,13 @@ class Augmenter(object):
 
         Parameters
         ----------
-        keypoints_on_images : list of imgaug.augmentables.kps.KeypointsOnImage
+        keypoints_on_images : list of imgaug.imgaug.augmentables.kps.KeypointsOnImage
             Keypoints to augment. They may be changed in-place.
 
         random_state : imgaug.random.RNG
             The random state to use for all sampling tasks during the augmentation.
 
-        parents : list of imgaug.augmenters.meta.Augmenter
+        parents : list of imgaug.imgaug.augmenters.meta.Augmenter
             See :func:`~imgaug.augmenters.meta.Augmenter.augment_keypoints`.
 
         hooks : imgaug.imgaug.HooksKeypoints or None
@@ -1113,7 +1113,7 @@ class Augmenter(object):
 
         Returns
         ----------
-        list of imgaug.augmentables.kps.KeypointsOnImage
+        list of imgaug.imgaug.augmentables.kps.KeypointsOnImage
             The augmented keypoints.
 
         """
@@ -1136,9 +1136,9 @@ class Augmenter(object):
         before augmenting images and their corresponding bounding boxes,
         e.g. by
 
-        >>> import imgaug.augmenters as iaa
-        >>> from imgaug.augmentables.bbs import BoundingBox
-        >>> from imgaug.augmentables.bbs import BoundingBoxesOnImage
+        >>> import imgaug.imgaug.augmenters as iaa
+        >>> from imgaug.imgaug.augmentables.bbs import BoundingBox
+        >>> from imgaug.imgaug.augmentables.bbs import BoundingBoxesOnImage
         >>> A = B = C = np.ones((10, 10), dtype=np.uint8)
         >>> Abb = Bbb = Cbb = BoundingBoxesOnImage([
         >>>     BoundingBox(1, 1, 9, 9)], (10, 10))
@@ -1159,14 +1159,14 @@ class Augmenter(object):
 
         Parameters
         ----------
-        bounding_boxes_on_images : imgaug.augmentables.bbs.BoundingBoxesOnImage or list of imgaug.augmentables.bbs.BoundingBoxesOnImage
+        bounding_boxes_on_images : imgaug.imgaug.augmentables.bbs.BoundingBoxesOnImage or list of imgaug.imgaug.augmentables.bbs.BoundingBoxesOnImage
             The bounding boxes to augment.
             Either a single instance of
             :class:`~imgaug.augmentables.bbs.BoundingBoxesOnImage` or a list of
             such instances, with each one of them containing the bounding
             boxes of a single image.
 
-        parents : None or list of imgaug.augmenters.meta.Augmenter, optional
+        parents : None or list of imgaug.imgaug.augmenters.meta.Augmenter, optional
             Parent augmenters that have previously been called before the
             call to this function. Usually you can leave this parameter as
             ``None``. It is set automatically for child augmenters.
@@ -1177,7 +1177,7 @@ class Augmenter(object):
 
         Returns
         -------
-        imgaug.augmentables.bbs.BoundingBoxesOnImage or list of imgaug.augmentables.bbs.BoundingBoxesOnImage
+        imgaug.imgaug.augmentables.bbs.BoundingBoxesOnImage or list of imgaug.imgaug.augmentables.bbs.BoundingBoxesOnImage
             Augmented bounding boxes.
 
         """
@@ -1202,8 +1202,8 @@ class Augmenter(object):
         before augmenting images and their corresponding polygons,
         e.g. by
 
-        >>> import imgaug.augmenters as iaa
-        >>> from imgaug.augmentables.polys import Polygon, PolygonsOnImage
+        >>> import imgaug.imgaug.augmenters as iaa
+        >>> from imgaug.imgaug.augmentables.polys import Polygon, PolygonsOnImage
         >>> A = B = C = np.ones((10, 10), dtype=np.uint8)
         >>> Apoly = Bpoly = Cpoly = PolygonsOnImage(
         >>>     [Polygon([(0, 0), (1, 0), (1, 1), (0, 1)])],
@@ -1225,14 +1225,14 @@ class Augmenter(object):
 
         Parameters
         ----------
-        polygons_on_images : imgaug.augmentables.polys.PolygonsOnImage or list of imgaug.augmentables.polys.PolygonsOnImage
+        polygons_on_images : imgaug.imgaug.augmentables.polys.PolygonsOnImage or list of imgaug.imgaug.augmentables.polys.PolygonsOnImage
             The polygons to augment.
             Either a single instance of
             :class:`~imgaug.augmentables.polys.PolygonsOnImage` or a list of
             such instances, with each one of them containing the polygons of
             a single image.
 
-        parents : None or list of imgaug.augmenters.meta.Augmenter, optional
+        parents : None or list of imgaug.imgaug.augmenters.meta.Augmenter, optional
             Parent augmenters that have previously been called before the
             call to this function. Usually you can leave this parameter as
             ``None``. It is set automatically for child augmenters.
@@ -1243,7 +1243,7 @@ class Augmenter(object):
 
         Returns
         -------
-        imgaug.augmentables.polys.PolygonsOnImage or list of imgaug.augmentables.polys.PolygonsOnImage
+        imgaug.imgaug.augmentables.polys.PolygonsOnImage or list of imgaug.imgaug.augmentables.polys.PolygonsOnImage
             Augmented polygons.
 
         """
@@ -1270,9 +1270,9 @@ class Augmenter(object):
         before augmenting images and their corresponding line strings,
         e.g. by
 
-        >>> import imgaug.augmenters as iaa
-        >>> from imgaug.augmentables.lines import LineString
-        >>> from imgaug.augmentables.lines import LineStringsOnImage
+        >>> import imgaug.imgaug.augmenters as iaa
+        >>> from imgaug.imgaug.augmentables.lines import LineString
+        >>> from imgaug.imgaug.augmentables.lines import LineStringsOnImage
         >>> A = B = C = np.ones((10, 10), dtype=np.uint8)
         >>> A_line = B_line = C_line = LineStringsOnImage(
         >>>     [LineString([(0, 0), (1, 0), (1, 1), (0, 1)])],
@@ -1294,14 +1294,14 @@ class Augmenter(object):
 
         Parameters
         ----------
-        line_strings_on_images : imgaug.augmentables.lines.LineStringsOnImage or list of imgaug.augmentables.lines.LineStringsOnImage
+        line_strings_on_images : imgaug.imgaug.augmentables.lines.LineStringsOnImage or list of imgaug.imgaug.augmentables.lines.LineStringsOnImage
             The line strings to augment.
             Either a single instance of
             :class:`~imgaug.augmentables.lines.LineStringsOnImage` or a list of
             such instances, with each one of them containing the line strings
             of a single image.
 
-        parents : None or list of imgaug.augmenters.meta.Augmenter, optional
+        parents : None or list of imgaug.imgaug.augmenters.meta.Augmenter, optional
             Parent augmenters that have previously been called before the
             call to this function. Usually you can leave this parameter as None.
             It is set automatically for child augmenters.
@@ -1312,7 +1312,7 @@ class Augmenter(object):
 
         Returns
         -------
-        imgaug.augmentables.lines.LineStringsOnImage or list of imgaug.augmentables.lines.LineStringsOnImage
+        imgaug.imgaug.augmentables.lines.LineStringsOnImage or list of imgaug.imgaug.augmentables.lines.LineStringsOnImage
             Augmented line strings.
 
         """
@@ -1346,14 +1346,14 @@ class Augmenter(object):
 
         Parameters
         ----------
-        bounding_boxes_on_images : list of imgaug.augmentables.bbs.BoundingBoxesOnImage
+        bounding_boxes_on_images : list of imgaug.imgaug.augmentables.bbs.BoundingBoxesOnImage
             Polygons to augment. They may be changed in-place.
 
         random_state : imgaug.random.RNG
             The random state to use for all sampling tasks during the
             augmentation.
 
-        parents : list of imgaug.augmenters.meta.Augmenter
+        parents : list of imgaug.imgaug.augmenters.meta.Augmenter
             See :func:`~imgaug.augmenters.meta.Augmenter.augment_bounding_boxes`.
 
         hooks : imgaug.imgaug.HooksKeypoints or None
@@ -1361,7 +1361,7 @@ class Augmenter(object):
 
         Returns
         -------
-        list of imgaug.augmentables.bbs.BoundingBoxesOnImage
+        list of imgaug.imgaug.augmentables.bbs.BoundingBoxesOnImage
             The augmented bounding boxes.
 
         """
@@ -1393,14 +1393,14 @@ class Augmenter(object):
 
         Parameters
         ----------
-        polygons_on_images : list of imgaug.augmentables.polys.PolygonsOnImage
+        polygons_on_images : list of imgaug.imgaug.augmentables.polys.PolygonsOnImage
             Polygons to augment. They may be changed in-place.
 
         random_state : imgaug.random.RNG
             The random state to use for all sampling tasks during the
             augmentation.
 
-        parents : list of imgaug.augmenters.meta.Augmenter
+        parents : list of imgaug.imgaug.augmenters.meta.Augmenter
             See :func:`~imgaug.augmenters.meta.Augmenter.augment_polygons`.
 
         hooks : imgaug.imgaug.HooksKeypoints or None
@@ -1408,7 +1408,7 @@ class Augmenter(object):
 
         Returns
         -------
-        list of imgaug.augmentables.polys.PolygonsOnImage
+        list of imgaug.imgaug.augmentables.polys.PolygonsOnImage
             The augmented polygons.
 
         """
@@ -1441,14 +1441,14 @@ class Augmenter(object):
 
         Parameters
         ----------
-        line_strings_on_images : list of imgaug.augmentables.lines.LineStringsOnImage
+        line_strings_on_images : list of imgaug.imgaug.augmentables.lines.LineStringsOnImage
             Line strings to augment. They may be changed in-place.
 
         random_state : imgaug.random.RNG
             The random state to use for all sampling tasks during the
             augmentation.
 
-        parents : list of imgaug.augmenters.meta.Augmenter
+        parents : list of imgaug.imgaug.augmenters.meta.Augmenter
             See :func:`~imgaug.augmenters.meta.Augmenter.augment_line_strings`.
 
         hooks : imgaug.imgaug.HooksKeypoints or None
@@ -1456,7 +1456,7 @@ class Augmenter(object):
 
         Returns
         -------
-        list of imgaug.augmentables.lines.LineStringsOnImage
+        list of imgaug.imgaug.augmentables.lines.LineStringsOnImage
             The augmented line strings.
 
         """
@@ -1476,14 +1476,14 @@ class Augmenter(object):
 
         Parameters
         ----------
-        bounding_boxes_on_images : list of imgaug.augmentables.bbs.BoundingBoxesOnImages or imgaug.augmentables.bbs.BoundingBoxesOnImages
+        bounding_boxes_on_images : list of imgaug.imgaug.augmentables.bbs.BoundingBoxesOnImages or imgaug.imgaug.augmentables.bbs.BoundingBoxesOnImages
             Bounding boxes to augment. They may be changed in-place.
 
         random_state : imgaug.random.RNG
             The random state to use for all sampling tasks during the
             augmentation.
 
-        parents : list of imgaug.augmenters.meta.Augmenter
+        parents : list of imgaug.imgaug.augmenters.meta.Augmenter
             See :func:`~imgaug.augmenters.meta.Augmenter.augment_polygons`.
 
         hooks : imgaug.imgaug.HooksKeypoints or None
@@ -1491,7 +1491,7 @@ class Augmenter(object):
 
         Returns
         -------
-        list of imgaug.augmentables.bbs.BoundingBoxesOnImage or imgaug.augmentables.bbs.BoundingBoxesOnImage
+        list of imgaug.imgaug.augmentables.bbs.BoundingBoxesOnImage or imgaug.imgaug.augmentables.bbs.BoundingBoxesOnImage
             The augmented bounding boxes.
 
         """
@@ -1515,20 +1515,20 @@ class Augmenter(object):
 
         Parameters
         ----------
-        polygons_on_images : list of imgaug.augmentables.polys.PolygonsOnImage or imgaug.augmentables.polys.PolygonsOnImage
+        polygons_on_images : list of imgaug.imgaug.augmentables.polys.PolygonsOnImage or imgaug.imgaug.augmentables.polys.PolygonsOnImage
             Polygons to augment. They may be changed in-place.
 
         random_state : imgaug.random.RNG
             The random state to use for all sampling tasks during the
             augmentation.
 
-        parents : list of imgaug.augmenters.meta.Augmenter
+        parents : list of imgaug.imgaug.augmenters.meta.Augmenter
             See :func:`~imgaug.augmenters.meta.Augmenter.augment_polygons`.
 
         hooks : imgaug.imgaug.HooksKeypoints or None
             See :func:`~imgaug.augmenters.meta.Augmenter.augment_polygons`.
 
-        recoverer : None or imgaug.augmentables.polys._ConcavePolygonRecoverer
+        recoverer : None or imgaug.imgaug.augmentables.polys._ConcavePolygonRecoverer
             An instance used to repair invalid polygons after augmentation.
             Must offer the method
             ``recover_from(new_exterior, old_polygon, random_state=0)``.
@@ -1536,7 +1536,7 @@ class Augmenter(object):
 
         Returns
         -------
-        list of imgaug.augmentables.polys.PolygonsOnImage or imgaug.augmentables.polys.PolygonsOnImage
+        list of imgaug.imgaug.augmentables.polys.PolygonsOnImage or imgaug.imgaug.augmentables.polys.PolygonsOnImage
             The augmented polygons.
 
         """
@@ -1555,14 +1555,14 @@ class Augmenter(object):
 
         Parameters
         ----------
-        line_strings_on_images : list of imgaug.augmentables.lines.LineStringsOnImages or imgaug.augmentables.lines.LineStringsOnImages
+        line_strings_on_images : list of imgaug.imgaug.augmentables.lines.LineStringsOnImages or imgaug.imgaug.augmentables.lines.LineStringsOnImages
             Line strings to augment. They may be changed in-place.
 
         random_state : imgaug.random.RNG
             The random state to use for all sampling tasks during the
             augmentation.
 
-        parents : list of imgaug.augmenters.meta.Augmenter
+        parents : list of imgaug.imgaug.augmenters.meta.Augmenter
             See :func:`~imgaug.augmenters.meta.Augmenter.augment_polygons`.
 
         hooks : imgaug.imgaug.HooksKeypoints or None
@@ -1570,7 +1570,7 @@ class Augmenter(object):
 
         Returns
         -------
-        list of imgaug.augmentables.lines.LineStringsOnImages or imgaug.augmentables.lines.LineStringsOnImages
+        list of imgaug.imgaug.augmentables.lines.LineStringsOnImages or imgaug.imgaug.augmentables.lines.LineStringsOnImages
             The augmented line strings.
 
         """
@@ -1588,7 +1588,7 @@ class Augmenter(object):
 
         Parameters
         ----------
-        cbaois : list of imgaug.augmentables.bbs.BoundingBoxesOnImage or list of imgaug.augmentables.polys.PolygonsOnImage or list of imgaug.augmentables.lines.LineStringsOnImage or imgaug.augmentables.bbs.BoundingBoxesOnImage or imgaug.augmentables.polys.PolygonsOnImage or imgaug.augmentables.lines.LineStringsOnImage
+        cbaois : list of imgaug.imgaug.augmentables.bbs.BoundingBoxesOnImage or list of imgaug.imgaug.augmentables.polys.PolygonsOnImage or list of imgaug.imgaug.augmentables.lines.LineStringsOnImage or imgaug.imgaug.augmentables.bbs.BoundingBoxesOnImage or imgaug.imgaug.augmentables.polys.PolygonsOnImage or imgaug.imgaug.augmentables.lines.LineStringsOnImage
             Coordinate-based augmentables to augment. They may be changed
             in-place.
 
@@ -1596,7 +1596,7 @@ class Augmenter(object):
             The random state to use for all sampling tasks during the
             augmentation.
 
-        parents : list of imgaug.augmenters.meta.Augmenter
+        parents : list of imgaug.imgaug.augmenters.meta.Augmenter
             See :func:`~imgaug.augmenters.meta.Augmenter.augment_batch`.
 
         hooks : imgaug.imgaug.HooksKeypoints or None
@@ -1604,7 +1604,7 @@ class Augmenter(object):
 
         Returns
         -------
-        list of imgaug.augmentables.bbs.BoundingBoxesOnImage or list of imgaug.augmentables.polys.PolygonsOnImage or list of imgaug.augmentables.lines.LineStringsOnImage or imgaug.augmentables.bbs.BoundingBoxesOnImage or imgaug.augmentables.polys.PolygonsOnImage or imgaug.augmentables.lines.LineStringsOnImage
+        list of imgaug.imgaug.augmentables.bbs.BoundingBoxesOnImage or list of imgaug.imgaug.augmentables.polys.PolygonsOnImage or list of imgaug.imgaug.augmentables.lines.LineStringsOnImage or imgaug.imgaug.augmentables.bbs.BoundingBoxesOnImage or imgaug.imgaug.augmentables.polys.PolygonsOnImage or imgaug.imgaug.augmentables.lines.LineStringsOnImage
             The augmented coordinate-based augmentables.
 
         """
@@ -1624,7 +1624,7 @@ class Augmenter(object):
 
         Parameters
         ----------
-        polygons_on_images : list of imgaug.augmentables.polys.PolygonsOnImage or imgaug.augmentables.polys.PolygonsOnImage
+        polygons_on_images : list of imgaug.imgaug.augmentables.polys.PolygonsOnImage or imgaug.imgaug.augmentables.polys.PolygonsOnImage
             Polygons to augment. They may be changed in-place.
 
         func : callable
@@ -1632,7 +1632,7 @@ class Augmenter(object):
             :class:`~imgaug.augmentables.kps.KeypointsOnImage` instances as its
             only parameter.
 
-        recoverer : None or imgaug.augmentables.polys._ConcavePolygonRecoverer
+        recoverer : None or imgaug.imgaug.augmentables.polys._ConcavePolygonRecoverer
             An instance used to repair invalid polygons after augmentation.
             Must offer the method
             ``recover_from(new_exterior, old_polygon, random_state=0)``.
@@ -1643,7 +1643,7 @@ class Augmenter(object):
 
         Returns
         -------
-        list of imgaug.augmentables.polys.PolygonsOnImage or imgaug.augmentables.polys.PolygonsOnImage
+        list of imgaug.imgaug.augmentables.polys.PolygonsOnImage or imgaug.imgaug.augmentables.polys.PolygonsOnImage
             The augmented polygons.
 
         """
@@ -1683,7 +1683,7 @@ class Augmenter(object):
 
         Parameters
         ----------
-        cbaois : list of imgaug.augmentables.bbs.BoundingBoxesOnImage or list of imgaug.augmentables.polys.PolygonsOnImage or list of imgaug.augmentables.lines.LineStringsOnImage or imgaug.augmentables.bbs.BoundingBoxesOnImage or imgaug.augmentables.polys.PolygonsOnImage or imgaug.augmentables.lines.LineStringsOnImage
+        cbaois : list of imgaug.imgaug.augmentables.bbs.BoundingBoxesOnImage or list of imgaug.imgaug.augmentables.polys.PolygonsOnImage or list of imgaug.imgaug.augmentables.lines.LineStringsOnImage or imgaug.imgaug.augmentables.bbs.BoundingBoxesOnImage or imgaug.imgaug.augmentables.polys.PolygonsOnImage or imgaug.imgaug.augmentables.lines.LineStringsOnImage
             Coordinate-based augmentables to augment. They may be changed
             in-place.
 
@@ -1694,7 +1694,7 @@ class Augmenter(object):
 
         Returns
         -------
-        list of imgaug.augmentables.bbs.BoundingBoxesOnImage or list of imgaug.augmentables.polys.PolygonsOnImage or list of imgaug.augmentables.lines.LineStringsOnImage or imgaug.augmentables.bbs.BoundingBoxesOnImage or imgaug.augmentables.polys.PolygonsOnImage or imgaug.augmentables.lines.LineStringsOnImage
+        list of imgaug.imgaug.augmentables.bbs.BoundingBoxesOnImage or list of imgaug.imgaug.augmentables.polys.PolygonsOnImage or list of imgaug.imgaug.augmentables.lines.LineStringsOnImage or imgaug.imgaug.augmentables.bbs.BoundingBoxesOnImage or imgaug.imgaug.augmentables.polys.PolygonsOnImage or imgaug.imgaug.augmentables.lines.LineStringsOnImage
             The augmented coordinate-based augmentables.
 
         """
@@ -1766,7 +1766,7 @@ class Augmenter(object):
             If `return_batch` is ``False`` and the python version is below 3.6,
             either this or `image` **must** be provided.
 
-        heatmaps : None or (N,H,W,C) ndarray or imgaug.augmentables.heatmaps.HeatmapsOnImage or iterable of (H,W,C) ndarray or iterable of imgaug.augmentables.heatmaps.HeatmapsOnImage, optional
+        heatmaps : None or (N,H,W,C) ndarray or imgaug.imgaug.augmentables.heatmaps.HeatmapsOnImage or iterable of (H,W,C) ndarray or iterable of imgaug.imgaug.augmentables.heatmaps.HeatmapsOnImage, optional
             The heatmaps to augment.
             If anything else than
             :class:`~imgaug.augmentables.heatmaps.HeatmapsOnImage`, then the
@@ -1774,7 +1774,7 @@ class Augmenter(object):
             parameter `images`. The number is contained either in ``N`` or the
             first iterable's size.
 
-        segmentation_maps : None or (N,H,W) ndarray or imgaug.augmentables.segmaps.SegmentationMapsOnImage or iterable of (H,W) ndarray or iterable of imgaug.augmentables.segmaps.SegmentationMapsOnImage, optional
+        segmentation_maps : None or (N,H,W) ndarray or imgaug.imgaug.augmentables.segmaps.SegmentationMapsOnImage or iterable of (H,W) ndarray or iterable of imgaug.imgaug.augmentables.segmaps.SegmentationMapsOnImage, optional
             The segmentation maps to augment.
             If anything else than
             :class:`~imgaug.augmentables.segmaps.SegmentationMapsOnImage`, then
@@ -1782,7 +1782,7 @@ class Augmenter(object):
             parameter `images`. The number is contained either in ``N`` or the
             first iterable's size.
 
-        keypoints : None or list of (N,K,2) ndarray or tuple of number or imgaug.augmentables.kps.Keypoint or iterable of (K,2) ndarray or iterable of tuple of number or iterable of imgaug.augmentables.kps.Keypoint or iterable of imgaug.augmentables.kps.KeypointOnImage or iterable of iterable of tuple of number or iterable of iterable of imgaug.augmentables.kps.Keypoint, optional
+        keypoints : None or list of (N,K,2) ndarray or tuple of number or imgaug.imgaug.augmentables.kps.Keypoint or iterable of (K,2) ndarray or iterable of tuple of number or iterable of imgaug.imgaug.augmentables.kps.Keypoint or iterable of imgaug.imgaug.augmentables.kps.KeypointOnImage or iterable of iterable of tuple of number or iterable of iterable of imgaug.imgaug.augmentables.kps.Keypoint, optional
             The keypoints to augment.
             If a tuple (or iterable(s) of tuple), then iterpreted as ``(x,y)``
             coordinates and must hence contain two numbers.
@@ -1800,14 +1800,14 @@ class Augmenter(object):
             ``N`` or in case of "iterable of iterable of tuples" in the first
             iterable's size.
 
-        bounding_boxes : None or (N,B,4) ndarray or tuple of number or imgaug.augmentables.bbs.BoundingBox or imgaug.augmentables.bbs.BoundingBoxesOnImage or iterable of (B,4) ndarray or iterable of tuple of number or iterable of imgaug.augmentables.bbs.BoundingBox or iterable of imgaug.augmentables.bbs.BoundingBoxesOnImage or iterable of iterable of tuple of number or iterable of iterable imgaug.augmentables.bbs.BoundingBox, optional
+        bounding_boxes : None or (N,B,4) ndarray or tuple of number or imgaug.imgaug.augmentables.bbs.BoundingBox or imgaug.imgaug.augmentables.bbs.BoundingBoxesOnImage or iterable of (B,4) ndarray or iterable of tuple of number or iterable of imgaug.imgaug.augmentables.bbs.BoundingBox or iterable of imgaug.imgaug.augmentables.bbs.BoundingBoxesOnImage or iterable of iterable of tuple of number or iterable of iterable imgaug.imgaug.augmentables.bbs.BoundingBox, optional
             The bounding boxes to augment.
             This is analogous to the `keypoints` parameter. However, each
             tuple -- and also the last index in case of arrays -- has size
             ``4``, denoting the bounding box coordinates ``x1``, ``y1``,
             ``x2`` and ``y2``.
 
-        polygons : None or (N,#polys,#points,2) ndarray or imgaug.augmentables.polys.Polygon or imgaug.augmentables.polys.PolygonsOnImage or iterable of (#polys,#points,2) ndarray or iterable of tuple of number or iterable of imgaug.augmentables.kps.Keypoint or iterable of imgaug.augmentables.polys.Polygon or iterable of imgaug.augmentables.polys.PolygonsOnImage or iterable of iterable of (#points,2) ndarray or iterable of iterable of tuple of number or iterable of iterable of imgaug.augmentables.kps.Keypoint or iterable of iterable of imgaug.augmentables.polys.Polygon or iterable of iterable of iterable of tuple of number or iterable of iterable of iterable of tuple of imgaug.augmentables.kps.Keypoint, optional
+        polygons : None or (N,#polys,#points,2) ndarray or imgaug.imgaug.augmentables.polys.Polygon or imgaug.imgaug.augmentables.polys.PolygonsOnImage or iterable of (#polys,#points,2) ndarray or iterable of tuple of number or iterable of imgaug.imgaug.augmentables.kps.Keypoint or iterable of imgaug.imgaug.augmentables.polys.Polygon or iterable of imgaug.imgaug.augmentables.polys.PolygonsOnImage or iterable of iterable of (#points,2) ndarray or iterable of iterable of tuple of number or iterable of iterable of imgaug.imgaug.augmentables.kps.Keypoint or iterable of iterable of imgaug.imgaug.augmentables.polys.Polygon or iterable of iterable of iterable of tuple of number or iterable of iterable of iterable of tuple of imgaug.imgaug.augmentables.kps.Keypoint, optional
             The polygons to augment.
             This is similar to the `keypoints` parameter. However, each polygon
             may be made up of several ``(x,y) ``coordinates (three or more are
@@ -1817,16 +1817,16 @@ class Augmenter(object):
 
               * ``imgaug.augmentables.polys.Polygon``
               * ``iterable of tuple of number``
-              * ``iterable of imgaug.augmentables.kps.Keypoint``
+              * ``iterable of imgaug.imgaug.augmentables.kps.Keypoint``
 
             The following datatypes will be interpreted as multiple polygons
             on a single image:
 
               * ``imgaug.augmentables.polys.PolygonsOnImage``
-              * ``iterable of imgaug.augmentables.polys.Polygon``
+              * ``iterable of imgaug.imgaug.augmentables.polys.Polygon``
               * ``iterable of iterable of tuple of number``
-              * ``iterable of iterable of imgaug.augmentables.kps.Keypoint``
-              * ``iterable of iterable of imgaug.augmentables.polys.Polygon``
+              * ``iterable of iterable of imgaug.imgaug.augmentables.kps.Keypoint``
+              * ``iterable of iterable of imgaug.imgaug.augmentables.polys.Polygon``
 
             The following datatypes will be interpreted as multiple polygons on
             multiple images:
@@ -1835,9 +1835,9 @@ class Augmenter(object):
               * ``iterable of (#polys,#points,2) ndarray``
               * ``iterable of iterable of (#points,2) ndarray``
               * ``iterable of iterable of iterable of tuple of number``
-              * ``iterable of iterable of iterable of tuple of imgaug.augmentables.kps.Keypoint``
+              * ``iterable of iterable of iterable of tuple of imgaug.imgaug.augmentables.kps.Keypoint``
 
-        line_strings : None or (N,#lines,#points,2) ndarray or imgaug.augmentables.lines.LineString or imgaug.augmentables.lines.LineStringOnImage or iterable of (#polys,#points,2) ndarray or iterable of tuple of number or iterable of imgaug.augmentables.kps.Keypoint or iterable of imgaug.augmentables.lines.LineString or iterable of imgaug.augmentables.lines.LineStringOnImage or iterable of iterable of (#points,2) ndarray or iterable of iterable of tuple of number or iterable of iterable of imgaug.augmentables.kps.Keypoint or iterable of iterable of imgaug.augmentables.lines.LineString or iterable of iterable of iterable of tuple of number or iterable of iterable of iterable of tuple of imgaug.augmentables.kps.Keypoint, optional
+        line_strings : None or (N,#lines,#points,2) ndarray or imgaug.imgaug.augmentables.lines.LineString or imgaug.imgaug.augmentables.lines.LineStringOnImage or iterable of (#polys,#points,2) ndarray or iterable of tuple of number or iterable of imgaug.imgaug.augmentables.kps.Keypoint or iterable of imgaug.imgaug.augmentables.lines.LineString or iterable of imgaug.imgaug.augmentables.lines.LineStringOnImage or iterable of iterable of (#points,2) ndarray or iterable of iterable of tuple of number or iterable of iterable of imgaug.imgaug.augmentables.kps.Keypoint or iterable of iterable of imgaug.imgaug.augmentables.lines.LineString or iterable of iterable of iterable of tuple of number or iterable of iterable of iterable of tuple of imgaug.imgaug.augmentables.kps.Keypoint, optional
             The line strings to augment.
             See `polygons`, which behaves similarly.
 
@@ -1853,7 +1853,7 @@ class Augmenter(object):
 
         Returns
         -------
-        tuple or imgaug.augmentables.batches.UnnormalizedBatch
+        tuple or imgaug.imgaug.augmentables.batches.UnnormalizedBatch
             If `return_batch` was set to ``True``, a instance of
             ``UnnormalizedBatch`` will be returned.
             If `return_batch` was set to ``False``, a tuple of augmentables
@@ -1866,8 +1866,8 @@ class Augmenter(object):
         Examples
         --------
         >>> import numpy as np
-        >>> import imgaug as ia
-        >>> import imgaug.augmenters as iaa
+        >>> import imgaug.imgaug as ia
+        >>> import imgaug.imgaug.augmenters as iaa
         >>> aug = iaa.Affine(rotate=(-25, 25))
         >>> image = np.zeros((64, 64, 3), dtype=np.uint8)
         >>> keypoints = [(10, 20), (30, 32)]  # (x,y) coordinates
@@ -1885,9 +1885,9 @@ class Augmenter(object):
         be).
 
         >>> import numpy as np
-        >>> import imgaug as ia
-        >>> import imgaug.augmenters as iaa
-        >>> from imgaug.augmentables.bbs import BoundingBox
+        >>> import imgaug.imgaug as ia
+        >>> import imgaug.imgaug.augmenters as iaa
+        >>> from imgaug.imgaug.augmentables.bbs import BoundingBox
         >>> aug = iaa.Affine(rotate=(-25, 25))
         >>> images = [np.zeros((64, 64, 3), dtype=np.uint8),
         >>>           np.zeros((32, 32, 3), dtype=np.uint8)]
@@ -2059,9 +2059,9 @@ class Augmenter(object):
         Examples
         --------
         >>> import numpy as np
-        >>> import imgaug as ia
-        >>> import imgaug.augmenters as iaa
-        >>> from imgaug.augmentables.batches import Batch
+        >>> import imgaug.imgaug as ia
+        >>> import imgaug.imgaug.augmenters as iaa
+        >>> from imgaug.imgaug.augmentables.batches import Batch
         >>>
         >>> aug = iaa.Add(1)
         >>> images = np.zeros((16, 128, 128, 3), dtype=np.uint8)
@@ -2077,9 +2077,9 @@ class Augmenter(object):
         sum of pixel values from the first augmented image is printed.
 
         >>> import numpy as np
-        >>> import imgaug as ia
-        >>> import imgaug.augmenters as iaa
-        >>> from imgaug.augmentables.batches import Batch
+        >>> import imgaug.imgaug as ia
+        >>> import imgaug.imgaug.augmenters as iaa
+        >>> from imgaug.imgaug.augmentables.batches import Batch
         >>>
         >>> aug = iaa.Add(1)
         >>> images = np.zeros((16, 128, 128, 3), dtype=np.uint8)
@@ -2263,7 +2263,7 @@ class Augmenter(object):
 
         Returns
         -------
-        imgaug.augmenters.meta.Augmenter or list of imgaug.augmenters.meta.Augmenter
+        imgaug.imgaug.augmenters.meta.Augmenter or list of imgaug.imgaug.augmenters.meta.Augmenter
             A single Augmenter object if `n` was None,
             otherwise a list of Augmenter objects (even if `n` was ``1``).
 
@@ -2284,7 +2284,7 @@ class Augmenter(object):
 
         Returns
         -------
-        det : imgaug.augmenters.meta.Augmenter
+        det : imgaug.imgaug.augmenters.meta.Augmenter
             Deterministic variation of this Augmenter object.
 
         """
@@ -2360,7 +2360,7 @@ class Augmenter(object):
 
         Examples
         --------
-        >>> import imgaug.augmenters as iaa
+        >>> import imgaug.imgaug.augmenters as iaa
         >>> aug = iaa.Sequential([
         >>>     iaa.Crop(px=(0, 10)),
         >>>     iaa.Crop(px=(0, 10))
@@ -2405,7 +2405,7 @@ class Augmenter(object):
 
         Returns
         -------
-        imgaug.augmenters.meta.Augmenter
+        imgaug.imgaug.augmenters.meta.Augmenter
             Copy of the augmenter and its children, with localized RNGs.
 
         """
@@ -2455,7 +2455,7 @@ class Augmenter(object):
 
         Returns
         -------
-        imgaug.augmenters.meta.Augmenter
+        imgaug.imgaug.augmenters.meta.Augmenter
             Returns itself (with localized RNGs).
 
         """
@@ -2474,7 +2474,7 @@ class Augmenter(object):
 
         Parameters
         ----------
-        source : imgaug.augmenters.meta.Augmenter
+        source : imgaug.imgaug.augmenters.meta.Augmenter
             See :func:`~imgaug.augmenters.meta.Augmenter.copy_random_state_`.
 
         recursive : bool, optional
@@ -2491,7 +2491,7 @@ class Augmenter(object):
 
         Returns
         -------
-        imgaug.augmenters.meta.Augmenter
+        imgaug.imgaug.augmenters.meta.Augmenter
             Copy of the augmenter itself (with copied RNGs).
 
         """
@@ -2518,7 +2518,7 @@ class Augmenter(object):
 
         Parameters
         ----------
-        source : imgaug.augmenters.meta.Augmenter
+        source : imgaug.imgaug.augmenters.meta.Augmenter
             The source augmenter(s) from where to copy the RNG(s).
             The source may have children (e.g. the source can be a
             :class:`~imgaug.augmenters.meta.Sequential`).
@@ -2551,7 +2551,7 @@ class Augmenter(object):
 
         Returns
         -------
-        imgaug.augmenters.meta.Augmenter
+        imgaug.imgaug.augmenters.meta.Augmenter
             The augmenter itself.
 
         """
@@ -2675,7 +2675,7 @@ class Augmenter(object):
 
         Returns
         -------
-        list of list of imgaug.augmenters.meta.Augmenter
+        list of list of imgaug.imgaug.augmenters.meta.Augmenter
             One or more lists of child augmenter.
             Can also be a single empty list.
 
@@ -2698,7 +2698,7 @@ class Augmenter(object):
 
         Returns
         -------
-        list of imgaug.augmenters.meta.Augmenter
+        list of imgaug.imgaug.augmenters.meta.Augmenter
             The children as a nested or flat list.
 
         """
@@ -2729,7 +2729,7 @@ class Augmenter(object):
             must return ``True``, if that augmenter is valid match or
             ``False`` otherwise.
 
-        parents : None or list of imgaug.augmenters.meta.Augmenter, optional
+        parents : None or list of imgaug.imgaug.augmenters.meta.Augmenter, optional
             List of parent augmenters.
             Intended for nested calls and can usually be left as ``None``.
 
@@ -2740,13 +2740,13 @@ class Augmenter(object):
 
         Returns
         ----------
-        list of imgaug.augmenters.meta.Augmenter
+        list of imgaug.imgaug.augmenters.meta.Augmenter
             Nested list if `flat` was set to ``False``.
             Flat list if `flat` was set to ``True``.
 
         Examples
         --------
-        >>> import imgaug.augmenters as iaa
+        >>> import imgaug.imgaug.augmenters as iaa
         >>> aug = iaa.Sequential([
         >>>     iaa.Fliplr(0.5, name="fliplr"),
         >>>     iaa.Flipud(0.5, name="flipud")
@@ -2791,7 +2791,7 @@ class Augmenter(object):
 
         Returns
         -------
-        augmenters : list of imgaug.augmenters.meta.Augmenter
+        augmenters : list of imgaug.imgaug.augmenters.meta.Augmenter
             Nested list if `flat` was set to ``False``.
             Flat list if `flat` was set to ``True``.
 
@@ -2816,7 +2816,7 @@ class Augmenter(object):
 
         Returns
         -------
-        augmenters : list of imgaug.augmenters.meta.Augmenter
+        augmenters : list of imgaug.imgaug.augmenters.meta.Augmenter
             Nested list if `flat` was set to ``False``.
             Flat list if `flat` was set to ``True``.
 
@@ -2868,7 +2868,7 @@ class Augmenter(object):
 
         Returns
         -------
-        imgaug.augmenters.meta.Augmenter or None
+        imgaug.imgaug.augmenters.meta.Augmenter or None
             This augmenter after the removal was performed.
             ``None`` is returned if the condition was matched for the
             topmost augmenter, `copy` was set to ``True`` and `noop_if_topmost`
@@ -2876,7 +2876,7 @@ class Augmenter(object):
 
         Examples
         --------
-        >>> import imgaug.augmenters as iaa
+        >>> import imgaug.imgaug.augmenters as iaa
         >>> seq = iaa.Sequential([
         >>>     iaa.Fliplr(0.5, name="fliplr"),
         >>>     iaa.Flipud(0.5, name="flipud"),
@@ -2932,7 +2932,7 @@ class Augmenter(object):
         func : callable
             See :func:`~imgaug.augmenters.meta.Augmenter.remove_augmenters`.
 
-        parents : None or list of imgaug.augmenters.meta.Augmenter, optional
+        parents : None or list of imgaug.imgaug.augmenters.meta.Augmenter, optional
             List of parent :class:`~imgaug.augmenters.meta.Augmenter` instances
             that lead to this augmenter. If ``None``, an empty list will be
             used. This parameter can usually be left empty and will be set
@@ -2940,7 +2940,7 @@ class Augmenter(object):
 
         Examples
         --------
-        >>> import imgaug.augmenters as iaa
+        >>> import imgaug.imgaug.augmenters as iaa
         >>> seq = iaa.Sequential([
         >>>     iaa.Fliplr(0.5, name="fliplr"),
         >>>    iaa.Flipud(0.5, name="flipud"),
@@ -2970,7 +2970,7 @@ class Augmenter(object):
 
         Returns
         -------
-        imgaug.augmenters.meta.Augmenter
+        imgaug.imgaug.augmenters.meta.Augmenter
             Shallow copy of this Augmenter instance.
 
         """
@@ -2981,7 +2981,7 @@ class Augmenter(object):
 
         Returns
         -------
-        imgaug.augmenters.meta.Augmenter
+        imgaug.imgaug.augmenters.meta.Augmenter
             Deep copy of this Augmenter instance.
 
         """
@@ -3024,7 +3024,7 @@ class Sequential(Augmenter, list):
         then augments a single image:
 
         >>> import numpy as np
-        >>> import imgaug.augmenters as iaa
+        >>> import imgaug.imgaug.augmenters as iaa
         >>> image = np.zeros((32, 32, 3), dtype=np.uint8)
         >>> aug = iaa.Fliplr(0.5)
         >>> image_aug = aug.augment_image(image)
@@ -3047,7 +3047,7 @@ class Sequential(Augmenter, list):
 
     Parameters
     ----------
-    children : imgaug.augmenters.meta.Augmenter or list of imgaug.augmenters.meta.Augmenter or None, optional
+    children : imgaug.imgaug.augmenters.meta.Augmenter or list of imgaug.imgaug.augmenters.meta.Augmenter or None, optional
         The augmenters to apply to images.
 
     random_order : bool, optional
@@ -3074,7 +3074,7 @@ class Sequential(Augmenter, list):
     Examples
     --------
     >>> import numpy as np
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> imgs = [np.random.rand(10, 10)]
     >>> seq = iaa.Sequential([
     >>>     iaa.Fliplr(0.5),
@@ -3164,7 +3164,7 @@ class Sequential(Augmenter, list):
 
         Parameters
         ----------
-        imgaug.augmenters.meta.Augmenter
+        imgaug.imgaug.augmenters.meta.Augmenter
             The augmenter to add.
 
         """
@@ -3235,7 +3235,7 @@ class SomeOf(Augmenter, list):
             * If ``None``, then the total number of available children will be
               used (i.e. all children will be applied).
 
-    children : imgaug.augmenters.meta.Augmenter or list of imgaug.augmenters.meta.Augmenter or None, optional
+    children : imgaug.imgaug.augmenters.meta.Augmenter or list of imgaug.imgaug.augmenters.meta.Augmenter or None, optional
         The augmenters to apply to images.
         If this is a list of augmenters, it will be converted to a
         :class:`~imgaug.augmenters.meta.Sequential`.
@@ -3263,7 +3263,7 @@ class SomeOf(Augmenter, list):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> imgs = [np.random.rand(10, 10)]
     >>> seq = iaa.SomeOf(1, [
     >>>     iaa.Fliplr(1.0),
@@ -3446,7 +3446,7 @@ class SomeOf(Augmenter, list):
 
         Parameters
         ----------
-        augmenter : imgaug.augmenters.meta.Augmenter
+        augmenter : imgaug.imgaug.augmenters.meta.Augmenter
             The augmenter to add.
 
         """
@@ -3476,7 +3476,7 @@ class OneOf(SomeOf):
 
     Parameters
     ----------
-    children : imgaug.augmenters.meta.Augmenter or list of imgaug.augmenters.meta.Augmenter
+    children : imgaug.imgaug.augmenters.meta.Augmenter or list of imgaug.imgaug.augmenters.meta.Augmenter
         The choices of augmenters to apply.
 
     seed : None or int or imgaug.random.RNG or numpy.random.Generator or numpy.random.BitGenerator or numpy.random.SeedSequence or numpy.random.RandomState, optional
@@ -3498,7 +3498,7 @@ class OneOf(SomeOf):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> images = [np.ones((10, 10), dtype=np.uint8)]  # dummy example images
     >>> seq = iaa.OneOf([
     >>>     iaa.Fliplr(1.0),
@@ -3569,12 +3569,12 @@ class Sometimes(Augmenter):
         input images/data. E.g. a value of ``0.5`` will result in ``50%`` of
         all input images (or other augmentables) being augmented.
 
-    then_list : None or imgaug.augmenters.meta.Augmenter or list of imgaug.augmenters.meta.Augmenter, optional
+    then_list : None or imgaug.imgaug.augmenters.meta.Augmenter or list of imgaug.imgaug.augmenters.meta.Augmenter, optional
         Augmenter(s) to apply to `p%` percent of all images.
         If this is a list of augmenters, it will be converted to a
         :class:`~imgaug.augmenters.meta.Sequential`.
 
-    else_list : None or imgaug.augmenters.meta.Augmenter or list of imgaug.augmenters.meta.Augmenter, optional
+    else_list : None or imgaug.imgaug.augmenters.meta.Augmenter or list of imgaug.imgaug.augmenters.meta.Augmenter, optional
         Augmenter(s) to apply to ``(1-p)`` percent of all images.
         These augmenters will be applied only when the ones in `then_list`
         are *not* applied (either-or-relationship).
@@ -3600,7 +3600,7 @@ class Sometimes(Augmenter):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.Sometimes(0.5, iaa.GaussianBlur(0.3))
 
     Apply ``GaussianBlur`` to ``50%`` of all input images.
@@ -3728,7 +3728,7 @@ class WithChannels(Augmenter):
         If ``None``, all channels will be used. Note that this is not
         stochastic - the extracted channels are always the same ones.
 
-    children : imgaug.augmenters.meta.Augmenter or list of imgaug.augmenters.meta.Augmenter or None, optional
+    children : imgaug.imgaug.augmenters.meta.Augmenter or list of imgaug.imgaug.augmenters.meta.Augmenter or None, optional
         One or more augmenters to apply to images, after the channels
         are extracted.
 
@@ -3751,7 +3751,7 @@ class WithChannels(Augmenter):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.WithChannels([0], iaa.Add(10))
 
     Assuming input images are RGB, then this augmenter will add ``10`` only to
@@ -3986,7 +3986,7 @@ class Identity(Augmenter):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.Identity()
 
     Create an augmenter that does not change inputs.
@@ -4042,7 +4042,7 @@ class Noop(Identity):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.Noop()
 
     Create an augmenter that does not change inputs.
@@ -4196,7 +4196,7 @@ class Lambda(Augmenter):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>>
     >>> def func_images(images, random_state, parents, hooks):
     >>>     images[:, ::2, :, :] = 0
@@ -4308,7 +4308,7 @@ class Lambda(Augmenter):
 
     def _augment_polygons(self, polygons_on_images, random_state, parents,
                           hooks):
-        from imgaug.augmentables.polys import _ConcavePolygonRecoverer
+        from imgaug.imgaug.augmentables.polys import _ConcavePolygonRecoverer
 
         if self.func_polygons == "keypoints":
             return self._augment_polygons_as_keypoints(
@@ -4363,7 +4363,7 @@ class Lambda(Augmenter):
                 bounding_boxes_on_images, random_state, parents, hooks)
             assert ia.is_iterable(result), (
                 "Expected callback function for bounding boxes to return list "
-                "of imgaug.augmentables.bbs.BoundingBoxesOnImage instances, "
+                "of imgaug.imgaug.augmentables.bbs.BoundingBoxesOnImage instances, "
                 "got %s." % (type(result),))
             only_bbs = all([
                 isinstance(el, ia.BoundingBoxesOnImage) for el in result])
@@ -4659,7 +4659,7 @@ class AssertShape(Lambda):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> seq = iaa.Sequential([
     >>>     iaa.AssertShape((None, 32, 32, 3)),
     >>>     iaa.Fliplr(0.5)
@@ -4892,7 +4892,7 @@ class ChannelShuffle(Augmenter):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.ChannelShuffle(0.35)
 
     Shuffle all channels of ``35%`` of all images.
@@ -5066,7 +5066,7 @@ class RemoveCBAsByOutOfImageFraction(Augmenter):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.Sequential([
     >>>     iaa.Affine(translate_px={"x": (-100, 100)}),
     >>>     iaa.RemoveCBAsByOutOfImageFraction(0.5)
@@ -5076,8 +5076,8 @@ class RemoveCBAsByOutOfImageFraction(Augmenter):
     remove any coordinate-based augmentable (e.g. bounding boxes) which has
     at least ``50%`` of its area outside of the image plane.
 
-    >>> import imgaug as ia
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug as ia
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> image = ia.quokka_square((100, 100))
     >>> bb = ia.BoundingBox(x1=50-25, y1=0, x2=50+25, y2=100)
     >>> bbsoi = ia.BoundingBoxesOnImage([bb], shape=image.shape)
@@ -5177,7 +5177,7 @@ class ClipCBAsToImagePlanes(Augmenter):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.Sequential([
     >>>     iaa.Affine(translate_px={"x": (-100, 100)}),
     >>>     iaa.ClipCBAsToImagePlanes()

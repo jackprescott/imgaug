@@ -7,9 +7,9 @@ from skimage import data
 from scipy import ndimage
 import cv2
 
-import imgaug as ia
+import imgaug.imgaug as ia
 from imgaug import augmenters as iaa
-from imgaug.augmenters import meta
+from imgaug.imgaug.augmenters import meta
 import imgaug.random as iarandom
 
 

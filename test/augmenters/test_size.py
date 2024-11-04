@@ -17,20 +17,20 @@ import numpy as np
 import six.moves as sm
 import cv2
 
-import imgaug as ia
+import imgaug.imgaug as ia
 from imgaug import augmenters as iaa
 from imgaug import parameters as iap
 from imgaug import dtypes as iadt
 from imgaug import random as iarandom
-import imgaug.augmenters.size as iaa_size
+import imgaug.imgaug.augmenters.size as iaa_size
 from imgaug.testutils import (array_equal_lists, keypoints_equal, reseed,
                               assert_cbaois_equal,
                               runtest_pickleable_uint8_img,
                               is_parameter_instance,
                               remove_prefetching)
-from imgaug.augmentables.heatmaps import HeatmapsOnImage
-from imgaug.augmentables.segmaps import SegmentationMapsOnImage
-from imgaug.augmenters.size import _prevent_zero_sizes_after_crops_
+from imgaug.imgaug.augmentables.heatmaps import HeatmapsOnImage
+from imgaug.imgaug.augmentables.segmaps import SegmentationMapsOnImage
+from imgaug.imgaug.augmenters.size import _prevent_zero_sizes_after_crops_
 
 
 class Test__prevent_zero_sizes_after_crops_(unittest.TestCase):

@@ -28,7 +28,7 @@ import cv2
 import PIL.Image
 import imageio
 
-import imgaug as ia
+import imgaug.imgaug as ia
 from imgaug import augmenters as iaa
 from imgaug import parameters as iap
 from imgaug import dtypes as iadt
@@ -38,11 +38,11 @@ from imgaug.testutils import (create_random_images, create_random_keypoints,
                               assert_cbaois_equal,
                               runtest_pickleable_uint8_img,
                               TemporaryDirectory, is_parameter_instance)
-from imgaug.augmentables.heatmaps import HeatmapsOnImage
-from imgaug.augmentables.segmaps import SegmentationMapsOnImage
-from imgaug.augmentables.lines import LineString, LineStringsOnImage
-from imgaug.augmentables.polys import _ConcavePolygonRecoverer
-from imgaug.augmentables.batches import _BatchInAugmentation
+from imgaug.imgaug.augmentables.heatmaps import HeatmapsOnImage
+from imgaug.imgaug.augmentables.segmaps import SegmentationMapsOnImage
+from imgaug.imgaug.augmentables.lines import LineString, LineStringsOnImage
+from imgaug.imgaug.augmentables.polys import _ConcavePolygonRecoverer
+from imgaug.imgaug.augmentables.batches import _BatchInAugmentation
 
 
 IS_PY36_OR_HIGHER = (sys.version_info[0] == 3 and sys.version_info[1] >= 6)

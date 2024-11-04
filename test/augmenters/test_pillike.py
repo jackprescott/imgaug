@@ -19,7 +19,7 @@ import PIL.ImageOps
 import PIL.ImageEnhance
 import PIL.ImageFilter
 
-import imgaug as ia
+import imgaug.imgaug as ia
 from imgaug import augmenters as iaa
 from imgaug import random as iarandom
 from imgaug.testutils import reseed, runtest_pickleable_uint8_img, assertWarns

@@ -18,10 +18,10 @@ import six.moves as sm
 import shapely
 import shapely.geometry
 
-import imgaug as ia
+import imgaug.imgaug as ia
 import imgaug.random as iarandom
 from imgaug.testutils import reseed, wrap_shift_deprecation, assertWarns
-from imgaug.augmentables.polys import _ConcavePolygonRecoverer
+from imgaug.imgaug.augmentables.polys import _ConcavePolygonRecoverer
 
 
 class TestPolygon___init__(unittest.TestCase):

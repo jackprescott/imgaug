@@ -13,7 +13,7 @@ import numpy as np
 import cv2
 import six.moves as sm
 
-from imgaug.imgaug import _normalize_cv2_input_arr_
+from imgaug.imgaug.imgaug import _normalize_cv2_input_arr_
 from . import meta
 from .. import parameters as iap
 from .. import dtypes as iadt
@@ -711,7 +711,7 @@ def fliplr(arr):
     Examples
     --------
     >>> import numpy as np
-    >>> import imgaug.augmenters.flip as flip
+    >>> import imgaug.imgaug.augmenters.flip as flip
     >>> arr = np.arange(16).reshape((4, 4))
     >>> arr_flipped = flip.fliplr(arr)
 
@@ -796,7 +796,7 @@ def flipud(arr):
     Examples
     --------
     >>> import numpy as np
-    >>> import imgaug.augmenters.flip as flip
+    >>> import imgaug.imgaug.augmenters.flip as flip
     >>> arr = np.arange(16).reshape((4, 4))
     >>> arr_flipped = flip.flipud(arr)
 
@@ -857,7 +857,7 @@ class Fliplr(meta.Augmenter):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.Fliplr(0.5)
 
     Flip ``50`` percent of all images horizontally.
@@ -970,7 +970,7 @@ class Flipud(meta.Augmenter):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.Flipud(0.5)
 
     Flip ``50`` percent of all images vertically.

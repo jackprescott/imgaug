@@ -709,7 +709,7 @@ Train on batches of images and augment each batch via crop, horizontal
 flip ("Fliplr") and gaussian blur:
 ```python
 import numpy as np
-import imgaug.augmenters as iaa
+import imgaug.imgaug.augmenters as iaa
 
 def load_batch(batch_idx):
     # dummy function, implement this
@@ -749,8 +749,8 @@ Apply a very heavy augmentation pipeline to images (used to create the image
 at the very top of this readme):
 ```python
 import numpy as np
-import imgaug as ia
-import imgaug.augmenters as iaa
+import imgaug.imgaug as ia
+import imgaug.imgaug.augmenters as iaa
 
 # random example images
 images = np.random.randint(0, 255, (16, 128, 128, 3), dtype=np.uint8)
@@ -840,7 +840,7 @@ images_aug = seq(images=images)
 Augment images and keypoints/landmarks on the same images:
 ```python
 import numpy as np
-import imgaug.augmenters as iaa
+import imgaug.imgaug.augmenters as iaa
 
 images = np.zeros((2, 128, 128, 3), dtype=np.uint8)  # two example images
 images[:, 64, 64, :] = 255
@@ -870,8 +870,8 @@ why `x=0.5, y=0.5` denotes the center of the top left pixel.
 
 ```python
 import numpy as np
-import imgaug as ia
-import imgaug.augmenters as iaa
+import imgaug.imgaug as ia
+import imgaug.imgaug.augmenters as iaa
 
 images = np.zeros((2, 128, 128, 3), dtype=np.uint8)  # two example images
 images[:, 64, 64, :] = 255
@@ -894,8 +894,8 @@ images_aug, bbs_aug = seq(images=images, bounding_boxes=bbs)
 
 ```python
 import numpy as np
-import imgaug as ia
-import imgaug.augmenters as iaa
+import imgaug.imgaug as ia
+import imgaug.imgaug.augmenters as iaa
 
 images = np.zeros((2, 128, 128, 3), dtype=np.uint8)  # two example images
 images[:, 64, 64, :] = 255
@@ -919,8 +919,8 @@ LineStrings are similar to polygons, but are not closed, may intersect with
 themselves and don't have an inner area.
 ```python
 import numpy as np
-import imgaug as ia
-import imgaug.augmenters as iaa
+import imgaug.imgaug as ia
+import imgaug.imgaug.augmenters as iaa
 
 images = np.zeros((2, 128, 128, 3), dtype=np.uint8)  # two example images
 images[:, 64, 64, :] = 255
@@ -949,7 +949,7 @@ be halved for the heatmaps.
 
 ```python
 import numpy as np
-import imgaug.augmenters as iaa
+import imgaug.imgaug.augmenters as iaa
 
 # Standard scenario: You have N RGB-images and additionally 21 heatmaps per
 # image. You want to augment each image and its heatmaps identically.
@@ -974,7 +974,7 @@ interpolation.
 
 ```python
 import numpy as np
-import imgaug.augmenters as iaa
+import imgaug.imgaug.augmenters as iaa
 
 # Standard scenario: You have N=16 RGB-images and additionally one segmentation
 # map per image. You want to augment each image and its heatmaps identically.
@@ -996,7 +996,7 @@ images_aug, segmaps_aug = seq(images=images, segmentation_maps=segmaps)
 Quickly show example results of your augmentation sequence:
 ```python
 import numpy as np
-import imgaug.augmenters as iaa
+import imgaug.imgaug.augmenters as iaa
 
 images = np.random.randint(0, 255, (16, 128, 128, 3), dtype=np.uint8)
 seq = iaa.Sequential([iaa.Fliplr(0.5), iaa.GaussianBlur((0, 3.0))])
@@ -1015,7 +1015,7 @@ visualize augmented non-image results, such as bounding boxes or heatmaps.
 
 ```python
 import numpy as np
-import imgaug as ia
+import imgaug.imgaug as ia
 
 image = np.zeros((64, 64, 3), dtype=np.uint8)
 
@@ -1087,9 +1087,9 @@ or
 The following example augments a list of image batches in the background:
 ```python
 import skimage.data
-import imgaug as ia
-import imgaug.augmenters as iaa
-from imgaug.augmentables.batches import UnnormalizedBatch
+import imgaug.imgaug as ia
+import imgaug.imgaug.augmenters as iaa
+from imgaug.imgaug.augmentables.batches import UnnormalizedBatch
 
 # Number of batches and batch size for this example
 nb_batches = 10
@@ -1164,7 +1164,7 @@ gaussian distribution, poisson distribution or beta distribution.
 Apply an augmenter only to specific image channels:
 ```python
 import numpy as np
-import imgaug.augmenters as iaa
+import imgaug.imgaug.augmenters as iaa
 
 # fake RGB images
 images = np.random.randint(0, 255, (16, 128, 128, 3), dtype=np.uint8)

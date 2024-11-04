@@ -1,6 +1,6 @@
 from __future__ import print_function, division, absolute_import
-import imgaug as ia
-import imgaug.augmenters as iaa
+import imgaug.imgaug as ia
+import imgaug.imgaug.augmenters as iaa
 
 
 def main():

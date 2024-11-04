@@ -4,7 +4,7 @@ from itertools import cycle
 import numpy as np
 import cv2
 
-import imgaug as ia
+import imgaug.imgaug as ia
 from imgaug import augmenters as iaa
 
 POINT_SIZE = 5

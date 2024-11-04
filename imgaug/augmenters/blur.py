@@ -18,8 +18,8 @@ from scipy import ndimage
 import cv2
 import six.moves as sm
 
-import imgaug as ia
-from imgaug.imgaug import _normalize_cv2_input_arr_
+import imgaug.imgaug as ia
+from imgaug.imgaug.imgaug import _normalize_cv2_input_arr_
 from . import meta
 from . import convolutional as iaa_convolutional
 from .. import parameters as iap
@@ -564,7 +564,7 @@ class GaussianBlur(meta.Augmenter):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.GaussianBlur(sigma=1.5)
 
     Blur all images using a gaussian kernel with a standard deviation of
@@ -683,7 +683,7 @@ class AverageBlur(meta.Augmenter):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.AverageBlur(k=5)
 
     Blur all images using a kernel size of ``5x5``.
@@ -846,7 +846,7 @@ class MedianBlur(meta.Augmenter):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.MedianBlur(k=5)
 
     Blur all images using a kernel size of ``5x5``.
@@ -1015,7 +1015,7 @@ class BilateralBlur(meta.Augmenter):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.BilateralBlur(
     >>>     d=(3, 10), sigma_color=(10, 250), sigma_space=(10, 250))
 
@@ -1156,7 +1156,7 @@ class MotionBlur(iaa_convolutional.Convolve):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.MotionBlur(k=15)
 
     Apply motion blur with a kernel size of ``15x15`` pixels to images.
@@ -1299,7 +1299,7 @@ class MeanShiftBlur(meta.Augmenter):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.MeanShiftBlur()
 
     Create a mean shift blur augmenter.

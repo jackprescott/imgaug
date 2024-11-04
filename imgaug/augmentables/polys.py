@@ -28,15 +28,15 @@ def recover_psois_(psois, psois_orig, recoverer, random_state):
 
     Parameters
     ----------
-    psois : list of imgaug.augmentables.polys.PolygonsOnImage or imgaug.augmentables.polys.PolygonsOnImage
+    psois : list of imgaug.imgaug.augmentables.polys.PolygonsOnImage or imgaug.imgaug.augmentables.polys.PolygonsOnImage
         The possibly broken polygons, e.g. after augmentation.
         The `recoverer` is applied to them.
 
-    psois_orig : list of imgaug.augmentables.polys.PolygonsOnImage or imgaug.augmentables.polys.PolygonsOnImage
+    psois_orig : list of imgaug.imgaug.augmentables.polys.PolygonsOnImage or imgaug.imgaug.augmentables.polys.PolygonsOnImage
         Original polygons that were later changed to `psois`.
         They are an extra input to `recoverer`.
 
-    recoverer : imgaug.augmentables.polys._ConcavePolygonRecoverer
+    recoverer : imgaug.imgaug.augmentables.polys._ConcavePolygonRecoverer
         The polygon recoverer used to repair broken input polygons.
 
     random_state : None or int or RNG or numpy.random.Generator or numpy.random.BitGenerator or numpy.random.SeedSequence or numpy.random.RandomState
@@ -44,7 +44,7 @@ def recover_psois_(psois, psois_orig, recoverer, random_state):
 
     Returns
     -------
-    list of imgaug.augmentables.polys.PolygonsOnImage or imgaug.augmentables.polys.PolygonsOnImage
+    list of imgaug.imgaug.augmentables.polys.PolygonsOnImage or imgaug.imgaug.augmentables.polys.PolygonsOnImage
         List of repaired polygons. Note that this is `psois`, which was
         changed in-place.
 
@@ -85,7 +85,7 @@ class Polygon(object):
 
     Parameters
     ----------
-    exterior : list of imgaug.augmentables.kps.Keypoint or list of tuple of float or (N,2) ndarray
+    exterior : list of imgaug.imgaug.augmentables.kps.Keypoint or list of tuple of float or (N,2) ndarray
         List of points defining the polygon. May be either a ``list`` of
         :class:`~imgaug.augmentables.kps.Keypoint` objects or a ``list`` of
         ``tuple`` s in xy-form or a numpy array of shape (N,2) for ``N``
@@ -104,7 +104,7 @@ class Polygon(object):
     def __init__(self, exterior, label=None):
         """Create a new Polygon instance."""
         # TODO get rid of this deferred import
-        from imgaug.augmentables.kps import Keypoint
+        from imgaug.imgaug.augmentables.kps import Keypoint
 
         if isinstance(exterior, list):
             if not exterior:
@@ -305,7 +305,7 @@ class Polygon(object):
 
         Returns
         -------
-        imgaug.augmentables.polys.Polygon
+        imgaug.imgaug.augmentables.polys.Polygon
             Polygon object with new coordinates.
             The object may have been modified in-place.
 
@@ -334,7 +334,7 @@ class Polygon(object):
 
         Returns
         -------
-        imgaug.augmentables.polys.Polygon
+        imgaug.imgaug.augmentables.polys.Polygon
             Polygon object with new coordinates.
 
         """
@@ -567,7 +567,7 @@ class Polygon(object):
 
         Returns
         -------
-        list of imgaug.augmentables.polys.Polygon
+        list of imgaug.imgaug.augmentables.polys.Polygon
             Polygon, clipped to fall within the image dimensions.
             Returned as a ``list``, because the clipping can split the polygon
             into multiple parts. The list may also be empty, if the polygon was
@@ -670,7 +670,7 @@ class Polygon(object):
 
         Returns
         -------
-        imgaug.augmentables.polys.Polygon
+        imgaug.imgaug.augmentables.polys.Polygon
             Shifted polygon.
             The object may have been modified in-place.
 
@@ -716,7 +716,7 @@ class Polygon(object):
 
         Returns
         -------
-        imgaug.augmentables.polys.Polygon
+        imgaug.imgaug.augmentables.polys.Polygon
             Shifted polygon.
 
         """
@@ -988,7 +988,7 @@ class Polygon(object):
 
         Returns
         -------
-        imgaug.augmentables.polys.Polygon
+        imgaug.imgaug.augmentables.polys.Polygon
             Copy of this polygon with the new point order.
 
         """
@@ -1026,7 +1026,7 @@ class Polygon(object):
 
         Returns
         -------
-        imgaug.augmentables.polys.Polygon
+        imgaug.imgaug.augmentables.polys.Polygon
             Copy of this polygon with the new point order.
 
         """
@@ -1056,7 +1056,7 @@ class Polygon(object):
 
         Returns
         -------
-        imgaug.augmentables.polys.Polygon
+        imgaug.imgaug.augmentables.polys.Polygon
             Polygon with subdivided edges.
             The object may have been modified in-place.
 
@@ -1084,7 +1084,7 @@ class Polygon(object):
 
         Returns
         -------
-        imgaug.augmentables.polys.Polygon
+        imgaug.imgaug.augmentables.polys.Polygon
             Polygon with subdivided edges.
 
         """
@@ -1132,12 +1132,12 @@ class Polygon(object):
 
         Returns
         -------
-        imgaug.augmentables.bbs.BoundingBox
+        imgaug.imgaug.augmentables.bbs.BoundingBox
             Bounding box that tightly encapsulates the polygon.
 
         """
         # TODO get rid of this deferred import
-        from imgaug.augmentables.bbs import BoundingBox
+        from imgaug.imgaug.augmentables.bbs import BoundingBox
 
         xx = self.xx
         yy = self.yy
@@ -1150,13 +1150,13 @@ class Polygon(object):
 
         Returns
         -------
-        list of imgaug.augmentables.kps.Keypoint
+        list of imgaug.imgaug.augmentables.kps.Keypoint
             Exterior vertices as :class:`~imgaug.augmentables.kps.Keypoint`
             instances.
 
         """
         # TODO get rid of this deferred import
-        from imgaug.augmentables.kps import Keypoint
+        from imgaug.imgaug.augmentables.kps import Keypoint
 
         return [Keypoint(x=point[0], y=point[1]) for point in self.exterior]
 
@@ -1173,11 +1173,11 @@ class Polygon(object):
 
         Returns
         -------
-        imgaug.augmentables.lines.LineString
+        imgaug.imgaug.augmentables.lines.LineString
             Exterior of the polygon as a line string.
 
         """
-        from imgaug.augmentables.lines import LineString
+        from imgaug.imgaug.augmentables.lines import LineString
         if not closed or len(self.exterior) <= 1:
             return LineString(self.exterior, label=self.label)
         return LineString(
@@ -1202,7 +1202,7 @@ class Polygon(object):
 
         Returns
         -------
-        imgaug.augmentables.polys.Polygon
+        imgaug.imgaug.augmentables.polys.Polygon
             A polygon with the same exterior as the ``Shapely`` ``Polygon``.
 
         """
@@ -1230,7 +1230,7 @@ class Polygon(object):
 
         Parameters
         ----------
-        other : imgaug.augmentables.polys.Polygon or (N,2) ndarray or list of tuple
+        other : imgaug.imgaug.augmentables.polys.Polygon or (N,2) ndarray or list of tuple
             See
             :func:`~imgaug.augmentables.polys.Polygon.exterior_almost_equals`.
 
@@ -1270,7 +1270,7 @@ class Polygon(object):
 
         Parameters
         ----------
-        other : imgaug.augmentables.polys.Polygon or (N,2) ndarray or list of tuple
+        other : imgaug.imgaug.augmentables.polys.Polygon or (N,2) ndarray or list of tuple
             The other polygon with which to compare the exterior.
             If this is an ``ndarray``, it is assumed to represent an exterior.
             It must then have dtype ``float32`` and shape ``(N,2)`` with the
@@ -1321,7 +1321,7 @@ class Polygon(object):
 
         Parameters
         ----------
-        other : imgaug.augmentables.polys.Polygon
+        other : imgaug.imgaug.augmentables.polys.Polygon
             The other object to compare against. Expected to be a ``Polygon``.
 
         max_distance : float, optional
@@ -1349,7 +1349,7 @@ class Polygon(object):
 
         Parameters
         ----------
-        exterior : list of imgaug.augmentables.kps.Keypoint or list of tuple or (N,2) ndarray, optional
+        exterior : list of imgaug.imgaug.augmentables.kps.Keypoint or list of tuple or (N,2) ndarray, optional
             List of points defining the polygon. See
             :func:`~imgaug.augmentables.polys.Polygon.__init__` for details.
 
@@ -1359,7 +1359,7 @@ class Polygon(object):
 
         Returns
         -------
-        imgaug.augmentables.polys.Polygon
+        imgaug.imgaug.augmentables.polys.Polygon
             Shallow copy.
 
         """
@@ -1380,7 +1380,7 @@ class Polygon(object):
 
         Returns
         -------
-        imgaug.augmentables.polys.Polygon
+        imgaug.imgaug.augmentables.polys.Polygon
             Deep copy.
 
         """
@@ -1432,7 +1432,7 @@ class PolygonsOnImage(IAugmentable):
 
     Parameters
     ----------
-    polygons : list of imgaug.augmentables.polys.Polygon
+    polygons : list of imgaug.imgaug.augmentables.polys.Polygon
         List of polygons on the image.
 
     shape : tuple of int
@@ -1443,7 +1443,7 @@ class PolygonsOnImage(IAugmentable):
     Examples
     --------
     >>> import numpy as np
-    >>> from imgaug.augmentables.polys import Polygon, PolygonsOnImage
+    >>> from imgaug.imgaug.augmentables.polys import Polygon, PolygonsOnImage
     >>> image = np.zeros((100, 100))
     >>> polys = [
     >>>     Polygon([(0.5, 0.5), (100.5, 0.5), (100.5, 100.5), (0.5, 100.5)]),
@@ -1510,7 +1510,7 @@ class PolygonsOnImage(IAugmentable):
 
         Returns
         -------
-        imgaug.augmentables.polys.PolygonsOnImage
+        imgaug.imgaug.augmentables.polys.PolygonsOnImage
             Object containing all projected polygons.
             The object and its items may have been modified in-place.
 
@@ -1537,7 +1537,7 @@ class PolygonsOnImage(IAugmentable):
 
         Returns
         -------
-        imgaug.augmentables.polys.PolygonsOnImage
+        imgaug.imgaug.augmentables.polys.PolygonsOnImage
             Object containing all projected polygons.
 
         """
@@ -1671,7 +1671,7 @@ class PolygonsOnImage(IAugmentable):
 
         Returns
         -------
-        imgaug.augmentables.polys.PolygonsOnImage
+        imgaug.imgaug.augmentables.polys.PolygonsOnImage
             Reduced set of polygons. Those that are fully/partially
             outside of the given image plane are removed.
             The object and its items may have been modified in-place.
@@ -1696,7 +1696,7 @@ class PolygonsOnImage(IAugmentable):
 
         Returns
         -------
-        imgaug.augmentables.polys.PolygonsOnImage
+        imgaug.imgaug.augmentables.polys.PolygonsOnImage
             Reduced set of polygons. Those that are fully/partially
             outside of the given image plane are removed.
 
@@ -1718,7 +1718,7 @@ class PolygonsOnImage(IAugmentable):
 
         Returns
         -------
-        imgaug.augmentables.polys.PolygonsOnImage
+        imgaug.imgaug.augmentables.polys.PolygonsOnImage
             Reduced set of polygons, with those that had an out of image
             fraction greater or equal the given one removed.
             The object and its items may have been modified in-place.
@@ -1741,7 +1741,7 @@ class PolygonsOnImage(IAugmentable):
 
         Returns
         -------
-        imgaug.augmentables.polys.PolygonsOnImage
+        imgaug.imgaug.augmentables.polys.PolygonsOnImage
             Reduced set of polygons, with those that had an out of image
             fraction greater or equal the given one removed.
 
@@ -1770,7 +1770,7 @@ class PolygonsOnImage(IAugmentable):
 
         Returns
         -------
-        imgaug.augmentables.polys.PolygonsOnImage
+        imgaug.imgaug.augmentables.polys.PolygonsOnImage
             Polygons, clipped to fall within the image dimensions.
             The count of output polygons may differ from the input count.
             The object and its items may have been modified in-place.
@@ -1800,7 +1800,7 @@ class PolygonsOnImage(IAugmentable):
 
         Returns
         -------
-        imgaug.augmentables.polys.PolygonsOnImage
+        imgaug.imgaug.augmentables.polys.PolygonsOnImage
             Polygons, clipped to fall within the image dimensions.
             The count of output polygons may differ from the input count.
 
@@ -1826,7 +1826,7 @@ class PolygonsOnImage(IAugmentable):
 
         Returns
         -------
-        imgaug.augmentables.polys.PolygonsOnImage
+        imgaug.imgaug.augmentables.polys.PolygonsOnImage
             Shifted polygons.
 
         """
@@ -1871,7 +1871,7 @@ class PolygonsOnImage(IAugmentable):
 
         Returns
         -------
-        imgaug.augmentables.polys.PolygonsOnImage
+        imgaug.imgaug.augmentables.polys.PolygonsOnImage
             Shifted polygons.
 
         """
@@ -1891,7 +1891,7 @@ class PolygonsOnImage(IAugmentable):
 
         Returns
         -------
-        imgaug.augmentables.polys.PolygonsOnImage
+        imgaug.imgaug.augmentables.polys.PolygonsOnImage
             Subdivided polygons.
 
         """
@@ -1911,7 +1911,7 @@ class PolygonsOnImage(IAugmentable):
 
         Returns
         -------
-        imgaug.augmentables.polys.PolygonsOnImage
+        imgaug.imgaug.augmentables.polys.PolygonsOnImage
             Subdivided polygons.
 
         """
@@ -1996,7 +1996,7 @@ class PolygonsOnImage(IAugmentable):
 
         Returns
         -------
-        imgaug.augmentables.kps.KeypointsOnImage
+        imgaug.imgaug.augmentables.kps.KeypointsOnImage
             A keypoints instance containing ``N`` coordinates for a total
             of ``N`` points in all exteriors of the polygons within this
             container. Order matches the order in ``polygons``.
@@ -2020,7 +2020,7 @@ class PolygonsOnImage(IAugmentable):
 
         Parameters
         ----------
-        kpsoi : imgaug.augmentables.kps.KeypointsOnImages
+        kpsoi : imgaug.imgaug.augmentables.kps.KeypointsOnImages
             Keypoints to convert back to polygons, i.e. the outputs
             of ``to_keypoints_on_image()``.
 
@@ -2053,7 +2053,7 @@ class PolygonsOnImage(IAugmentable):
 
         Parameters
         ----------
-        polygons : None or list of imgaug.augmentables.polys.Polygons, optional
+        polygons : None or list of imgaug.imgaug.augmentables.polys.Polygons, optional
             List of polygons on the image.
             If not ``None``, then the ``polygons`` attribute of the copied
             object will be set to this value.
@@ -2067,7 +2067,7 @@ class PolygonsOnImage(IAugmentable):
 
         Returns
         -------
-        imgaug.augmentables.polys.PolygonsOnImage
+        imgaug.imgaug.augmentables.polys.PolygonsOnImage
             Shallow copy.
 
         """
@@ -2084,7 +2084,7 @@ class PolygonsOnImage(IAugmentable):
 
         Parameters
         ----------
-        polygons : None or list of imgaug.augmentables.polys.Polygons, optional
+        polygons : None or list of imgaug.imgaug.augmentables.polys.Polygons, optional
             List of polygons on the image.
             If not ``None``, then the ``polygons`` attribute of the copied
             object will be set to this value.
@@ -2098,7 +2098,7 @@ class PolygonsOnImage(IAugmentable):
 
         Returns
         -------
-        imgaug.augmentables.polys.PolygonsOnImage
+        imgaug.imgaug.augmentables.polys.PolygonsOnImage
             Deep copy.
 
         """
@@ -2118,7 +2118,7 @@ class PolygonsOnImage(IAugmentable):
 
         Returns
         -------
-        list of imgaug.augmentables.polys.Polygon
+        list of imgaug.imgaug.augmentables.polys.Polygon
             Polygon(s) with given indices.
 
         """
@@ -2460,7 +2460,7 @@ class _ConcavePolygonRecoverer(object):
         ]
 
         # returns [(point, [(segment_p0, segment_p1), ..]), ...]
-        from imgaug.external.poly_point_isect_py2py3 import (
+        from imgaug.imgaug.external.poly_point_isect_py2py3 import (
             isect_segments_include_segments)
 
         try:
@@ -2770,7 +2770,7 @@ class MultiPolygon(object):
 
     Parameters
     ----------
-    geoms : list of imgaug.augmentables.polys.Polygon
+    geoms : list of imgaug.imgaug.augmentables.polys.Polygon
         List of the polygons.
 
     """
@@ -2800,7 +2800,7 @@ class MultiPolygon(object):
 
         Returns
         -------
-        imgaug.augmentables.polys.MultiPolygon
+        imgaug.imgaug.augmentables.polys.MultiPolygon
             The derived MultiPolygon.
 
         """

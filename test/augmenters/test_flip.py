@@ -17,16 +17,16 @@ import numpy as np
 import six
 import six.moves as sm
 
-import imgaug as ia
+import imgaug.imgaug as ia
 from imgaug import augmenters as iaa
 from imgaug import parameters as iap
 from imgaug import dtypes as iadt
 from imgaug.testutils import (reseed, assert_cbaois_equal,
                               runtest_pickleable_uint8_img,
                               is_parameter_instance)
-from imgaug.augmentables.heatmaps import HeatmapsOnImage
-from imgaug.augmentables.segmaps import SegmentationMapsOnImage
-import imgaug.augmenters.flip as fliplib
+from imgaug.imgaug.augmentables.heatmaps import HeatmapsOnImage
+from imgaug.imgaug.augmentables.segmaps import SegmentationMapsOnImage
+import imgaug.imgaug.augmenters.flip as fliplib
 
 
 class TestHorizontalFlip(unittest.TestCase):

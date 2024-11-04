@@ -13,7 +13,7 @@ import cv2
 
 import imgaug.imgaug as ia
 import imgaug.random as iarandom
-from imgaug.augmentables.batches import Batch, UnnormalizedBatch
+from imgaug.imgaug.augmentables.batches import Batch, UnnormalizedBatch
 
 if sys.version_info[0] == 2:
     # pylint: disable=redefined-builtin, import-error
@@ -107,7 +107,7 @@ class Pool(object):
 
     Parameters
     ----------
-    augseq : imgaug.augmenters.meta.Augmenter
+    augseq : imgaug.imgaug.augmenters.meta.Augmenter
         The augmentation sequence to apply to batches.
 
     processes : None or int, optional
@@ -236,7 +236,7 @@ class Pool(object):
 
         Parameters
         ----------
-        batches : list of imgaug.augmentables.batches.Batch
+        batches : list of imgaug.imgaug.augmentables.batches.Batch
             The batches to augment.
 
         chunksize : None or int, optional
@@ -245,7 +245,7 @@ class Pool(object):
 
         Returns
         -------
-        list of imgaug.augmentables.batches.Batch
+        list of imgaug.imgaug.augmentables.batches.Batch
             Augmented batches.
 
         """
@@ -262,7 +262,7 @@ class Pool(object):
 
         Parameters
         ----------
-        batches : list of imgaug.augmentables.batches.Batch
+        batches : list of imgaug.imgaug.augmentables.batches.Batch
             The batches to augment.
 
         chunksize : None or int, optional
@@ -304,7 +304,7 @@ class Pool(object):
 
         Parameters
         ----------
-        batches : generator of imgaug.augmentables.batches.Batch
+        batches : generator of imgaug.imgaug.augmentables.batches.Batch
             The batches to augment, provided as a generator. Each call to the
             generator should yield exactly one batch.
 
@@ -326,7 +326,7 @@ class Pool(object):
 
         Yields
         ------
-        imgaug.augmentables.batches.Batch
+        imgaug.imgaug.augmentables.batches.Batch
             Augmented batch.
 
         """
@@ -358,7 +358,7 @@ class Pool(object):
 
         Parameters
         ----------
-        batches : generator of imgaug.augmentables.batches.Batch
+        batches : generator of imgaug.imgaug.augmentables.batches.Batch
             The batches to augment, provided as a generator. Each call to the
             generator should yield exactly one batch.
 
@@ -380,7 +380,7 @@ class Pool(object):
 
         Yields
         ------
-        imgaug.augmentables.batches.Batch
+        imgaug.imgaug.augmentables.batches.Batch
             Augmented batch.
 
         """

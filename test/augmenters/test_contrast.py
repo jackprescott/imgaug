@@ -20,15 +20,15 @@ import skimage
 import skimage.data
 import cv2
 
-import imgaug as ia
+import imgaug.imgaug as ia
 from imgaug import augmenters as iaa
 from imgaug import parameters as iap
 from imgaug import dtypes as iadt
-from imgaug.augmenters import contrast as contrast_lib
+from imgaug.imgaug.augmenters import contrast as contrast_lib
 from imgaug.testutils import (ArgCopyingMagicMock, keypoints_equal, reseed,
                               runtest_pickleable_uint8_img, assertWarns,
                               is_parameter_instance)
-from imgaug.augmentables.batches import _BatchInAugmentation
+from imgaug.imgaug.augmentables.batches import _BatchInAugmentation
 
 
 class TestGammaContrast(unittest.TestCase):

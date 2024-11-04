@@ -2,7 +2,7 @@ from __future__ import print_function
 
 import numpy as np
 
-import imgaug as ia
+import imgaug.imgaug as ia
 from imgaug import augmenters as iaa
 
 

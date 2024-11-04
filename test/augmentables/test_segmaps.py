@@ -16,8 +16,8 @@ except ImportError:
 
 import numpy as np
 
-import imgaug as ia
-import imgaug.augmentables.segmaps as segmapslib
+import imgaug.imgaug as ia
+import imgaug.imgaug.augmentables.segmaps as segmapslib
 
 
 # old style segmentation maps (class name differs to new style by "Map"

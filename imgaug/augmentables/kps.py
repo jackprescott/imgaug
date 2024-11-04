@@ -180,7 +180,7 @@ class Keypoint(object):
 
         Returns
         -------
-        imgaug.augmentables.kps.Keypoint
+        imgaug.imgaug.augmentables.kps.Keypoint
             Keypoint object with new coordinates.
             The instance of the keypoint may have been modified in-place.
 
@@ -210,7 +210,7 @@ class Keypoint(object):
 
         Returns
         -------
-        imgaug.augmentables.kps.Keypoint
+        imgaug.imgaug.augmentables.kps.Keypoint
             Keypoint object with new coordinates.
 
         """
@@ -283,7 +283,7 @@ class Keypoint(object):
 
         Returns
         -------
-        imgaug.augmentables.kps.Keypoint
+        imgaug.imgaug.augmentables.kps.Keypoint
             Keypoint object with new coordinates.
             The instance of the keypoint may have been modified in-place.
 
@@ -305,7 +305,7 @@ class Keypoint(object):
 
         Returns
         -------
-        imgaug.augmentables.kps.Keypoint
+        imgaug.imgaug.augmentables.kps.Keypoint
             Keypoint object with new coordinates.
 
         """
@@ -441,7 +441,7 @@ class Keypoint(object):
 
         Returns
         -------
-        list of imgaug.augmentables.kps.Keypoint or (N,2) ndarray
+        list of imgaug.imgaug.augmentables.kps.Keypoint or (N,2) ndarray
             If `return_array` was ``False``, then a list of :class:`Keypoint`.
             Otherwise a numpy array of shape ``(N,2)``, where ``N`` is the
             number of generated points and the second axis contains
@@ -497,7 +497,7 @@ class Keypoint(object):
 
         Parameters
         ----------
-        other : imgaug.augmentables.kps.Keypoint or iterable
+        other : imgaug.imgaug.augmentables.kps.Keypoint or iterable
             The other keypoint with which to compare this one.
             If this is an ``iterable``, it is assumed to contain the
             xy-coordinates of a keypoint.
@@ -541,7 +541,7 @@ class Keypoint(object):
 
         Parameters
         ----------
-        other : imgaug.augmentables.kps.Keypoint or iterable
+        other : imgaug.imgaug.augmentables.kps.Keypoint or iterable
             The other object to compare against. Expected to be a
             ``Keypoint``.
 
@@ -572,7 +572,7 @@ class Keypoint(object):
 
         Returns
         -------
-        imgaug.augmentables.kps.Keypoint
+        imgaug.imgaug.augmentables.kps.Keypoint
             Shallow copy.
 
         """
@@ -593,7 +593,7 @@ class Keypoint(object):
 
         Returns
         -------
-        imgaug.augmentables.kps.Keypoint
+        imgaug.imgaug.augmentables.kps.Keypoint
             Deep copy.
 
         """
@@ -613,7 +613,7 @@ class KeypointsOnImage(IAugmentable):
 
     Parameters
     ----------
-    keypoints : list of imgaug.augmentables.kps.Keypoint
+    keypoints : list of imgaug.imgaug.augmentables.kps.Keypoint
         List of keypoints on the image.
 
     shape : tuple of int
@@ -624,7 +624,7 @@ class KeypointsOnImage(IAugmentable):
     Examples
     --------
     >>> import numpy as np
-    >>> from imgaug.augmentables.kps import Keypoint, KeypointsOnImage
+    >>> from imgaug.imgaug.augmentables.kps import Keypoint, KeypointsOnImage
     >>>
     >>> image = np.zeros((70, 70))
     >>> kps = [Keypoint(x=10, y=20), Keypoint(x=34, y=60)]
@@ -713,7 +713,7 @@ class KeypointsOnImage(IAugmentable):
 
         Returns
         -------
-        imgaug.augmentables.kps.KeypointsOnImage
+        imgaug.imgaug.augmentables.kps.KeypointsOnImage
             Object containing all projected keypoints.
             The object may have been modified in-place.
 
@@ -740,7 +740,7 @@ class KeypointsOnImage(IAugmentable):
 
         Returns
         -------
-        imgaug.augmentables.kps.KeypointsOnImage
+        imgaug.imgaug.augmentables.kps.KeypointsOnImage
             Object containing all projected keypoints.
 
         """
@@ -814,7 +814,7 @@ class KeypointsOnImage(IAugmentable):
 
         Returns
         -------
-        imgaug.augmentables.kps.KeypointsOnImage
+        imgaug.imgaug.augmentables.kps.KeypointsOnImage
             Reduced set of keypoints, with those thathad an out of image
             fraction greater or equal the given one removed.
             The object may have been modified in-place.
@@ -841,7 +841,7 @@ class KeypointsOnImage(IAugmentable):
 
         Returns
         -------
-        imgaug.augmentables.kps.KeypointsOnImage
+        imgaug.imgaug.augmentables.kps.KeypointsOnImage
             Reduced set of keypoints, with those thathad an out of image
             fraction greater or equal the given one removed.
 
@@ -858,7 +858,7 @@ class KeypointsOnImage(IAugmentable):
 
         Returns
         -------
-        imgaug.augmentables.kps.KeypointsOnImage
+        imgaug.imgaug.augmentables.kps.KeypointsOnImage
             Keypoints that are inside the image plane.
             The object may have been modified in-place.
 
@@ -876,7 +876,7 @@ class KeypointsOnImage(IAugmentable):
 
         Returns
         -------
-        imgaug.augmentables.kps.KeypointsOnImage
+        imgaug.imgaug.augmentables.kps.KeypointsOnImage
             Keypoints that are inside the image plane.
 
         """
@@ -897,7 +897,7 @@ class KeypointsOnImage(IAugmentable):
 
         Returns
         -------
-        imgaug.augmentables.kps.KeypointsOnImage
+        imgaug.imgaug.augmentables.kps.KeypointsOnImage
             Keypoints after moving them.
             The object and its items may have been modified in-place.
 
@@ -919,7 +919,7 @@ class KeypointsOnImage(IAugmentable):
 
         Returns
         -------
-        imgaug.augmentables.kps.KeypointsOnImage
+        imgaug.imgaug.augmentables.kps.KeypointsOnImage
             Keypoints after moving them.
 
         """
@@ -972,7 +972,7 @@ class KeypointsOnImage(IAugmentable):
 
         Returns
         -------
-        imgaug.augmentables.kps.KeypointsOnImage
+        imgaug.imgaug.augmentables.kps.KeypointsOnImage
             :class:`KeypointsOnImage` object containing the array's keypoints.
 
         """
@@ -993,7 +993,7 @@ class KeypointsOnImage(IAugmentable):
 
         Returns
         -------
-        imgaug.augmentables.kps.KeypointsOnImage
+        imgaug.imgaug.augmentables.kps.KeypointsOnImage
             :class:`KeypointsOnImage` object containing the array's keypoints.
 
         """
@@ -1135,7 +1135,7 @@ class KeypointsOnImage(IAugmentable):
 
         Returns
         -------
-        imgaug.augmentables.kps.KeypointsOnImage
+        imgaug.imgaug.augmentables.kps.KeypointsOnImage
             The extracted keypoints.
 
         """
@@ -1276,7 +1276,7 @@ class KeypointsOnImage(IAugmentable):
 
         Returns
         -------
-        imgaug.augmentables.kps.KeypointsOnImage
+        imgaug.imgaug.augmentables.kps.KeypointsOnImage
             The extracted keypoints.
 
         """
@@ -1348,7 +1348,7 @@ class KeypointsOnImage(IAugmentable):
 
         Returns
         -------
-        imgaug.augmentables.kps.KeypointsOnImage
+        imgaug.imgaug.augmentables.kps.KeypointsOnImage
             Copy of this keypoints instance.
 
         """
@@ -1364,7 +1364,7 @@ class KeypointsOnImage(IAugmentable):
 
         Parameters
         ----------
-        kpsoi : imgaug.augmentables.kps.KeypointsOnImages
+        kpsoi : imgaug.imgaug.augmentables.kps.KeypointsOnImages
             Keypoints to copy data from, i.e. the outputs of
             ``to_keypoints_on_image()``.
 
@@ -1402,7 +1402,7 @@ class KeypointsOnImage(IAugmentable):
 
         Returns
         -------
-        imgaug.augmentables.kps.KeypointsOnImage
+        imgaug.imgaug.augmentables.kps.KeypointsOnImage
             Shallow copy.
 
         """
@@ -1429,7 +1429,7 @@ class KeypointsOnImage(IAugmentable):
 
         Returns
         -------
-        imgaug.augmentables.kps.KeypointsOnImage
+        imgaug.imgaug.augmentables.kps.KeypointsOnImage
             Deep copy.
 
         """
@@ -1449,7 +1449,7 @@ class KeypointsOnImage(IAugmentable):
 
         Returns
         -------
-        list of imgaug.augmentables.kps.Keypoint
+        list of imgaug.imgaug.augmentables.kps.Keypoint
             Keypoint(s) with given indices.
 
         """

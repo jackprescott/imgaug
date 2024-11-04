@@ -1,5 +1,5 @@
 from __future__ import print_function, division
-import imgaug as ia
+import imgaug.imgaug as ia
 from imgaug import augmenters as iaa
 import numpy as np
 from skimage import data

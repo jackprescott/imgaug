@@ -31,9 +31,9 @@ from skimage import transform as tf
 import cv2
 import six.moves as sm
 
-import imgaug as ia
-from imgaug.imgaug import _normalize_cv2_input_arr_
-from imgaug.augmentables.polys import _ConcavePolygonRecoverer
+import imgaug.imgaug as ia
+from imgaug.imgaug.imgaug import _normalize_cv2_input_arr_
+from imgaug.imgaug.augmentables.polys import _ConcavePolygonRecoverer
 from . import meta
 from . import blur as blur_lib
 from . import size as size_lib
@@ -1190,7 +1190,7 @@ class Affine(meta.Augmenter):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.Affine(scale=2.0)
 
     Zoom in on all images by a factor of ``2``.
@@ -1689,7 +1689,7 @@ class ScaleX(Affine):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.ScaleX((0.5, 1.5))
 
     Create an augmenter that scales images along the width to sizes between
@@ -1766,7 +1766,7 @@ class ScaleY(Affine):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.ScaleY((0.5, 1.5))
 
     Create an augmenter that scales images along the height to sizes between
@@ -1850,7 +1850,7 @@ class TranslateX(Affine):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.TranslateX(px=(-20, 20))
 
     Create an augmenter that translates images along the x-axis by
@@ -1941,7 +1941,7 @@ class TranslateY(Affine):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.TranslateY(px=(-20, 20))
 
     Create an augmenter that translates images along the y-axis by
@@ -2025,7 +2025,7 @@ class Rotate(Affine):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.Rotate((-45, 45))
 
     Create an augmenter that rotates images by a random value between ``-45``
@@ -2100,7 +2100,7 @@ class ShearX(Affine):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.ShearX((-20, 20))
 
     Create an augmenter that shears images along the x-axis by random amounts
@@ -2175,7 +2175,7 @@ class ShearY(Affine):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.ShearY((-20, 20))
 
     Create an augmenter that shears images along the y-axis by random amounts
@@ -2432,7 +2432,7 @@ class AffineCv2(meta.Augmenter):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.AffineCv2(scale=2.0)
 
     Zoom in on all images by a factor of ``2``.
@@ -2510,7 +2510,7 @@ class AffineCv2(meta.Augmenter):
         # so warn manually here
         ia.warn_deprecated(
             "AffineCv2 is deprecated. "
-            "Use imgaug.augmenters.geometric.Affine(..., backend='cv2') "
+            "Use imgaug.imgaug.augmenters.geometric.Affine(..., backend='cv2') "
             "instead.", stacklevel=4)
 
         available_orders = [cv2.INTER_NEAREST, cv2.INTER_LINEAR,
@@ -3060,7 +3060,7 @@ class PiecewiseAffine(meta.Augmenter):
     absolute_scale : bool, optional
         Take `scale` as an absolute value rather than a relative value.
 
-    polygon_recoverer : 'auto' or None or imgaug.augmentables.polygons._ConcavePolygonRecoverer, optional
+    polygon_recoverer : 'auto' or None or imgaug.imgaug.augmentables.polygons._ConcavePolygonRecoverer, optional
         The class to use to repair invalid polygons.
         If ``"auto"``, a new instance of
         :class`imgaug.augmentables.polygons._ConcavePolygonRecoverer`
@@ -3089,7 +3089,7 @@ class PiecewiseAffine(meta.Augmenter):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.PiecewiseAffine(scale=(0.01, 0.05))
 
     Place a regular grid of points on each image and then randomly move each
@@ -3592,7 +3592,7 @@ class PerspectiveTransform(meta.Augmenter):
 
         Added in 0.4.0.
 
-    polygon_recoverer : 'auto' or None or imgaug.augmentables.polygons._ConcavePolygonRecoverer, optional
+    polygon_recoverer : 'auto' or None or imgaug.imgaug.augmentables.polygons._ConcavePolygonRecoverer, optional
         The class to use to repair invalid polygons.
         If ``"auto"``, a new instance of
         :class`imgaug.augmentables.polygons._ConcavePolygonRecoverer`
@@ -3621,7 +3621,7 @@ class PerspectiveTransform(meta.Augmenter):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.PerspectiveTransform(scale=(0.01, 0.15))
 
     Apply perspective transformations using a random scale between ``0.01``
@@ -4256,7 +4256,7 @@ class ElasticTransformation(meta.Augmenter):
               that parameter per image, i.e. it must return only the above
               mentioned strings.
 
-    polygon_recoverer : 'auto' or None or imgaug.augmentables.polygons._ConcavePolygonRecoverer, optional
+    polygon_recoverer : 'auto' or None or imgaug.imgaug.augmentables.polygons._ConcavePolygonRecoverer, optional
         The class to use to repair invalid polygons.
         If ``"auto"``, a new instance of
         :class`imgaug.augmentables.polygons._ConcavePolygonRecoverer`
@@ -4285,7 +4285,7 @@ class ElasticTransformation(meta.Augmenter):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.ElasticTransformation(alpha=50.0, sigma=5.0)
 
     Apply elastic transformations with a strength/alpha of ``50.0`` and
@@ -5044,7 +5044,7 @@ class Rot90(meta.Augmenter):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.Rot90(1)
 
     Rotate all images by 90 degrees.
@@ -5290,7 +5290,7 @@ class WithPolarWarping(meta.Augmenter):
 
     Parameters
     ----------
-    children : imgaug.augmenters.meta.Augmenter or list of imgaug.augmenters.meta.Augmenter or None, optional
+    children : imgaug.imgaug.augmenters.meta.Augmenter or list of imgaug.imgaug.augmenters.meta.Augmenter or None, optional
         One or more augmenters to apply to images after they were transformed
         to polar representation.
 
@@ -5313,7 +5313,7 @@ class WithPolarWarping(meta.Augmenter):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.WithPolarWarping(iaa.CropAndPad(percent=(-0.1, 0.1)))
 
     Apply cropping and padding in polar representation, then warp back to
@@ -5998,7 +5998,7 @@ class Jigsaw(meta.Augmenter):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.Jigsaw(nb_rows=10, nb_cols=10)
 
     Create a jigsaw augmenter that splits images into ``10x10`` cells

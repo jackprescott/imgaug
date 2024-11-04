@@ -13,7 +13,7 @@ except ImportError:
     import mock
 
 import numpy as np
-import imgaug as ia
+import imgaug.imgaug as ia
 from imgaug.testutils import assertWarns
 
 

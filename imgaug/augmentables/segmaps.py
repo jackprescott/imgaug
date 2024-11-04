@@ -407,7 +407,7 @@ class SegmentationMapsOnImage(IAugmentable):
 
         Returns
         -------
-        imgaug.augmentables.segmaps.SegmentationMapsOnImage
+        imgaug.imgaug.augmentables.segmaps.SegmentationMapsOnImage
             Padded segmentation map with height ``H'=H+top+bottom`` and
             width ``W'=W+left+right``.
 
@@ -449,7 +449,7 @@ class SegmentationMapsOnImage(IAugmentable):
 
         Returns
         -------
-        imgaug.augmentables.segmaps.SegmentationMapsOnImage
+        imgaug.imgaug.augmentables.segmaps.SegmentationMapsOnImage
             Padded segmentation map as :class:`SegmentationMapsOnImage`
             instance.
 
@@ -495,7 +495,7 @@ class SegmentationMapsOnImage(IAugmentable):
 
         Returns
         -------
-        imgaug.augmentables.segmaps.SegmentationMapsOnImage
+        imgaug.imgaug.augmentables.segmaps.SegmentationMapsOnImage
             Resized segmentation map object.
 
         """
@@ -525,7 +525,7 @@ class SegmentationMapsOnImage(IAugmentable):
 
         Returns
         -------
-        imgaug.augmentables.segmaps.SegmentationMapsOnImage
+        imgaug.imgaug.augmentables.segmaps.SegmentationMapsOnImage
             Shallow copy.
 
         """
@@ -557,7 +557,7 @@ class SegmentationMapsOnImage(IAugmentable):
 
         Returns
         -------
-        imgaug.augmentables.segmaps.SegmentationMapsOnImage
+        imgaug.imgaug.augmentables.segmaps.SegmentationMapsOnImage
             Deep copy.
 
         """

@@ -18,8 +18,8 @@ import numpy as np
 import cv2
 import six
 
-import imgaug as ia
-from imgaug.imgaug import _normalize_cv2_input_arr_
+import imgaug.imgaug as ia
+from imgaug.imgaug.imgaug import _normalize_cv2_input_arr_
 from . import meta
 from . import blend
 from .. import parameters as iap
@@ -248,7 +248,7 @@ class Canny(meta.Augmenter):
             * If this is a StochasticParameter, a random value will be sampled
               from that parameter per image.
 
-    colorizer : None or imgaug.augmenters.edges.IBinaryImageColorizer, optional
+    colorizer : None or imgaug.imgaug.augmenters.edges.IBinaryImageColorizer, optional
         A strategy to convert binary edge images to color images.
         If this is ``None``, an instance of ``RandomColorBinaryImageColorizer``
         is created, which means that each edge image is converted into an
@@ -275,7 +275,7 @@ class Canny(meta.Augmenter):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.Canny()
 
     Create an augmenter that generates random blends between images and

@@ -30,7 +30,7 @@ def _quokka_normalize_extract(extract):
 
     Parameters
     ----------
-    extract : 'square' or tuple of number or imgaug.augmentables.bbs.BoundingBox or imgaug.augmentables.bbs.BoundingBoxesOnImage
+    extract : 'square' or tuple of number or imgaug.imgaug.augmentables.bbs.BoundingBox or imgaug.imgaug.augmentables.bbs.BoundingBoxesOnImage
         Unnormalized representation of the image subarea to be extracted.
 
             * If ``str`` ``square``, then a squared area
@@ -48,13 +48,13 @@ def _quokka_normalize_extract(extract):
 
     Returns
     -------
-    imgaug.augmentables.bbs.BoundingBox
+    imgaug.imgaug.augmentables.bbs.BoundingBox
         Normalized representation of the area to extract from the standard
         quokka image.
 
     """
     # TODO get rid of this deferred import
-    from imgaug.augmentables.bbs import BoundingBox, BoundingBoxesOnImage
+    from imgaug.imgaug.augmentables.bbs import BoundingBox, BoundingBoxesOnImage
 
     if extract == "square":
         bb = BoundingBox(x1=0, y1=0, x2=643, y2=643)
@@ -173,7 +173,7 @@ def quokka(size=None, extract=None):
         ``tuple`` ``(H, W)``, where ``H`` is the desired height and ``W`` is
         the width. If ``None``, then the image will not be resized.
 
-    extract : None or 'square' or tuple of number or imgaug.augmentables.bbs.BoundingBox or imgaug.augmentables.bbs.BoundingBoxesOnImage
+    extract : None or 'square' or tuple of number or imgaug.imgaug.augmentables.bbs.BoundingBox or imgaug.imgaug.augmentables.bbs.BoundingBoxesOnImage
         Subarea of the quokka image to extract:
 
             * If ``None``, then the whole image will be used.
@@ -240,12 +240,12 @@ def quokka_heatmap(size=None, extract=None):
     size : None or float or tuple of int, optional
         See :func:`~imgaug.imgaug.quokka`.
 
-    extract : None or 'square' or tuple of number or imgaug.augmentables.bbs.BoundingBox or imgaug.augmentables.bbs.BoundingBoxesOnImage
+    extract : None or 'square' or tuple of number or imgaug.imgaug.augmentables.bbs.BoundingBox or imgaug.imgaug.augmentables.bbs.BoundingBoxesOnImage
         See :func:`~imgaug.imgaug.quokka`.
 
     Returns
     -------
-    imgaug.augmentables.heatmaps.HeatmapsOnImage
+    imgaug.imgaug.augmentables.heatmaps.HeatmapsOnImage
         Depth map as an heatmap object. Values close to ``0.0`` denote objects
         that are close to the camera. Values close to ``1.0`` denote objects
         that are furthest away (among all shown objects).
@@ -253,7 +253,7 @@ def quokka_heatmap(size=None, extract=None):
     """
     # TODO get rid of this deferred import
     from . import imgaug as ia
-    from imgaug.augmentables.heatmaps import HeatmapsOnImage
+    from imgaug.imgaug.augmentables.heatmaps import HeatmapsOnImage
 
     img = imageio.imread(_QUOKKA_DEPTH_MAP_HALFRES_FP, pilmode="RGB")
     img = ia.imresize_single_image(img, (643, 960), interpolation="cubic")
@@ -283,19 +283,19 @@ def quokka_segmentation_map(size=None, extract=None):
     size : None or float or tuple of int, optional
         See :func:`~imgaug.imgaug.quokka`.
 
-    extract : None or 'square' or tuple of number or imgaug.augmentables.bbs.BoundingBox or imgaug.augmentables.bbs.BoundingBoxesOnImage
+    extract : None or 'square' or tuple of number or imgaug.imgaug.augmentables.bbs.BoundingBox or imgaug.imgaug.augmentables.bbs.BoundingBoxesOnImage
         See :func:`~imgaug.imgaug.quokka`.
 
     Returns
     -------
-    imgaug.augmentables.segmaps.SegmentationMapsOnImage
+    imgaug.imgaug.augmentables.segmaps.SegmentationMapsOnImage
         Segmentation map object.
 
     """
     # pylint: disable=invalid-name
     import skimage.draw
     # TODO get rid of this deferred import
-    from imgaug.augmentables.segmaps import SegmentationMapsOnImage
+    from imgaug.imgaug.augmentables.segmaps import SegmentationMapsOnImage
 
     with open(_QUOKKA_ANNOTATIONS_FP, "r") as f:
         json_dict = json.load(f)
@@ -342,17 +342,17 @@ def quokka_keypoints(size=None, extract=None):
         (positions on the original image are used). ``float`` s lead to
         relative size changes, ``int`` s to absolute sizes in pixels.
 
-    extract : None or 'square' or tuple of number or imgaug.augmentables.bbs.BoundingBox or imgaug.augmentables.bbs.BoundingBoxesOnImage
+    extract : None or 'square' or tuple of number or imgaug.imgaug.augmentables.bbs.BoundingBox or imgaug.imgaug.augmentables.bbs.BoundingBoxesOnImage
         Subarea to extract from the image. See :func:`~imgaug.imgaug.quokka`.
 
     Returns
     -------
-    imgaug.augmentables.kps.KeypointsOnImage
+    imgaug.imgaug.augmentables.kps.KeypointsOnImage
         Example keypoints on the quokka image.
 
     """
     # TODO get rid of this deferred import
-    from imgaug.augmentables.kps import Keypoint, KeypointsOnImage
+    from imgaug.imgaug.augmentables.kps import Keypoint, KeypointsOnImage
 
     left, top = 0, 0
     if extract is not None:
@@ -390,17 +390,17 @@ def quokka_bounding_boxes(size=None, extract=None):
         image are used). ``float`` s lead to relative size changes, ``int`` s
         to absolute sizes in pixels.
 
-    extract : None or 'square' or tuple of number or imgaug.augmentables.bbs.BoundingBox or imgaug.augmentables.bbs.BoundingBoxesOnImage
+    extract : None or 'square' or tuple of number or imgaug.imgaug.augmentables.bbs.BoundingBox or imgaug.imgaug.augmentables.bbs.BoundingBoxesOnImage
         Subarea to extract from the image. See :func:`~imgaug.imgaug.quokka`.
 
     Returns
     -------
-    imgaug.augmentables.bbs.BoundingBoxesOnImage
+    imgaug.imgaug.augmentables.bbs.BoundingBoxesOnImage
         Example BBs on the quokka image.
 
     """
     # TODO get rid of this deferred import
-    from imgaug.augmentables.bbs import BoundingBox, BoundingBoxesOnImage
+    from imgaug.imgaug.augmentables.bbs import BoundingBox, BoundingBoxesOnImage
 
     left, top = 0, 0
     if extract is not None:
@@ -446,17 +446,17 @@ def quokka_polygons(size=None, extract=None):
         original image are used). ``float`` s lead to relative size changes,
         ``int`` s to absolute sizes in pixels.
 
-    extract : None or 'square' or tuple of number or imgaug.augmentables.bbs.BoundingBox or imgaug.augmentables.bbs.BoundingBoxesOnImage
+    extract : None or 'square' or tuple of number or imgaug.imgaug.augmentables.bbs.BoundingBox or imgaug.imgaug.augmentables.bbs.BoundingBoxesOnImage
         Subarea to extract from the image. See :func:`~imgaug.imgaug.quokka`.
 
     Returns
     -------
-    imgaug.augmentables.polys.PolygonsOnImage
+    imgaug.imgaug.augmentables.polys.PolygonsOnImage
         Example polygons on the quokka image.
 
     """
     # TODO get rid of this deferred import
-    from imgaug.augmentables.polys import Polygon, PolygonsOnImage
+    from imgaug.imgaug.augmentables.polys import Polygon, PolygonsOnImage
 
     left, top = 0, 0
     if extract is not None:

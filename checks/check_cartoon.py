@@ -1,5 +1,5 @@
-import imgaug as ia
-import imgaug.augmenters as iaa
+import imgaug.imgaug as ia
+import imgaug.imgaug.augmenters as iaa
 import imageio
 import cv2
 import numpy as np

@@ -4,7 +4,7 @@ from __future__ import print_function, division, absolute_import
 import numpy as np
 import six.moves as sm
 
-import imgaug as ia
+import imgaug.imgaug as ia
 
 KIND_TO_DTYPES = {
     "i": ["int8", "int16", "int32", "int64"],
@@ -337,7 +337,7 @@ def gate_dtypes_strs(dtypes, allowed, disallowed, augmenter=None):
         Names of disallowed dtypes, separated by single spaces.
         Must not intersect with allowed dtypes.
 
-    augmenter : None or imgaug.augmenters.meta.Augmenter, optional
+    augmenter : None or imgaug.imgaug.augmenters.meta.Augmenter, optional
         If the gating happens for an augmenter, it should be provided
         here. This information will be used to improve output error
         messages and warnings.
@@ -439,7 +439,7 @@ def _gate_dtypes(dtypes, allowed, disallowed, augmenter=None):
         Any number of disallowed dtypes. Should not intersect with allowed
         dtypes.
 
-    augmenter : None or imgaug.augmenters.meta.Augmenter, optional
+    augmenter : None or imgaug.imgaug.augmenters.meta.Augmenter, optional
         If the gating happens for an augmenter, it should be provided
         here. This information will be used to improve output error
         messages and warnings.
@@ -526,7 +526,7 @@ def allow_only_uint8(dtypes, augmenter=None):
     dtypes : numpy.ndarray or iterable of numpy.ndarray or iterable of numpy.dtype
         One or more input dtypes to verify.
 
-    augmenter : None or imgaug.augmenters.meta.Augmenter, optional
+    augmenter : None or imgaug.imgaug.augmenters.meta.Augmenter, optional
         If the gating happens for an augmenter, it should be provided
         here. This information will be used to improve output error
         messages and warnings.

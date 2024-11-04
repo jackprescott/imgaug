@@ -20,8 +20,8 @@ import six.moves as sm
 import skimage.exposure as ski_exposure
 import cv2
 
-import imgaug as ia
-from imgaug.imgaug import _normalize_cv2_input_arr_
+import imgaug.imgaug as ia
+from imgaug.imgaug.imgaug import _normalize_cv2_input_arr_
 from . import meta
 from . import color as color_lib
 from .. import parameters as iap
@@ -471,7 +471,7 @@ class GammaContrast(_ContrastFuncWrapper):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.GammaContrast((0.5, 2.0))
 
     Modify the contrast of images according to ``255*((v/255)**gamma)``,
@@ -567,7 +567,7 @@ class SigmoidContrast(_ContrastFuncWrapper):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.SigmoidContrast(gain=(3, 10), cutoff=(0.4, 0.6))
 
     Modify the contrast of images according to
@@ -656,7 +656,7 @@ class LogContrast(_ContrastFuncWrapper):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.LogContrast(gain=(0.6, 1.4))
 
     Modify the contrast of images according to ``255*gain*log_2(1+v/255)``,
@@ -734,7 +734,7 @@ class LinearContrast(_ContrastFuncWrapper):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.LinearContrast((0.4, 1.6))
 
     Modify the contrast of images according to `127 + alpha*(v-127)``,
@@ -971,7 +971,7 @@ class AllChannelsCLAHE(meta.Augmenter):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.AllChannelsCLAHE()
 
     Create an augmenter that applies CLAHE to all channels of input images.
@@ -1203,7 +1203,7 @@ class CLAHE(meta.Augmenter):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.CLAHE()
 
     Create a standard CLAHE augmenter.
@@ -1357,7 +1357,7 @@ class AllChannelsHistogramEqualization(meta.Augmenter):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.AllChannelsHistogramEqualization()
 
     Create an augmenter that applies histogram equalization to all channels
@@ -1485,7 +1485,7 @@ class HistogramEqualization(meta.Augmenter):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.HistogramEqualization()
 
     Create an augmenter that converts images to ``HLS``/``HSV``/``Lab``

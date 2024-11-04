@@ -15,8 +15,8 @@ except ImportError:
 
 import numpy as np
 
-import imgaug as ia
-import imgaug.augmenters as iaa
+import imgaug.imgaug as ia
+import imgaug.imgaug.augmenters as iaa
 from imgaug.testutils import reseed
 import imgaug.random as iarandom
 

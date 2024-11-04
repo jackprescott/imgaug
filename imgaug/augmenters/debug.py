@@ -18,7 +18,7 @@ import six
 import numpy as np
 import imageio
 
-import imgaug as ia
+import imgaug.imgaug as ia
 from .. import dtypes as iadt
 from . import meta
 from . import size as sizelib
@@ -408,22 +408,22 @@ def draw_debug_image(images, heatmaps=None, segmentation_maps=None,
         Images in the batch. Must always be provided. Batches without images
         cannot be visualized.
 
-    heatmaps : None or list of imgaug.augmentables.heatmaps.HeatmapsOnImage, optional
+    heatmaps : None or list of imgaug.imgaug.augmentables.heatmaps.HeatmapsOnImage, optional
         Heatmaps on the provided images.
 
-    segmentation_maps : None or list of imgaug.augmentables.segmaps.SegmentationMapsOnImage, optional
+    segmentation_maps : None or list of imgaug.imgaug.augmentables.segmaps.SegmentationMapsOnImage, optional
         Segmentation maps on the provided images.
 
-    keypoints : None or list of imgaug.augmentables.kps.KeypointsOnImage, optional
+    keypoints : None or list of imgaug.imgaug.augmentables.kps.KeypointsOnImage, optional
         Keypoints on the provided images.
 
-    bounding_boxes : None or list of imgaug.augmentables.bbs.BoundingBoxesOnImage, optional
+    bounding_boxes : None or list of imgaug.imgaug.augmentables.bbs.BoundingBoxesOnImage, optional
         Bounding boxes on the provided images.
 
-    polygons : None or list of imgaug.augmentables.polys.PolygonsOnImage, optional
+    polygons : None or list of imgaug.imgaug.augmentables.polys.PolygonsOnImage, optional
         Polygons on the provided images.
 
-    line_strings : None or list of imgaug.augmentables.lines.LineStringsOnImage, optional
+    line_strings : None or list of imgaug.imgaug.augmentables.lines.LineStringsOnImage, optional
         Line strings on the provided images.
 
     Returns
@@ -434,13 +434,13 @@ def draw_debug_image(images, heatmaps=None, segmentation_maps=None,
     Examples
     --------
     >>> import numpy as np
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> image = np.zeros((64, 64, 3), dtype=np.uint8)
     >>> debug_image = iaa.draw_debug_image(images=[image, image])
 
     Generate a debug image for two empty images.
 
-    >>> from imgaug.augmentables.kps import KeypointsOnImage
+    >>> from imgaug.imgaug.augmentables.kps import KeypointsOnImage
     >>> kpsoi = KeypointsOnImage.from_xy_array([(10.5, 20.5), (30.5, 30.5)],
     >>>                                        shape=image.shape)
     >>> debug_image = iaa.draw_debug_image(images=[image, image],
@@ -449,7 +449,7 @@ def draw_debug_image(images, heatmaps=None, segmentation_maps=None,
     Generate a debug image for two empty images, each having two keypoints
     drawn on them.
 
-    >>> from imgaug.augmentables.batches import UnnormalizedBatch
+    >>> from imgaug.imgaug.augmentables.batches import UnnormalizedBatch
     >>> segmap_arr = np.zeros((32, 32, 1), dtype=np.int32)
     >>> kp_tuples = [(10.5, 20.5), (30.5, 30.5)]
     >>> batch = UnnormalizedBatch(images=[image, image],
@@ -1024,7 +1024,7 @@ class _IImageDestination(object):
 
         Parameters
         ----------
-        batch : imgaug.augmentables.batches._BatchInAugmentation
+        batch : imgaug.imgaug.augmentables.batches._BatchInAugmentation
             A batch to which the next ``receive()`` call may correspond.
 
         """
@@ -1236,7 +1236,7 @@ class SaveDebugImageEveryNBatches(_SaveDebugImage):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> import tempfile
     >>> folder_path = tempfile.mkdtemp()
     >>> seq = iaa.Sequential([

@@ -205,7 +205,7 @@ class BoundingBox(object):
 
         Parameters
         ----------
-        other : tuple of number or imgaug.augmentables.kps.Keypoint
+        other : tuple of number or imgaug.imgaug.augmentables.kps.Keypoint
             Point to check for.
 
         Returns
@@ -245,7 +245,7 @@ class BoundingBox(object):
 
         Returns
         -------
-        imgaug.augmentables.bbs.BoundingBox
+        imgaug.imgaug.augmentables.bbs.BoundingBox
             ``BoundingBox`` instance with new coordinates.
             The object may have been modified in-place.
 
@@ -279,7 +279,7 @@ class BoundingBox(object):
 
         Returns
         -------
-        imgaug.augmentables.bbs.BoundingBox
+        imgaug.imgaug.augmentables.bbs.BoundingBox
             ``BoundingBox`` instance with new coordinates.
 
         """
@@ -367,7 +367,7 @@ class BoundingBox(object):
 
         Parameters
         ----------
-        other : imgaug.augmentables.bbs.BoundingBox
+        other : imgaug.imgaug.augmentables.bbs.BoundingBox
             Other bounding box with which to generate the intersection.
 
         default : any, optional
@@ -375,7 +375,7 @@ class BoundingBox(object):
 
         Returns
         -------
-        imgaug.augmentables.bbs.BoundingBox or any
+        imgaug.imgaug.augmentables.bbs.BoundingBox or any
             Intersection bounding box of the two bounding boxes if there is
             an intersection.
             If there is no intersection, the default value will be returned,
@@ -398,12 +398,12 @@ class BoundingBox(object):
 
         Parameters
         ----------
-        other : imgaug.augmentables.bbs.BoundingBox
+        other : imgaug.imgaug.augmentables.bbs.BoundingBox
             Other bounding box with which to generate the union.
 
         Returns
         -------
-        imgaug.augmentables.bbs.BoundingBox
+        imgaug.imgaug.augmentables.bbs.BoundingBox
             Union bounding box of the two bounding boxes.
 
         """
@@ -425,7 +425,7 @@ class BoundingBox(object):
 
         Parameters
         ----------
-        other : imgaug.augmentables.bbs.BoundingBox
+        other : imgaug.imgaug.augmentables.bbs.BoundingBox
             Other bounding box with which to compare.
 
         Returns
@@ -610,7 +610,7 @@ class BoundingBox(object):
 
         Returns
         -------
-        imgaug.augmentables.bbs.BoundingBox
+        imgaug.imgaug.augmentables.bbs.BoundingBox
             Bounding box, clipped to fall within the image dimensions.
             The object may have been modified in-place.
 
@@ -644,7 +644,7 @@ class BoundingBox(object):
 
         Returns
         -------
-        imgaug.augmentables.bbs.BoundingBox
+        imgaug.imgaug.augmentables.bbs.BoundingBox
             Bounding box, clipped to fall within the image dimensions.
 
         """
@@ -669,7 +669,7 @@ class BoundingBox(object):
 
         Returns
         -------
-        imgaug.augmentables.bbs.BoundingBox
+        imgaug.imgaug.augmentables.bbs.BoundingBox
             Shifted bounding box.
             The object may have been modified in-place.
 
@@ -717,7 +717,7 @@ class BoundingBox(object):
 
         Returns
         -------
-        imgaug.augmentables.bbs.BoundingBox
+        imgaug.imgaug.augmentables.bbs.BoundingBox
             Shifted bounding box.
 
         """
@@ -1097,12 +1097,12 @@ class BoundingBox(object):
 
         Returns
         -------
-        list of imgaug.augmentables.kps.Keypoint
+        list of imgaug.imgaug.augmentables.kps.Keypoint
             Corners of the bounding box as keypoints.
 
         """
         # TODO get rid of this deferred import
-        from imgaug.augmentables.kps import Keypoint
+        from imgaug.imgaug.augmentables.kps import Keypoint
 
         return [
             Keypoint(x=self.x1, y=self.y1),
@@ -1118,12 +1118,12 @@ class BoundingBox(object):
 
         Returns
         -------
-        imgaug.augmentables.polys.Polygon
+        imgaug.imgaug.augmentables.polys.Polygon
             The bounding box converted to a polygon.
 
         """
         # TODO get rid of this deferred import
-        from imgaug.augmentables.polys import Polygon
+        from imgaug.imgaug.augmentables.polys import Polygon
 
         return Polygon([
             (self.x1, self.y1),
@@ -1140,7 +1140,7 @@ class BoundingBox(object):
 
         Parameters
         ----------
-        other : imgaug.augmentables.bbs.BoundingBox or iterable
+        other : imgaug.imgaug.augmentables.bbs.BoundingBox or iterable
             The other bounding box with which to compare this one.
             If this is an ``iterable``, it is assumed to represent the top-left
             and bottom-right coordinates of that bounding box, given as e.g.
@@ -1187,7 +1187,7 @@ class BoundingBox(object):
 
         Parameters
         ----------
-        other : imgaug.augmentables.bbs.BoundingBox or iterable
+        other : imgaug.imgaug.augmentables.bbs.BoundingBox or iterable
             The other object to compare against. Expected to be a
             ``BoundingBox``.
 
@@ -1224,7 +1224,7 @@ class BoundingBox(object):
 
         Returns
         -------
-        imgaug.augmentables.bbs.BoundingBox
+        imgaug.imgaug.augmentables.bbs.BoundingBox
             Bounding box around the points.
 
         """
@@ -1274,7 +1274,7 @@ class BoundingBox(object):
 
         Returns
         -------
-        imgaug.augmentables.bbs.BoundingBox
+        imgaug.imgaug.augmentables.bbs.BoundingBox
             Shallow copy.
 
         """
@@ -1314,7 +1314,7 @@ class BoundingBox(object):
 
         Returns
         -------
-        imgaug.augmentables.bbs.BoundingBox
+        imgaug.imgaug.augmentables.bbs.BoundingBox
             Deep copy.
 
         """
@@ -1361,7 +1361,7 @@ class BoundingBoxesOnImage(IAugmentable):
 
     Parameters
     ----------
-    bounding_boxes : list of imgaug.augmentables.bbs.BoundingBox
+    bounding_boxes : list of imgaug.imgaug.augmentables.bbs.BoundingBox
         List of bounding boxes on the image.
 
     shape : tuple of int
@@ -1372,7 +1372,7 @@ class BoundingBoxesOnImage(IAugmentable):
     Examples
     --------
     >>> import numpy as np
-    >>> from imgaug.augmentables.bbs import BoundingBox, BoundingBoxesOnImage
+    >>> from imgaug.imgaug.augmentables.bbs import BoundingBox, BoundingBoxesOnImage
     >>>
     >>> image = np.zeros((100, 100))
     >>> bbs = [
@@ -1467,7 +1467,7 @@ class BoundingBoxesOnImage(IAugmentable):
 
         Returns
         -------
-        imgaug.augmentables.bbs.BoundingBoxesOnImage
+        imgaug.imgaug.augmentables.bbs.BoundingBoxesOnImage
             Object containing the same bounding boxes after projection to
             the new image shape.
             The object and its items may have been modified in-place.
@@ -1495,7 +1495,7 @@ class BoundingBoxesOnImage(IAugmentable):
 
         Returns
         -------
-        imgaug.augmentables.bbs.BoundingBoxesOnImage
+        imgaug.imgaug.augmentables.bbs.BoundingBoxesOnImage
             Object containing the same bounding boxes after projection to
             the new image shape.
 
@@ -1524,7 +1524,7 @@ class BoundingBoxesOnImage(IAugmentable):
 
         Returns
         -------
-        imgaug.augmentables.bbs.BoundingBoxesOnImage
+        imgaug.imgaug.augmentables.bbs.BoundingBoxesOnImage
             Object containing a list of :class:`BoundingBox` instances
             derived from the provided corner coordinates.
 
@@ -1570,7 +1570,7 @@ class BoundingBoxesOnImage(IAugmentable):
 
         Returns
         -------
-        imgaug.augmentables.bbs.BoundingBoxesOnImage
+        imgaug.imgaug.augmentables.bbs.BoundingBoxesOnImage
             Object containing a list of :class:`BoundingBox` instances
             derived from the provided point soups.
 
@@ -1768,7 +1768,7 @@ class BoundingBoxesOnImage(IAugmentable):
 
         Returns
         -------
-        imgaug.augmentables.bbs.BoundingBoxesOnImage
+        imgaug.imgaug.augmentables.bbs.BoundingBoxesOnImage
             Reduced set of bounding boxes, with those that were
             fully/partially outside of the image being removed.
             The object and its items may have been modified in-place.
@@ -1796,7 +1796,7 @@ class BoundingBoxesOnImage(IAugmentable):
 
         Returns
         -------
-        imgaug.augmentables.bbs.BoundingBoxesOnImage
+        imgaug.imgaug.augmentables.bbs.BoundingBoxesOnImage
             Reduced set of bounding boxes, with those that were
             fully/partially outside of the image being removed.
 
@@ -1820,7 +1820,7 @@ class BoundingBoxesOnImage(IAugmentable):
 
         Returns
         -------
-        imgaug.augmentables.bbs.BoundingBoxesOnImage
+        imgaug.imgaug.augmentables.bbs.BoundingBoxesOnImage
             Reduced set of bounding boxes, with those that had an out of image
             fraction greater or equal the given one removed.
             The object and its items may have been modified in-place.
@@ -1843,7 +1843,7 @@ class BoundingBoxesOnImage(IAugmentable):
 
         Returns
         -------
-        imgaug.augmentables.bbs.BoundingBoxesOnImage
+        imgaug.imgaug.augmentables.bbs.BoundingBoxesOnImage
             Reduced set of bounding boxes, with those that had an out of image
             fraction greater or equal the given one removed.
 
@@ -1865,7 +1865,7 @@ class BoundingBoxesOnImage(IAugmentable):
 
         Returns
         -------
-        imgaug.augmentables.bbs.BoundingBoxesOnImage
+        imgaug.imgaug.augmentables.bbs.BoundingBoxesOnImage
             Bounding boxes, clipped to fall within the image dimensions.
             The object and its items may have been modified in-place.
 
@@ -1884,7 +1884,7 @@ class BoundingBoxesOnImage(IAugmentable):
 
         Returns
         -------
-        imgaug.augmentables.bbs.BoundingBoxesOnImage
+        imgaug.imgaug.augmentables.bbs.BoundingBoxesOnImage
             Bounding boxes, clipped to fall within the image dimensions.
 
         """
@@ -1909,7 +1909,7 @@ class BoundingBoxesOnImage(IAugmentable):
 
         Returns
         -------
-        imgaug.augmentables.bbs.BoundingBoxesOnImage
+        imgaug.imgaug.augmentables.bbs.BoundingBoxesOnImage
             Shifted bounding boxes.
             The object and its items may have been modified in-place.
 
@@ -1955,7 +1955,7 @@ class BoundingBoxesOnImage(IAugmentable):
 
         Returns
         -------
-        imgaug.augmentables.bbs.BoundingBoxesOnImage
+        imgaug.imgaug.augmentables.bbs.BoundingBoxesOnImage
             Shifted bounding boxes.
 
         """
@@ -1970,7 +1970,7 @@ class BoundingBoxesOnImage(IAugmentable):
 
         Returns
         -------
-        imgaug.augmentables.kps.KeypointsOnImage
+        imgaug.imgaug.augmentables.kps.KeypointsOnImage
             A keypoints instance containing ``N*4`` coordinates for ``N``
             bounding boxes. Order matches the order in ``bounding_boxes``.
 
@@ -2005,7 +2005,7 @@ class BoundingBoxesOnImage(IAugmentable):
 
         Parameters
         ----------
-        kpsoi : imgaug.augmentables.kps.KeypointsOnImages
+        kpsoi : imgaug.imgaug.augmentables.kps.KeypointsOnImages
             Keypoints to convert back to bounding boxes, i.e. the outputs
             of ``to_keypoints_on_image()``.
 
@@ -2038,7 +2038,7 @@ class BoundingBoxesOnImage(IAugmentable):
 
         Returns
         -------
-        imgaug.augmentables.polys.PolygonsOnImage
+        imgaug.imgaug.augmentables.polys.PolygonsOnImage
             A ``PolygonsOnImage`` containing polygons. Each polygon covers
             the same area as the corresponding bounding box.
 
@@ -2063,7 +2063,7 @@ class BoundingBoxesOnImage(IAugmentable):
 
         Returns
         -------
-        imgaug.augmentables.bbs.BoundingBoxesOnImage
+        imgaug.imgaug.augmentables.bbs.BoundingBoxesOnImage
             Shallow copy.
 
         """
@@ -2090,7 +2090,7 @@ class BoundingBoxesOnImage(IAugmentable):
 
         Returns
         -------
-        imgaug.augmentables.bbs.BoundingBoxesOnImage
+        imgaug.imgaug.augmentables.bbs.BoundingBoxesOnImage
             Deep copy.
 
         """
@@ -2110,7 +2110,7 @@ class BoundingBoxesOnImage(IAugmentable):
 
         Returns
         -------
-        list of imgaug.augmentables.bbs.BoundingBoxes
+        list of imgaug.imgaug.augmentables.bbs.BoundingBoxes
             Bounding box(es) with given indices.
 
         """

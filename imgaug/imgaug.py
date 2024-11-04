@@ -941,7 +941,7 @@ def imresize_many_images(images, sizes=None, interpolation=None):
 
     Examples
     --------
-    >>> import imgaug as ia
+    >>> import imgaug.imgaug as ia
     >>> images = np.zeros((2, 8, 16, 3), dtype=np.uint8)
     >>> images_resized = ia.imresize_many_images(images, 2.0)
     >>> images_resized.shape
@@ -1394,7 +1394,7 @@ def avg_pool(arr, block_size, pad_mode="reflect", pad_cval=128,
 
 # Added in 0.5.0.
 def _avg_pool_uint8(arr, block_size, pad_mode="reflect", pad_cval=128):
-    from imgaug.augmenters.size import pad_to_multiples_of
+    from imgaug.imgaug.augmenters.size import pad_to_multiples_of
 
     ndim_in = arr.ndim
 
@@ -1639,7 +1639,7 @@ def _max_pool_uint8_(arr, block_size, pad_mode="edge", pad_cval=0):
 
 # Added in 0.5.0.
 def _minmax_pool_uint8_(arr, block_size, func, pad_mode, pad_cval):
-    from imgaug.augmenters.size import pad_to_multiples_of
+    from imgaug.imgaug.augmenters.size import pad_to_multiples_of
 
     ndim_in = arr.ndim
 
@@ -1752,7 +1752,7 @@ def median_pool(arr, block_size, pad_mode="reflect", pad_cval=128,
 # pool methods that support (int, int).
 # Added in 0.5.0.
 def _median_pool_cv2(arr, block_size, pad_mode, pad_cval):
-    from imgaug.augmenters.size import pad_to_multiples_of
+    from imgaug.imgaug.augmenters.size import pad_to_multiples_of
 
     ndim_in = arr.ndim
 
@@ -2185,8 +2185,8 @@ class HooksImages(object):
     Examples
     --------
     >>> import numpy as np
-    >>> import imgaug as ia
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug as ia
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> seq = iaa.Sequential([
     >>>     iaa.GaussianBlur(3.0, name="blur"),
     >>>     iaa.Dropout(0.05, name="dropout"),

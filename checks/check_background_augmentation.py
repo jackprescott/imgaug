@@ -5,7 +5,7 @@ import time
 import numpy as np
 from skimage import data
 
-import imgaug as ia
+import imgaug.imgaug as ia
 import imgaug.multicore as multicore
 from imgaug import augmenters as iaa
 

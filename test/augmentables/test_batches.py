@@ -15,10 +15,10 @@ except ImportError:
 
 import numpy as np
 
-import imgaug as ia
-import imgaug.augmenters as iaa
+import imgaug.imgaug as ia
+import imgaug.imgaug.augmenters as iaa
 from imgaug.testutils import reseed
-from imgaug.augmentables.batches import _BatchInAugmentation
+from imgaug.imgaug.augmentables.batches import _BatchInAugmentation
 
 
 ATTR_NAMES = ["images", "heatmaps", "segmentation_maps", "keypoints",

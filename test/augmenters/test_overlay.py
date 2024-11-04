@@ -15,8 +15,8 @@ except ImportError:
 
 import numpy as np
 
-import imgaug.augmenters as iaa
-import imgaug.augmenters.overlay as overlay
+import imgaug.imgaug.augmenters as iaa
+import imgaug.imgaug.augmenters.overlay as overlay
 
 
 class Test_blend_alpha(unittest.TestCase):

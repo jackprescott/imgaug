@@ -23,7 +23,7 @@ import skimage.morphology
 import scipy
 import scipy.special
 
-import imgaug as ia
+import imgaug.imgaug as ia
 import imgaug.random as iarandom
 from imgaug import parameters as iap
 from imgaug.testutils import reseed, is_parameter_instance

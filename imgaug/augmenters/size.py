@@ -38,8 +38,8 @@ import functools
 import numpy as np
 import cv2
 
-import imgaug as ia
-from imgaug.imgaug import _normalize_cv2_input_arr_
+import imgaug.imgaug as ia
+from imgaug.imgaug.imgaug import _normalize_cv2_input_arr_
 from . import meta
 from .. import parameters as iap
 from .. import dtypes as iadt
@@ -1217,7 +1217,7 @@ class Resize(meta.Augmenter):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.Resize(32)
 
     Resize all images to ``32x32`` pixels.
@@ -1747,7 +1747,7 @@ class CropAndPad(meta.Augmenter):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.CropAndPad(px=(-10, 0))
 
     Crop each side by a random pixel value sampled uniformly per image and
@@ -2299,7 +2299,7 @@ class Pad(CropAndPad):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.Pad(px=(0, 10))
 
     Pad each side by a random pixel value sampled uniformly per image and
@@ -2506,7 +2506,7 @@ class Crop(CropAndPad):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.Crop(px=(0, 10))
 
     Crop each side by a random pixel value sampled uniformly per image and
@@ -2682,7 +2682,7 @@ class PadToFixedSize(meta.Augmenter):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.PadToFixedSize(width=100, height=100)
 
     For image sides smaller than ``100`` pixels, pad to ``100`` pixels. Do
@@ -2947,7 +2947,7 @@ class CenterPadToFixedSize(PadToFixedSize):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.CenterPadToFixedSize(height=20, width=30)
 
     Create an augmenter that pads images up to ``20x30``, with the padded
@@ -3070,7 +3070,7 @@ class CropToFixedSize(meta.Augmenter):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.CropToFixedSize(width=100, height=100)
 
     For image sides larger than ``100`` pixels, crop to ``100`` pixels. Do
@@ -3286,7 +3286,7 @@ class CenterCropToFixedSize(CropToFixedSize):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> crop = iaa.CenterCropToFixedSize(height=20, width=10)
 
     Create an augmenter that takes ``20x10`` sized crops from the center of
@@ -3354,7 +3354,7 @@ class CropToMultiplesOf(CropToFixedSize):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.CropToMultiplesOf(height_multiple=10, width_multiple=6)
 
     Create an augmenter that crops images to multiples of ``10`` along
@@ -3450,7 +3450,7 @@ class CenterCropToMultiplesOf(CropToMultiplesOf):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.CenterCropToMultiplesOf(height_multiple=10, width_multiple=6)
 
     Create an augmenter that crops images to multiples of ``10`` along
@@ -3522,7 +3522,7 @@ class PadToMultiplesOf(PadToFixedSize):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.PadToMultiplesOf(height_multiple=10, width_multiple=6)
 
     Create an augmenter that pads images to multiples of ``10`` along
@@ -3629,7 +3629,7 @@ class CenterPadToMultiplesOf(PadToMultiplesOf):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.CenterPadToMultiplesOf(height_multiple=10, width_multiple=6)
 
     Create an augmenter that pads images to multiples of ``10`` along
@@ -3712,7 +3712,7 @@ class CropToPowersOf(CropToFixedSize):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.CropToPowersOf(height_base=3, width_base=2)
 
     Create an augmenter that crops each image down to powers of ``3`` along
@@ -3808,7 +3808,7 @@ class CenterCropToPowersOf(CropToPowersOf):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.CropToPowersOf(height_base=3, width_base=2)
 
     Create an augmenter that crops each image down to powers of ``3`` along
@@ -3885,7 +3885,7 @@ class PadToPowersOf(PadToFixedSize):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.PadToPowersOf(height_base=3, width_base=2)
 
     Create an augmenter that pads each image to powers of ``3`` along the
@@ -3991,7 +3991,7 @@ class CenterPadToPowersOf(PadToPowersOf):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.CenterPadToPowersOf(height_base=5, width_base=2)
 
     Create an augmenter that pads each image to powers of ``3`` along the
@@ -4058,7 +4058,7 @@ class CropToAspectRatio(CropToFixedSize):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.CropToAspectRatio(2.0)
 
     Create an augmenter that crops each image until its aspect ratio is as
@@ -4153,7 +4153,7 @@ class CenterCropToAspectRatio(CropToAspectRatio):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.CenterCropToAspectRatio(2.0)
 
     Create an augmenter that crops each image until its aspect ratio is as
@@ -4220,7 +4220,7 @@ class PadToAspectRatio(PadToFixedSize):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.PadToAspectRatio(2.0)
 
     Create an augmenter that pads each image until its aspect ratio is as
@@ -4313,7 +4313,7 @@ class CenterPadToAspectRatio(PadToAspectRatio):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.PadToAspectRatio(2.0)
 
     Create am augmenter that pads each image until its aspect ratio is as
@@ -4373,7 +4373,7 @@ class CropToSquare(CropToAspectRatio):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.CropToSquare()
 
     Create an augmenter that crops each image until its square, i.e. height
@@ -4436,7 +4436,7 @@ class CenterCropToSquare(CropToSquare):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.CenterCropToSquare()
 
     Create an augmenter that crops each image until its square, i.e. height
@@ -4497,7 +4497,7 @@ class PadToSquare(PadToAspectRatio):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.PadToSquare()
 
     Create an augmenter that pads each image until its square, i.e. height
@@ -4553,7 +4553,7 @@ class CenterPadToSquare(PadToSquare):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.CenterPadToSquare()
 
     Create an augmenter that pads each image until its square, i.e. height
@@ -4589,7 +4589,7 @@ class KeepSizeByResize(meta.Augmenter):
 
     Parameters
     ----------
-    children : Augmenter or list of imgaug.augmenters.meta.Augmenter or None, optional
+    children : Augmenter or list of imgaug.imgaug.augmenters.meta.Augmenter or None, optional
         One or more augmenters to apply to images. These augmenters may change
         the image size.
 
@@ -4648,7 +4648,7 @@ class KeepSizeByResize(meta.Augmenter):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.KeepSizeByResize(
     >>>     iaa.Crop((20, 40), keep_size=False)
     >>> )

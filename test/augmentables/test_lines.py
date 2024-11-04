@@ -14,11 +14,11 @@ except ImportError:
 
 import numpy as np
 
-import imgaug as ia
+import imgaug.imgaug as ia
 from imgaug.testutils import reseed, wrap_shift_deprecation, assertWarns
-from imgaug.augmentables.lines import LineString, LineStringsOnImage
-from imgaug.augmentables.kps import Keypoint
-from imgaug.augmentables.heatmaps import HeatmapsOnImage
+from imgaug.imgaug.augmentables.lines import LineString, LineStringsOnImage
+from imgaug.imgaug.augmentables.kps import Keypoint
+from imgaug.imgaug.augmentables.heatmaps import HeatmapsOnImage
 
 
 class TestLineString_project_(unittest.TestCase):
@@ -1613,7 +1613,7 @@ class TestLineString(unittest.TestCase):
     # TODO change this after the segmap PR was merged
 
     def test_segmentation_map(self):
-        from imgaug.augmentables.segmaps import SegmentationMapsOnImage
+        from imgaug.imgaug.augmentables.segmaps import SegmentationMapsOnImage
         ls = LineString([(0, 5), (5, 5)])
         observed = ls.to_segmentation_map((10, 10))
         assert isinstance(observed, SegmentationMapsOnImage)

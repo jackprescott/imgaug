@@ -18,14 +18,14 @@ import numpy as np
 import six.moves as sm
 import cv2
 
-import imgaug as ia
+import imgaug.imgaug as ia
 import imgaug.random as iarandom
 from imgaug import augmenters as iaa
 from imgaug import parameters as iap
-import imgaug.augmenters.meta as meta
+import imgaug.imgaug.augmenters.meta as meta
 from imgaug.testutils import (reseed, runtest_pickleable_uint8_img,
                               is_parameter_instance)
-import imgaug.augmenters.color as colorlib
+import imgaug.imgaug.augmenters.color as colorlib
 
 
 class Test_change_colorspace_(unittest.TestCase):
@@ -948,7 +948,7 @@ class TestWithHueAndSaturation(unittest.TestCase):
             assert np.array_equal(image_aug, image_expected)
 
     def test_augment_heatmaps(self):
-        from imgaug.augmentables.heatmaps import HeatmapsOnImage
+        from imgaug.imgaug.augmentables.heatmaps import HeatmapsOnImage
 
         class _DummyAugmenter(meta.Augmenter):
             def __init__(self):
@@ -974,7 +974,7 @@ class TestWithHueAndSaturation(unittest.TestCase):
         assert aug_dummy.call_count == 1
 
     def test_augment_keypoints(self):
-        from imgaug.augmentables.kps import KeypointsOnImage
+        from imgaug.imgaug.augmentables.kps import KeypointsOnImage
 
         class _DummyAugmenter(meta.Augmenter):
             def __init__(self):

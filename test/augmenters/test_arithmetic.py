@@ -18,7 +18,7 @@ import numpy as np
 import cv2
 import six.moves as sm
 
-import imgaug as ia
+import imgaug.imgaug as ia
 from imgaug import augmenters as iaa
 from imgaug import parameters as iap
 from imgaug import dtypes as iadt
@@ -31,9 +31,9 @@ from imgaug.testutils import (
     assertWarns,
     is_parameter_instance
 )
-import imgaug.augmenters.arithmetic as arithmetic_lib
-import imgaug.augmenters.contrast as contrast_lib
-from imgaug.augmenters.arithmetic import (
+import imgaug.imgaug.augmenters.arithmetic as arithmetic_lib
+import imgaug.imgaug.augmenters.contrast as contrast_lib
+from imgaug.imgaug.augmenters.arithmetic import (
     _add_elementwise_cv2_to_uint8,
     _multiply_scalar_to_uint8_cv2_mul_,
     _multiply_elementwise_to_uint8_,

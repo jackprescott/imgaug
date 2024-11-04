@@ -20,12 +20,12 @@ except ImportError:
 import numpy as np
 import six.moves as sm
 
-import imgaug as ia
+import imgaug.imgaug as ia
 import imgaug.multicore as multicore
 import imgaug.random as iarandom
 from imgaug import augmenters as iaa
 from imgaug.testutils import reseed
-from imgaug.augmentables.batches import Batch, UnnormalizedBatch
+from imgaug.imgaug.augmentables.batches import Batch, UnnormalizedBatch
 
 IS_SUPPORTING_CONTEXTS = (sys.version_info[0] == 3
                           and sys.version_info[1] >= 4)

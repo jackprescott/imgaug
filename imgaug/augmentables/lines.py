@@ -226,7 +226,7 @@ class LineString(object):
 
         Parameters
         ----------
-        other : tuple of number or imgaug.augmentables.kps.Keypoint or imgaug.augmentables.LineString
+        other : tuple of number or imgaug.imgaug.augmentables.kps.Keypoint or imgaug.imgaug.augmentables.LineString
             Other object to which to compute the distances.
 
         default : any
@@ -270,7 +270,7 @@ class LineString(object):
 
         Parameters
         ----------
-        other : tuple of number or imgaug.augmentables.kps.Keypoint or imgaug.augmentables.LineString
+        other : tuple of number or imgaug.imgaug.augmentables.kps.Keypoint or imgaug.imgaug.augmentables.LineString
             Other object to which to compute the distance.
 
         default : any
@@ -299,7 +299,7 @@ class LineString(object):
 
         Parameters
         ----------
-        other : tuple of number or imgaug.augmentables.kps.Keypoint
+        other : tuple of number or imgaug.imgaug.augmentables.kps.Keypoint
             Point to check for.
 
         max_distance : float
@@ -338,7 +338,7 @@ class LineString(object):
 
         Returns
         -------
-        imgaug.augmentables.lines.LineString
+        imgaug.imgaug.augmentables.lines.LineString
             Line string with new coordinates.
             The object may have been modified in-place.
 
@@ -367,7 +367,7 @@ class LineString(object):
 
         Returns
         -------
-        imgaug.augmentables.lines.LineString
+        imgaug.imgaug.augmentables.lines.LineString
             Line string with new coordinates.
 
         """
@@ -515,7 +515,7 @@ class LineString(object):
 
         Returns
         -------
-        list of imgaug.augmentables.lines.LineString
+        list of imgaug.imgaug.augmentables.lines.LineString
             Line strings, clipped to the image shape.
             The result may contain any number of line strins, including zero.
 
@@ -692,7 +692,7 @@ class LineString(object):
 
         Returns
         -------
-        result : imgaug.augmentables.lines.LineString
+        result : imgaug.imgaug.augmentables.lines.LineString
             Shifted line string.
             The object may have been modified in-place.
 
@@ -738,7 +738,7 @@ class LineString(object):
 
         Returns
         -------
-        result : imgaug.augmentables.lines.LineString
+        result : imgaug.imgaug.augmentables.lines.LineString
             Shifted line string.
 
         """
@@ -1315,12 +1315,12 @@ class LineString(object):
 
         Parameters
         ----------
-        other : imgaug.augmentables.lines.LineString or ndarray or iterable of tuple of number
+        other : imgaug.imgaug.augmentables.lines.LineString or ndarray or iterable of tuple of number
             The points to add to this line string.
 
         Returns
         -------
-        imgaug.augmentables.lines.LineString
+        imgaug.imgaug.augmentables.lines.LineString
             New line string with concatenated points.
             The `label` of this line string will be kept.
 
@@ -1352,7 +1352,7 @@ class LineString(object):
 
         Returns
         -------
-        imgaug.augmentables.lines.LineString
+        imgaug.imgaug.augmentables.lines.LineString
             Line string with subdivided edges.
 
         """
@@ -1367,12 +1367,12 @@ class LineString(object):
 
         Returns
         -------
-        list of imgaug.augmentables.kps.Keypoint
+        list of imgaug.imgaug.augmentables.kps.Keypoint
             Points of the line string as keypoints.
 
         """
         # TODO get rid of this deferred import
-        from imgaug.augmentables.kps import Keypoint
+        from imgaug.imgaug.augmentables.kps import Keypoint
         return [Keypoint(x=x, y=y) for (x, y) in self.coords]
 
     def to_bounding_box(self):
@@ -1380,7 +1380,7 @@ class LineString(object):
 
         Returns
         -------
-        None or imgaug.augmentables.bbs.BoundingBox
+        None or imgaug.imgaug.augmentables.bbs.BoundingBox
             Bounding box encapsulating the line string.
             ``None`` if the line string contained no points.
 
@@ -1399,7 +1399,7 @@ class LineString(object):
 
         Returns
         -------
-        imgaug.augmentables.polys.Polygon
+        imgaug.imgaug.augmentables.polys.Polygon
             Polygon with the same corner points as the line string.
             Note that the polygon might be invalid, e.g. contain less
             than ``3`` points or have self-intersections.
@@ -1439,7 +1439,7 @@ class LineString(object):
 
         Returns
         -------
-        imgaug.augmentables.heatmaps.HeatmapsOnImage
+        imgaug.imgaug.augmentables.heatmaps.HeatmapsOnImage
             Heatmap object containing drawn line string.
 
         """
@@ -1479,7 +1479,7 @@ class LineString(object):
 
         Returns
         -------
-        imgaug.augmentables.segmaps.SegmentationMapsOnImage
+        imgaug.imgaug.augmentables.segmaps.SegmentationMapsOnImage
             Segmentation map object containing drawn line string.
 
         """
@@ -1500,7 +1500,7 @@ class LineString(object):
 
         Parameters
         ----------
-        other : imgaug.augmentables.lines.LineString or tuple of number or ndarray or list of ndarray or list of tuple of number
+        other : imgaug.imgaug.augmentables.lines.LineString or tuple of number or ndarray or list of ndarray or list of tuple of number
             The other line string or its coordinates.
 
         max_distance : float, optional
@@ -1546,7 +1546,7 @@ class LineString(object):
 
         Parameters
         ----------
-        other: imgaug.augmentables.lines.LineString
+        other: imgaug.imgaug.augmentables.lines.LineString
             The other object to compare against. Expected to be a
             ``LineString``.
 
@@ -1583,7 +1583,7 @@ class LineString(object):
 
         Returns
         -------
-        imgaug.augmentables.lines.LineString
+        imgaug.imgaug.augmentables.lines.LineString
             Shallow copy.
 
         """
@@ -1605,7 +1605,7 @@ class LineString(object):
 
         Returns
         -------
-        imgaug.augmentables.lines.LineString
+        imgaug.imgaug.augmentables.lines.LineString
             Deep copy.
 
         """
@@ -1667,7 +1667,7 @@ class LineStringsOnImage(IAugmentable):
 
     Parameters
     ----------
-    line_strings : list of imgaug.augmentables.lines.LineString
+    line_strings : list of imgaug.imgaug.augmentables.lines.LineString
         List of line strings on the image.
 
     shape : tuple of int or ndarray
@@ -1678,7 +1678,7 @@ class LineStringsOnImage(IAugmentable):
     Examples
     --------
     >>> import numpy as np
-    >>> from imgaug.augmentables.lines import LineString, LineStringsOnImage
+    >>> from imgaug.imgaug.augmentables.lines import LineString, LineStringsOnImage
     >>>
     >>> image = np.zeros((100, 100))
     >>> lss = [
@@ -1754,7 +1754,7 @@ class LineStringsOnImage(IAugmentable):
 
         Returns
         -------
-        imgaug.augmentables.lines.LineStrings
+        imgaug.imgaug.augmentables.lines.LineStrings
             Object containing all projected line strings.
             The object and its items may have been modified in-place.
 
@@ -1782,7 +1782,7 @@ class LineStringsOnImage(IAugmentable):
 
         Returns
         -------
-        imgaug.augmentables.lines.LineStrings
+        imgaug.imgaug.augmentables.lines.LineStrings
             Object containing all projected line strings.
 
         """
@@ -1810,7 +1810,7 @@ class LineStringsOnImage(IAugmentable):
 
         Returns
         -------
-        imgaug.augmentables.lines.LineStringsOnImage
+        imgaug.imgaug.augmentables.lines.LineStringsOnImage
             Object containing a list of ``LineString`` objects following the
             provided point coordinates.
 
@@ -1942,7 +1942,7 @@ class LineStringsOnImage(IAugmentable):
 
         Returns
         -------
-        imgaug.augmentables.lines.LineStringsOnImage
+        imgaug.imgaug.augmentables.lines.LineStringsOnImage
             Reduced set of line strings. Those that are fully/partially
             outside of the given image plane are removed.
             The object and its items may have been modified in-place.
@@ -1968,7 +1968,7 @@ class LineStringsOnImage(IAugmentable):
 
         Returns
         -------
-        imgaug.augmentables.lines.LineStringsOnImage
+        imgaug.imgaug.augmentables.lines.LineStringsOnImage
             Reduced set of line strings. Those that are fully/partially
             outside of the given image plane are removed.
 
@@ -1992,7 +1992,7 @@ class LineStringsOnImage(IAugmentable):
 
         Returns
         -------
-        imgaug.augmentables.lines.LineStringsOnImage
+        imgaug.imgaug.augmentables.lines.LineStringsOnImage
             Reduced set of line strings, with those that had an out of image
             fraction greater or equal the given one removed.
             The object and its items may have been modified in-place.
@@ -2013,7 +2013,7 @@ class LineStringsOnImage(IAugmentable):
 
         Returns
         -------
-        imgaug.augmentables.lines.LineStringsOnImage
+        imgaug.imgaug.augmentables.lines.LineStringsOnImage
             Reduced set of line strings, with those that had an out of image
             fraction greater or equal the given one removed.
 
@@ -2041,7 +2041,7 @@ class LineStringsOnImage(IAugmentable):
 
         Returns
         -------
-        imgaug.augmentables.lines.LineStringsOnImage
+        imgaug.imgaug.augmentables.lines.LineStringsOnImage
             Line strings, clipped to fall within the image dimensions.
             The count of output line strings may differ from the input count.
 
@@ -2071,7 +2071,7 @@ class LineStringsOnImage(IAugmentable):
 
         Returns
         -------
-        imgaug.augmentables.lines.LineStringsOnImage
+        imgaug.imgaug.augmentables.lines.LineStringsOnImage
             Line strings, clipped to fall within the image dimensions.
             The count of output line strings may differ from the input count.
 
@@ -2097,7 +2097,7 @@ class LineStringsOnImage(IAugmentable):
 
         Returns
         -------
-        imgaug.augmentables.lines.LineStringsOnImage
+        imgaug.imgaug.augmentables.lines.LineStringsOnImage
             Shifted line strings.
             The object and its items may have been modified in-place.
 
@@ -2143,7 +2143,7 @@ class LineStringsOnImage(IAugmentable):
 
         Returns
         -------
-        imgaug.augmentables.lines.LineStringsOnImage
+        imgaug.imgaug.augmentables.lines.LineStringsOnImage
             Shifted line strings.
 
         """
@@ -2225,7 +2225,7 @@ class LineStringsOnImage(IAugmentable):
 
         Returns
         -------
-        imgaug.augmentables.kps.KeypointsOnImage
+        imgaug.imgaug.augmentables.kps.KeypointsOnImage
             A keypoints instance containing ``N`` coordinates for a total
             of ``N`` points in the ``coords`` attributes of all line strings.
             Order matches the order in ``line_strings`` and ``coords``
@@ -2251,7 +2251,7 @@ class LineStringsOnImage(IAugmentable):
 
         Parameters
         ----------
-        kpsoi : imgaug.augmentables.kps.KeypointsOnImages
+        kpsoi : imgaug.imgaug.augmentables.kps.KeypointsOnImages
             Keypoints to convert back to line strings, i.e. the outputs
             of ``to_keypoints_on_image()``.
 
@@ -2284,7 +2284,7 @@ class LineStringsOnImage(IAugmentable):
 
         Parameters
         ----------
-        line_strings : None or list of imgaug.augmentables.lines.LineString, optional
+        line_strings : None or list of imgaug.imgaug.augmentables.lines.LineString, optional
             List of line strings on the image.
             If not ``None``, then the ``line_strings`` attribute of the copied
             object will be set to this value.
@@ -2298,7 +2298,7 @@ class LineStringsOnImage(IAugmentable):
 
         Returns
         -------
-        imgaug.augmentables.lines.LineStringsOnImage
+        imgaug.imgaug.augmentables.lines.LineStringsOnImage
             Shallow copy.
 
         """
@@ -2315,7 +2315,7 @@ class LineStringsOnImage(IAugmentable):
 
         Parameters
         ----------
-        line_strings : None or list of imgaug.augmentables.lines.LineString, optional
+        line_strings : None or list of imgaug.imgaug.augmentables.lines.LineString, optional
             List of line strings on the image.
             If not ``None``, then the ``line_strings`` attribute of the copied
             object will be set to this value.
@@ -2329,7 +2329,7 @@ class LineStringsOnImage(IAugmentable):
 
         Returns
         -------
-        imgaug.augmentables.lines.LineStringsOnImage
+        imgaug.imgaug.augmentables.lines.LineStringsOnImage
             Deep copy.
 
         """
@@ -2349,7 +2349,7 @@ class LineStringsOnImage(IAugmentable):
 
         Returns
         -------
-        list of imgaug.augmentables.lines.LineString
+        list of imgaug.imgaug.augmentables.lines.LineString
             Line string(s) with given indices.
 
         """

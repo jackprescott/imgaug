@@ -17,7 +17,7 @@ import functools
 import six
 import numpy as np
 
-import imgaug as ia
+import imgaug.imgaug as ia
 from . import meta
 from .. import parameters as iap
 
@@ -273,7 +273,7 @@ class AveragePooling(_AbstractPoolingBase):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.AveragePooling(2)
 
     Create an augmenter that always pools with a kernel size of ``2 x 2``.
@@ -394,7 +394,7 @@ class MaxPooling(_AbstractPoolingBase):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.MaxPooling(2)
 
     Create an augmenter that always pools with a kernel size of ``2 x 2``.
@@ -515,7 +515,7 @@ class MinPooling(_AbstractPoolingBase):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.MinPooling(2)
 
     Create an augmenter that always pools with a kernel size of ``2 x 2``.
@@ -636,7 +636,7 @@ class MedianPooling(_AbstractPoolingBase):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.MedianPooling(2)
 
     Create an augmenter that always pools with a kernel size of ``2 x 2``.

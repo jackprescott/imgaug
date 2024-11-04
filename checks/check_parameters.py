@@ -1,5 +1,5 @@
 from __future__ import print_function, division
-import imgaug as ia
+import imgaug.imgaug as ia
 # TODO ForceSign
 from imgaug.parameters import (
     Binomial, Choice, DiscreteUniform, Poisson, Normal, Laplace, ChiSquare,

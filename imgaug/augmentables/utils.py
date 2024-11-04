@@ -3,7 +3,7 @@ from __future__ import print_function, division, absolute_import
 import copy as copylib
 import numpy as np
 import six.moves as sm
-import imgaug as ia
+import imgaug.imgaug as ia
 
 
 # TODO add tests
@@ -329,12 +329,12 @@ def convert_cbaois_to_kpsois(cbaois):
 
     Parameters
     ----------
-    cbaois : list of imgaug.augmentables.bbs.BoundingBoxesOnImage or list of imgaug.augmentables.bbs.PolygonsOnImage or list of imgaug.augmentables.bbs.LineStringsOnImage or imgaug.augmentables.bbs.BoundingBoxesOnImage or imgaug.augmentables.bbs.PolygonsOnImage or imgaug.augmentables.bbs.LineStringsOnImage
+    cbaois : list of imgaug.imgaug.augmentables.bbs.BoundingBoxesOnImage or list of imgaug.imgaug.augmentables.bbs.PolygonsOnImage or list of imgaug.imgaug.augmentables.bbs.LineStringsOnImage or imgaug.imgaug.augmentables.bbs.BoundingBoxesOnImage or imgaug.imgaug.augmentables.bbs.PolygonsOnImage or imgaug.imgaug.augmentables.bbs.LineStringsOnImage
         Coordinate-based augmentables to convert, e.g. bounding boxes.
 
     Returns
     -------
-    list of imgaug.augmentables.kps.KeypointsOnImage or imgaug.augmentables.kps.KeypointsOnImage
+    list of imgaug.imgaug.augmentables.kps.KeypointsOnImage or imgaug.imgaug.augmentables.kps.KeypointsOnImage
         ``KeypointsOnImage`` instances containing the coordinates of input
         `cbaois`.
 
@@ -357,17 +357,17 @@ def invert_convert_cbaois_to_kpsois_(cbaois, kpsois):
 
     Parameters
     ----------
-    cbaois : list of imgaug.augmentables.bbs.BoundingBoxesOnImage or list of imgaug.augmentables.bbs.PolygonsOnImage or list of imgaug.augmentables.bbs.LineStringsOnImage or imgaug.augmentables.bbs.BoundingBoxesOnImage or imgaug.augmentables.bbs.PolygonsOnImage or imgaug.augmentables.bbs.LineStringsOnImage
+    cbaois : list of imgaug.imgaug.augmentables.bbs.BoundingBoxesOnImage or list of imgaug.imgaug.augmentables.bbs.PolygonsOnImage or list of imgaug.imgaug.augmentables.bbs.LineStringsOnImage or imgaug.imgaug.augmentables.bbs.BoundingBoxesOnImage or imgaug.imgaug.augmentables.bbs.PolygonsOnImage or imgaug.imgaug.augmentables.bbs.LineStringsOnImage
         Original coordinate-based augmentables before they were converted,
         i.e. the same inputs as provided to :func:`convert_to_kpsois`.
 
-    kpsois : list of imgaug.augmentables.kps.KeypointsOnImages or imgaug.augmentables.kps.KeypointsOnImages
+    kpsois : list of imgaug.imgaug.augmentables.kps.KeypointsOnImages or imgaug.imgaug.augmentables.kps.KeypointsOnImages
         Keypoints to convert back to the types of `cbaois`, i.e. the outputs
         of :func:`convert_cbaois_to_kpsois`.
 
     Returns
     -------
-    list of imgaug.augmentables.bbs.BoundingBoxesOnImage or list of imgaug.augmentables.bbs.PolygonsOnImage or list of imgaug.augmentables.bbs.LineStringsOnImage or imgaug.augmentables.bbs.BoundingBoxesOnImage or imgaug.augmentables.bbs.PolygonsOnImage or imgaug.augmentables.bbs.LineStringsOnImage
+    list of imgaug.imgaug.augmentables.bbs.BoundingBoxesOnImage or list of imgaug.imgaug.augmentables.bbs.PolygonsOnImage or list of imgaug.imgaug.augmentables.bbs.LineStringsOnImage or imgaug.imgaug.augmentables.bbs.BoundingBoxesOnImage or imgaug.imgaug.augmentables.bbs.PolygonsOnImage or imgaug.imgaug.augmentables.bbs.LineStringsOnImage
         Parameter `cbaois`, with updated coordinates and shapes derived from
         `kpsois`. `cbaois` is modified in-place.
 

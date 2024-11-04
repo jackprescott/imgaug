@@ -51,8 +51,8 @@ Example usage::
     >>> # not available in all python versions that are otherwise supported
     >>> # by imgaug.
     >>> # doctest: +SKIP
-    >>> import imgaug as ia
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug as ia
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> import numpy as np
     >>> image = np.zeros((64, 64, 3), dtype=np.uint8)
     >>> names, funcs = iaa.imgcorruptlike.get_corruption_names("validation")
@@ -75,7 +75,7 @@ import six.moves as sm
 import numpy as np
 import skimage.filters
 
-import imgaug as ia
+import imgaug.imgaug as ia
 from ..imgaug import _numbajit
 from .. import dtypes as iadt
 from .. import random as iarandom
@@ -996,7 +996,7 @@ def apply_elastic_transform(image, severity=1, seed=None):
 #
 #     Examples
 #     --------
-#     >>> import imgaug.augmenters as iaa
+#     >>> import imgaug.imgaug.augmenters as iaa
 #     >>> aug = iaa.%s(severity=2)
 #
 #     Create an augmenter around ``imagecorruptions.corruptions.%s``. Apply it to
@@ -1088,7 +1088,7 @@ class GaussianNoise(_ImgcorruptAugmenterBase):
     Examples
     --------
     >>> # doctest: +SKIP
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.imgcorruptlike.GaussianNoise(severity=2)
 
     Create an augmenter around
@@ -1147,7 +1147,7 @@ class ShotNoise(_ImgcorruptAugmenterBase):
     Examples
     --------
     >>> # doctest: +SKIP
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.imgcorruptlike.ShotNoise(severity=2)
 
     Create an augmenter around
@@ -1206,7 +1206,7 @@ class ImpulseNoise(_ImgcorruptAugmenterBase):
     Examples
     --------
     >>> # doctest: +SKIP
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.imgcorruptlike.ImpulseNoise(severity=2)
 
     Create an augmenter around
@@ -1265,7 +1265,7 @@ class SpeckleNoise(_ImgcorruptAugmenterBase):
     Examples
     --------
     >>> # doctest: +SKIP
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.imgcorruptlike.SpeckleNoise(severity=2)
 
     Create an augmenter around
@@ -1324,7 +1324,7 @@ class GaussianBlur(_ImgcorruptAugmenterBase):
     Examples
     --------
     >>> # doctest: +SKIP
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.imgcorruptlike.GaussianBlur(severity=2)
 
     Create an augmenter around
@@ -1383,7 +1383,7 @@ class GlassBlur(_ImgcorruptAugmenterBase):
     Examples
     --------
     >>> # doctest: +SKIP
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.imgcorruptlike.GlassBlur(severity=2)
 
     Create an augmenter around
@@ -1442,7 +1442,7 @@ class DefocusBlur(_ImgcorruptAugmenterBase):
     Examples
     --------
     >>> # doctest: +SKIP
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.imgcorruptlike.DefocusBlur(severity=2)
 
     Create an augmenter around
@@ -1501,7 +1501,7 @@ class MotionBlur(_ImgcorruptAugmenterBase):
     Examples
     --------
     >>> # doctest: +SKIP
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.imgcorruptlike.MotionBlur(severity=2)
 
     Create an augmenter around
@@ -1560,7 +1560,7 @@ class ZoomBlur(_ImgcorruptAugmenterBase):
     Examples
     --------
     >>> # doctest: +SKIP
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.imgcorruptlike.ZoomBlur(severity=2)
 
     Create an augmenter around
@@ -1619,7 +1619,7 @@ class Fog(_ImgcorruptAugmenterBase):
     Examples
     --------
     >>> # doctest: +SKIP
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.imgcorruptlike.Fog(severity=2)
 
     Create an augmenter around
@@ -1678,7 +1678,7 @@ class Frost(_ImgcorruptAugmenterBase):
     Examples
     --------
     >>> # doctest: +SKIP
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.imgcorruptlike.Frost(severity=2)
 
     Create an augmenter around
@@ -1737,7 +1737,7 @@ class Snow(_ImgcorruptAugmenterBase):
     Examples
     --------
     >>> # doctest: +SKIP
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.imgcorruptlike.Snow(severity=2)
 
     Create an augmenter around
@@ -1796,7 +1796,7 @@ class Spatter(_ImgcorruptAugmenterBase):
     Examples
     --------
     >>> # doctest: +SKIP
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.imgcorruptlike.Spatter(severity=2)
 
     Create an augmenter around
@@ -1855,7 +1855,7 @@ class Contrast(_ImgcorruptAugmenterBase):
     Examples
     --------
     >>> # doctest: +SKIP
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.imgcorruptlike.Contrast(severity=2)
 
     Create an augmenter around
@@ -1914,7 +1914,7 @@ class Brightness(_ImgcorruptAugmenterBase):
     Examples
     --------
     >>> # doctest: +SKIP
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.imgcorruptlike.Brightness(severity=2)
 
     Create an augmenter around
@@ -1973,7 +1973,7 @@ class Saturate(_ImgcorruptAugmenterBase):
     Examples
     --------
     >>> # doctest: +SKIP
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.imgcorruptlike.Saturate(severity=2)
 
     Create an augmenter around
@@ -2032,7 +2032,7 @@ class JpegCompression(_ImgcorruptAugmenterBase):
     Examples
     --------
     >>> # doctest: +SKIP
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.imgcorruptlike.JpegCompression(severity=2)
 
     Create an augmenter around
@@ -2091,7 +2091,7 @@ class Pixelate(_ImgcorruptAugmenterBase):
     Examples
     --------
     >>> # doctest: +SKIP
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.imgcorruptlike.Pixelate(severity=2)
 
     Create an augmenter around
@@ -2154,7 +2154,7 @@ class ElasticTransform(_ImgcorruptAugmenterBase):
     Examples
     --------
     >>> # doctest: +SKIP
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.imgcorruptlike.ElasticTransform(severity=2)
 
     Create an augmenter around

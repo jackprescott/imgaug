@@ -25,8 +25,8 @@ import numpy as np
 import six
 import cv2
 
-import imgaug as ia
-from imgaug.imgaug import _normalize_cv2_input_arr_
+import imgaug.imgaug as ia
+from imgaug.imgaug.imgaug import _normalize_cv2_input_arr_
 from . import meta
 from .. import parameters as iap
 from .. import dtypes as iadt
@@ -496,7 +496,7 @@ class BlendAlpha(meta.Augmenter):
             * If ``StochasticParameter``, then that parameter will be used to
               sample a value per image.
 
-    foreground : None or imgaug.augmenters.meta.Augmenter or iterable of imgaug.augmenters.meta.Augmenter, optional
+    foreground : None or imgaug.imgaug.augmenters.meta.Augmenter or iterable of imgaug.imgaug.augmenters.meta.Augmenter, optional
         Augmenter(s) that make up the foreground branch.
         High alpha values will show this branch's results.
 
@@ -506,7 +506,7 @@ class BlendAlpha(meta.Augmenter):
             * If iterable of ``Augmenter``, then that iterable will be
               converted into a ``Sequential`` and used as the augmenter.
 
-    background : None or imgaug.augmenters.meta.Augmenter or iterable of imgaug.augmenters.meta.Augmenter, optional
+    background : None or imgaug.imgaug.augmenters.meta.Augmenter or iterable of imgaug.imgaug.augmenters.meta.Augmenter, optional
         Augmenter(s) that make up the background branch.
         Low alpha values will show this branch's results.
 
@@ -541,7 +541,7 @@ class BlendAlpha(meta.Augmenter):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.BlendAlpha(0.5, iaa.Grayscale(1.0))
 
     Convert each image to pure grayscale and alpha-blend the result with the
@@ -738,7 +738,7 @@ class BlendAlphaMask(meta.Augmenter):
     mask_generator : IBatchwiseMaskGenerator
         A generator that will be queried per image to generate a mask.
 
-    foreground : None or imgaug.augmenters.meta.Augmenter or iterable of imgaug.augmenters.meta.Augmenter, optional
+    foreground : None or imgaug.imgaug.augmenters.meta.Augmenter or iterable of imgaug.imgaug.augmenters.meta.Augmenter, optional
         Augmenter(s) that make up the foreground branch.
         High alpha values will show this branch's results.
 
@@ -748,7 +748,7 @@ class BlendAlphaMask(meta.Augmenter):
             * If iterable of ``Augmenter``, then that iterable will be
               converted into a ``Sequential`` and used as the augmenter.
 
-    background : None or imgaug.augmenters.meta.Augmenter or iterable of imgaug.augmenters.meta.Augmenter, optional
+    background : None or imgaug.imgaug.augmenters.meta.Augmenter or iterable of imgaug.imgaug.augmenters.meta.Augmenter, optional
         Augmenter(s) that make up the background branch.
         Low alpha values will show this branch's results.
 
@@ -778,7 +778,7 @@ class BlendAlphaMask(meta.Augmenter):
     Examples
     --------
 
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.BlendAlphaMask(
     >>>     iaa.InvertMaskGen(0.5, iaa.VerticalLinearGradientMaskGen()),
     >>>     iaa.Sequential([
@@ -1048,7 +1048,7 @@ class BlendAlphaElementwise(BlendAlphaMask):
             * If ``StochasticParameter``, then that parameter will be used to
               sample a value per image.
 
-    foreground : None or imgaug.augmenters.meta.Augmenter or iterable of imgaug.augmenters.meta.Augmenter, optional
+    foreground : None or imgaug.imgaug.augmenters.meta.Augmenter or iterable of imgaug.imgaug.augmenters.meta.Augmenter, optional
         Augmenter(s) that make up the foreground branch.
         High alpha values will show this branch's results.
 
@@ -1058,7 +1058,7 @@ class BlendAlphaElementwise(BlendAlphaMask):
             * If iterable of ``Augmenter``, then that iterable will be
               converted into a ``Sequential`` and used as the augmenter.
 
-    background : None or imgaug.augmenters.meta.Augmenter or iterable of imgaug.augmenters.meta.Augmenter, optional
+    background : None or imgaug.imgaug.augmenters.meta.Augmenter or iterable of imgaug.imgaug.augmenters.meta.Augmenter, optional
         Augmenter(s) that make up the background branch.
         Low alpha values will show this branch's results.
 
@@ -1093,7 +1093,7 @@ class BlendAlphaElementwise(BlendAlphaMask):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.BlendAlphaElementwise(0.5, iaa.Grayscale(1.0))
 
     Convert each image to pure grayscale and alpha-blend the result with the
@@ -1179,7 +1179,7 @@ class BlendAlphaSimplexNoise(BlendAlphaElementwise):
 
     Parameters
     ----------
-    foreground : None or imgaug.augmenters.meta.Augmenter or iterable of imgaug.augmenters.meta.Augmenter, optional
+    foreground : None or imgaug.imgaug.augmenters.meta.Augmenter or iterable of imgaug.imgaug.augmenters.meta.Augmenter, optional
         Augmenter(s) that make up the foreground branch.
         High alpha values will show this branch's results.
 
@@ -1189,7 +1189,7 @@ class BlendAlphaSimplexNoise(BlendAlphaElementwise):
             * If iterable of ``Augmenter``, then that iterable will be
               converted into a ``Sequential`` and used as the augmenter.
 
-    background : None or imgaug.augmenters.meta.Augmenter or iterable of imgaug.augmenters.meta.Augmenter, optional
+    background : None or imgaug.imgaug.augmenters.meta.Augmenter or iterable of imgaug.imgaug.augmenters.meta.Augmenter, optional
         Augmenter(s) that make up the background branch.
         Low alpha values will show this branch's results.
 
@@ -1307,7 +1307,7 @@ class BlendAlphaSimplexNoise(BlendAlphaElementwise):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.BlendAlphaSimplexNoise(iaa.EdgeDetect(1.0))
 
     Detect per image all edges, mark them in a black and white image and
@@ -1419,7 +1419,7 @@ class BlendAlphaFrequencyNoise(BlendAlphaElementwise):
             * If a ``StochasticParameter``, then a value will be sampled from
               that parameter per iteration.
 
-    foreground : None or imgaug.augmenters.meta.Augmenter or iterable of imgaug.augmenters.meta.Augmenter, optional
+    foreground : None or imgaug.imgaug.augmenters.meta.Augmenter or iterable of imgaug.imgaug.augmenters.meta.Augmenter, optional
         Augmenter(s) that make up the foreground branch.
         High alpha values will show this branch's results.
 
@@ -1429,7 +1429,7 @@ class BlendAlphaFrequencyNoise(BlendAlphaElementwise):
             * If iterable of ``Augmenter``, then that iterable will be
               converted into a ``Sequential`` and used as the augmenter.
 
-    background : None or imgaug.augmenters.meta.Augmenter or iterable of imgaug.augmenters.meta.Augmenter, optional
+    background : None or imgaug.imgaug.augmenters.meta.Augmenter or iterable of imgaug.imgaug.augmenters.meta.Augmenter, optional
         Augmenter(s) that make up the background branch.
         Low alpha values will show this branch's results.
 
@@ -1548,7 +1548,7 @@ class BlendAlphaFrequencyNoise(BlendAlphaElementwise):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.BlendAlphaFrequencyNoise(foreground=iaa.EdgeDetect(1.0))
 
     Detect per image all edges, mark them in a black and white image and
@@ -1672,7 +1672,7 @@ class BlendAlphaSomeColors(BlendAlphaMask):
 
     Parameters
     ----------
-    foreground : None or imgaug.augmenters.meta.Augmenter or iterable of imgaug.augmenters.meta.Augmenter, optional
+    foreground : None or imgaug.imgaug.augmenters.meta.Augmenter or iterable of imgaug.imgaug.augmenters.meta.Augmenter, optional
         Augmenter(s) that make up the foreground branch.
         High alpha values will show this branch's results.
 
@@ -1682,7 +1682,7 @@ class BlendAlphaSomeColors(BlendAlphaMask):
             * If iterable of ``Augmenter``, then that iterable will be
               converted into a ``Sequential`` and used as the augmenter.
 
-    background : None or imgaug.augmenters.meta.Augmenter or iterable of imgaug.augmenters.meta.Augmenter, optional
+    background : None or imgaug.imgaug.augmenters.meta.Augmenter or iterable of imgaug.imgaug.augmenters.meta.Augmenter, optional
         Augmenter(s) that make up the background branch.
         Low alpha values will show this branch's results.
 
@@ -1726,7 +1726,7 @@ class BlendAlphaSomeColors(BlendAlphaMask):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.BlendAlphaSomeColors(iaa.Grayscale(1.0))
 
     Create an augmenter that turns randomly removes some colors in images by
@@ -1812,7 +1812,7 @@ class BlendAlphaHorizontalLinearGradient(BlendAlphaMask):
 
     Parameters
     ----------
-    foreground : None or imgaug.augmenters.meta.Augmenter or iterable of imgaug.augmenters.meta.Augmenter, optional
+    foreground : None or imgaug.imgaug.augmenters.meta.Augmenter or iterable of imgaug.imgaug.augmenters.meta.Augmenter, optional
         Augmenter(s) that make up the foreground branch.
         High alpha values will show this branch's results.
 
@@ -1822,7 +1822,7 @@ class BlendAlphaHorizontalLinearGradient(BlendAlphaMask):
             * If iterable of ``Augmenter``, then that iterable will be
               converted into a ``Sequential`` and used as the augmenter.
 
-    background : None or imgaug.augmenters.meta.Augmenter or iterable of imgaug.augmenters.meta.Augmenter, optional
+    background : None or imgaug.imgaug.augmenters.meta.Augmenter or iterable of imgaug.imgaug.augmenters.meta.Augmenter, optional
         Augmenter(s) that make up the background branch.
         Low alpha values will show this branch's results.
 
@@ -1863,7 +1863,7 @@ class BlendAlphaHorizontalLinearGradient(BlendAlphaMask):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.BlendAlphaHorizontalLinearGradient(iaa.AddToHue((-100, 100)))
 
     Create an augmenter that randomizes the hue towards the right of the
@@ -1934,7 +1934,7 @@ class BlendAlphaVerticalLinearGradient(BlendAlphaMask):
 
     Parameters
     ----------
-    foreground : None or imgaug.augmenters.meta.Augmenter or iterable of imgaug.augmenters.meta.Augmenter, optional
+    foreground : None or imgaug.imgaug.augmenters.meta.Augmenter or iterable of imgaug.imgaug.augmenters.meta.Augmenter, optional
         Augmenter(s) that make up the foreground branch.
         High alpha values will show this branch's results.
 
@@ -1944,7 +1944,7 @@ class BlendAlphaVerticalLinearGradient(BlendAlphaMask):
             * If iterable of ``Augmenter``, then that iterable will be
               converted into a ``Sequential`` and used as the augmenter.
 
-    background : None or imgaug.augmenters.meta.Augmenter or iterable of imgaug.augmenters.meta.Augmenter, optional
+    background : None or imgaug.imgaug.augmenters.meta.Augmenter or iterable of imgaug.imgaug.augmenters.meta.Augmenter, optional
         Augmenter(s) that make up the background branch.
         Low alpha values will show this branch's results.
 
@@ -1985,7 +1985,7 @@ class BlendAlphaVerticalLinearGradient(BlendAlphaMask):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.BlendAlphaVerticalLinearGradient(iaa.AddToHue((-100, 100)))
 
     Create an augmenter that randomizes the hue towards the bottom of the
@@ -2074,7 +2074,7 @@ class BlendAlphaRegularGrid(BlendAlphaMask):
         Number of columns of the checkerboard. Analogous to `nb_rows`.
         See :class:`~imgaug.augmenters.blend.CheckerboardMaskGen` for details.
 
-    foreground : None or imgaug.augmenters.meta.Augmenter or iterable of imgaug.augmenters.meta.Augmenter, optional
+    foreground : None or imgaug.imgaug.augmenters.meta.Augmenter or iterable of imgaug.imgaug.augmenters.meta.Augmenter, optional
         Augmenter(s) that make up the foreground branch.
         High alpha values will show this branch's results.
 
@@ -2084,7 +2084,7 @@ class BlendAlphaRegularGrid(BlendAlphaMask):
             * If iterable of ``Augmenter``, then that iterable will be
               converted into a ``Sequential`` and used as the augmenter.
 
-    background : None or imgaug.augmenters.meta.Augmenter or iterable of imgaug.augmenters.meta.Augmenter, optional
+    background : None or imgaug.imgaug.augmenters.meta.Augmenter or iterable of imgaug.imgaug.augmenters.meta.Augmenter, optional
         Augmenter(s) that make up the background branch.
         Low alpha values will show this branch's results.
 
@@ -2123,7 +2123,7 @@ class BlendAlphaRegularGrid(BlendAlphaMask):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.BlendAlphaRegularGrid(nb_rows=(4, 6), nb_cols=(1, 4),
     >>>                                 foreground=iaa.Multiply(0.0))
 
@@ -2200,7 +2200,7 @@ class BlendAlphaCheckerboard(BlendAlphaMask):
         Number of columns of the checkerboard. Analogous to `nb_rows`.
         See :class:`~imgaug.augmenters.blend.CheckerboardMaskGen` for details.
 
-    foreground : None or imgaug.augmenters.meta.Augmenter or iterable of imgaug.augmenters.meta.Augmenter, optional
+    foreground : None or imgaug.imgaug.augmenters.meta.Augmenter or iterable of imgaug.imgaug.augmenters.meta.Augmenter, optional
         Augmenter(s) that make up the foreground branch.
         High alpha values will show this branch's results.
 
@@ -2210,7 +2210,7 @@ class BlendAlphaCheckerboard(BlendAlphaMask):
             * If iterable of ``Augmenter``, then that iterable will be
               converted into a ``Sequential`` and used as the augmenter.
 
-    background : None or imgaug.augmenters.meta.Augmenter or iterable of imgaug.augmenters.meta.Augmenter, optional
+    background : None or imgaug.imgaug.augmenters.meta.Augmenter or iterable of imgaug.imgaug.augmenters.meta.Augmenter, optional
         Augmenter(s) that make up the background branch.
         Low alpha values will show this branch's results.
 
@@ -2239,7 +2239,7 @@ class BlendAlphaCheckerboard(BlendAlphaMask):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.BlendAlphaCheckerboard(nb_rows=2, nb_cols=(1, 4),
     >>>                                  foreground=iaa.AddToHue((-100, 100)))
 
@@ -2304,7 +2304,7 @@ class BlendAlphaSegMapClassIds(BlendAlphaMask):
     class_ids : int or tuple of int or list of int or imgaug.parameters.StochasticParameter
         See :class:`~imgaug.augmenters.blend.SegMapClassIdsMaskGen`.
 
-    foreground : None or imgaug.augmenters.meta.Augmenter or iterable of imgaug.augmenters.meta.Augmenter, optional
+    foreground : None or imgaug.imgaug.augmenters.meta.Augmenter or iterable of imgaug.imgaug.augmenters.meta.Augmenter, optional
         Augmenter(s) that make up the foreground branch.
         High alpha values will show this branch's results.
 
@@ -2314,7 +2314,7 @@ class BlendAlphaSegMapClassIds(BlendAlphaMask):
             * If iterable of ``Augmenter``, then that iterable will be
               converted into a ``Sequential`` and used as the augmenter.
 
-    background : None or imgaug.augmenters.meta.Augmenter or iterable of imgaug.augmenters.meta.Augmenter, optional
+    background : None or imgaug.imgaug.augmenters.meta.Augmenter or iterable of imgaug.imgaug.augmenters.meta.Augmenter, optional
         Augmenter(s) that make up the background branch.
         Low alpha values will show this branch's results.
 
@@ -2346,7 +2346,7 @@ class BlendAlphaSegMapClassIds(BlendAlphaMask):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.BlendAlphaSegMapClassIds(
     >>>     [1, 3],
     >>>     foreground=iaa.AddToHue((-100, 100)))
@@ -2431,7 +2431,7 @@ class BlendAlphaBoundingBoxes(BlendAlphaMask):
     labels : None or str or list of str or imgaug.parameters.StochasticParameter
         See :class:`~imgaug.augmenters.blend.BoundingBoxesMaskGen`.
 
-    foreground : None or imgaug.augmenters.meta.Augmenter or iterable of imgaug.augmenters.meta.Augmenter, optional
+    foreground : None or imgaug.imgaug.augmenters.meta.Augmenter or iterable of imgaug.imgaug.augmenters.meta.Augmenter, optional
         Augmenter(s) that make up the foreground branch.
         High alpha values will show this branch's results.
 
@@ -2441,7 +2441,7 @@ class BlendAlphaBoundingBoxes(BlendAlphaMask):
             * If iterable of ``Augmenter``, then that iterable will be
               converted into a ``Sequential`` and used as the augmenter.
 
-    background : None or imgaug.augmenters.meta.Augmenter or iterable of imgaug.augmenters.meta.Augmenter, optional
+    background : None or imgaug.imgaug.augmenters.meta.Augmenter or iterable of imgaug.imgaug.augmenters.meta.Augmenter, optional
         Augmenter(s) that make up the background branch.
         Low alpha values will show this branch's results.
 
@@ -2473,7 +2473,7 @@ class BlendAlphaBoundingBoxes(BlendAlphaMask):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.BlendAlphaBoundingBoxes("person",
     >>>                                   foreground=iaa.Grayscale(1.0))
 
@@ -2545,7 +2545,7 @@ class IBatchwiseMaskGenerator(object):
 
         Parameters
         ----------
-        batch : imgaug.augmentables.batches._BatchInAugmentation
+        batch : imgaug.imgaug.augmentables.batches._BatchInAugmentation
             Shape of the mask to sample.
 
         random_state : None or int or imgaug.random.RNG or numpy.random.Generator or numpy.random.BitGenerator or numpy.random.SeedSequence or numpy.random.RandomState, optional
@@ -3693,7 +3693,7 @@ class SegMapClassIdsMaskGen(IBatchwiseMaskGenerator):
 
         Parameters
         ----------
-        segmap : imgaug.augmentables.segmap.SegmentationMapsOnImage
+        segmap : imgaug.imgaug.augmentables.segmap.SegmentationMapsOnImage
             The segmentation map for which to generate the mask.
 
         class_ids : iterable of int
@@ -3861,7 +3861,7 @@ class BoundingBoxesMaskGen(IBatchwiseMaskGenerator):
 
         Parameters
         ----------
-        bbsoi : imgaug.augmentables.bbs.BoundingBoxesOnImage
+        bbsoi : imgaug.imgaug.augmentables.bbs.BoundingBoxesOnImage
             The bounding boxes for which to generate the mask.
 
         labels : None or iterable of str

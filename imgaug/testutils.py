@@ -27,10 +27,10 @@ try:
 except ImportError:
     import pickle
 
-import imgaug as ia
+import imgaug.imgaug as ia
 import imgaug.random as iarandom
 import imgaug.parameters as iap
-from imgaug.augmentables.kps import KeypointsOnImage
+from imgaug.imgaug.augmentables.kps import KeypointsOnImage
 
 
 class ArgCopyingMagicMock(mock.MagicMock):

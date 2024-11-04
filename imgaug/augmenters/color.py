@@ -34,8 +34,8 @@ import cv2
 import six
 import six.moves as sm
 
-import imgaug as ia
-from imgaug.imgaug import _normalize_cv2_input_arr_
+import imgaug.imgaug as ia
+from imgaug.imgaug.imgaug import _normalize_cv2_input_arr_
 from . import meta
 from . import blend
 from . import arithmetic
@@ -225,7 +225,7 @@ def change_colorspace_(image, to_colorspace, from_colorspace=CSPACE_RGB):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> import numpy as np
     >>> # fake RGB image
     >>> image_rgb = np.arange(4*4*3).astype(np.uint8).reshape((4, 4, 3))
@@ -340,7 +340,7 @@ def change_colorspaces_(images, to_colorspaces, from_colorspaces=CSPACE_RGB):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> import numpy as np
     >>> # fake RGB image
     >>> image_rgb = np.arange(4*4*3).astype(np.uint8).reshape((4, 4, 3))
@@ -1006,7 +1006,7 @@ class WithColorspace(meta.Augmenter):
     from_colorspace : str, optional
         See :func:`~imgaug.augmenters.color.change_colorspace_`.
 
-    children : imgaug.augmenters.meta.Augmenter or list of imgaug.augmenters.meta.Augmenter or None, optional
+    children : imgaug.imgaug.augmenters.meta.Augmenter or list of imgaug.imgaug.augmenters.meta.Augmenter or None, optional
         One or more augmenters to apply to converted images.
 
     seed : None or int or imgaug.random.RNG or numpy.random.Generator or numpy.random.BitGenerator or numpy.random.SeedSequence or numpy.random.RandomState, optional
@@ -1028,7 +1028,7 @@ class WithColorspace(meta.Augmenter):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.WithColorspace(
     >>>     to_colorspace=iaa.CSPACE_HSV,
     >>>     from_colorspace=iaa.CSPACE_RGB,
@@ -1120,7 +1120,7 @@ class WithBrightnessChannels(meta.Augmenter):
 
     Parameters
     ----------
-    children : imgaug.augmenters.meta.Augmenter or list of imgaug.augmenters.meta.Augmenter or None, optional
+    children : imgaug.imgaug.augmenters.meta.Augmenter or list of imgaug.imgaug.augmenters.meta.Augmenter or None, optional
         One or more augmenters to apply to the brightness channels.
         They receive images with a single channel and have to modify these.
 
@@ -1162,7 +1162,7 @@ class WithBrightnessChannels(meta.Augmenter):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.WithBrightnessChannels(iaa.Add((-50, 50)))
 
     Add ``-50`` to ``50`` to the brightness-related channels of each image.
@@ -1356,7 +1356,7 @@ class MultiplyAndAddToBrightness(WithBrightnessChannels):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.MultiplyAndAddToBrightness(mul=(0.5, 1.5), add=(-30, 30))
 
     Convert each image to a colorspace with a brightness-related channel,
@@ -1459,7 +1459,7 @@ class MultiplyBrightness(MultiplyAndAddToBrightness):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.MultiplyBrightness((0.5, 1.5))
 
     Convert each image to a colorspace with a brightness-related channel,
@@ -1533,7 +1533,7 @@ class AddToBrightness(MultiplyAndAddToBrightness):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.AddToBrightness((-30, 30))
 
     Convert each image to a colorspace with a brightness-related channel,
@@ -1595,7 +1595,7 @@ class WithHueAndSaturation(meta.Augmenter):
     from_colorspace : str, optional
         See :func:`~imgaug.augmenters.color.change_colorspace_`.
 
-    children : imgaug.augmenters.meta.Augmenter or list of imgaug.augmenters.meta.Augmenter or None, optional
+    children : imgaug.imgaug.augmenters.meta.Augmenter or list of imgaug.imgaug.augmenters.meta.Augmenter or None, optional
         One or more augmenters to apply to converted images.
         They receive ``int16`` images with two channels (hue, saturation)
         and have to modify these.
@@ -1619,7 +1619,7 @@ class WithHueAndSaturation(meta.Augmenter):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.WithHueAndSaturation(
     >>>     iaa.WithChannels(0, iaa.Add((0, 50)))
     >>> )
@@ -1630,7 +1630,7 @@ class WithHueAndSaturation(meta.Augmenter):
     if the angle goes beyond 360 degrees, it will start again at 0 degrees.
     The colorspace is finally converted back to ``RGB`` (default setting).
 
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.WithHueAndSaturation([
     >>>     iaa.WithChannels(0, iaa.Add((-30, 10))),
     >>>     iaa.WithChannels(1, [
@@ -1851,7 +1851,7 @@ class MultiplyHueAndSaturation(WithHueAndSaturation):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.MultiplyHueAndSaturation((0.5, 1.5), per_channel=True)
 
     Multiply hue and saturation by random values between ``0.5`` and ``1.5``
@@ -1859,12 +1859,12 @@ class MultiplyHueAndSaturation(WithHueAndSaturation):
     that channel). The hue will be automatically projected to an angular
     representation.
 
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.MultiplyHueAndSaturation(mul_hue=(0.5, 1.5))
 
     Multiply only the hue by random values between ``0.5`` and ``1.5``.
 
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.MultiplyHueAndSaturation(mul_saturation=(0.5, 1.5))
 
     Multiply only the saturation by random values between ``0.5`` and ``1.5``.
@@ -2021,7 +2021,7 @@ class MultiplyHue(MultiplyHueAndSaturation):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.MultiplyHue((0.5, 1.5))
 
     Multiply the hue channel of images using random values between ``0.5``
@@ -2090,7 +2090,7 @@ class MultiplySaturation(MultiplyHueAndSaturation):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.MultiplySaturation((0.5, 1.5))
 
     Multiply the saturation channel of images using random values between
@@ -2159,7 +2159,7 @@ class RemoveSaturation(MultiplySaturation):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.RemoveSaturation((0.0, 1.0))
 
     Create an augmenter that decreases saturation by varying degrees.
@@ -2349,7 +2349,7 @@ class AddToHueAndSaturation(meta.Augmenter):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.AddToHueAndSaturation((-50, 50), per_channel=True)
 
     Add random values between ``-50`` and ``50`` to the hue and saturation
@@ -2485,8 +2485,8 @@ class AddToHueAndSaturation(meta.Augmenter):
         # image_hsv[..., 1] = cv2.LUT(image_hsv[..., 1], table_saturation)
 
         # code with using cache (at best maybe 10% faster for 64x64):
-       if self.backend == "cv2" and AddToHueAndSaturation._LUT_CACHE is None:
-            AddToHueAndSaturation._LUT_CACHE = self._generate_lut_table()
+        if AddToHueAndSaturation._LUT_CACHE is None:
+            AddToHueAndSaturation._LUT_CACHE = AddToHueAndSaturation._generate_lut_table()
         table_hue = cls._LUT_CACHE[0]
         table_saturation = cls._LUT_CACHE[1]
         tables = [
@@ -2627,7 +2627,7 @@ class AddToHue(AddToHueAndSaturation):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.AddToHue((-50, 50))
 
     Sample random values from the discrete uniform range ``[-50..50]``,
@@ -2700,7 +2700,7 @@ class AddToSaturation(AddToHueAndSaturation):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.AddToSaturation((-50, 50))
 
     Sample random values from the discrete uniform range ``[-50..50]``,
@@ -2992,12 +2992,12 @@ class Grayscale(ChangeColorspace):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.Grayscale(alpha=1.0)
 
     Creates an augmenter that turns images to their grayscale versions.
 
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.Grayscale(alpha=(0.0, 1.0))
 
     Creates an augmenter that turns images to their grayscale versions with
@@ -3053,7 +3053,7 @@ class ChangeColorTemperature(meta.Augmenter):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.ChangeColorTemperature((1100, 10000))
 
     Create an augmenter that changes the color temperature of images to
@@ -3329,7 +3329,7 @@ class KMeansColorQuantization(_AbstractColorQuantization):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.KMeansColorQuantization()
 
     Create an augmenter to apply k-Means color quantization to images using a
@@ -3462,7 +3462,7 @@ def quantize_kmeans(arr, nb_clusters, nb_max_iter=10, eps=1.0):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> import numpy as np
     >>> image = np.arange(4 * 4 * 3, dtype=np.uint8).reshape((4, 4, 3))
     >>> image_quantized = iaa.quantize_kmeans(image, 6)
@@ -3615,7 +3615,7 @@ class UniformColorQuantization(_AbstractColorQuantization):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.UniformColorQuantization()
 
     Create an augmenter to apply uniform color quantization to images using a
@@ -3776,7 +3776,7 @@ class UniformColorQuantizationToNBits(_AbstractColorQuantization):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.UniformColorQuantizationToNBits()
 
     Create an augmenter to apply uniform color quantization to images using a
@@ -3933,7 +3933,7 @@ def quantize_uniform_(arr, nb_bins, to_bin_centers=True):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> import numpy as np
     >>> image = np.arange(4 * 4 * 3, dtype=np.uint8).reshape((4, 4, 3))
     >>> image_quantized = iaa.quantize_uniform_(np.copy(image), 6)
@@ -4109,7 +4109,7 @@ def quantize_uniform_to_n_bits_(arr, nb_bits):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> import numpy as np
     >>> image = np.arange(4 * 4 * 3, dtype=np.uint8).reshape((4, 4, 3))
     >>> image_quantized = iaa.quantize_uniform_to_n_bits_(np.copy(image), 6)

@@ -15,9 +15,9 @@ except ImportError:
 
 import numpy as np
 
-import imgaug as ia
+import imgaug.imgaug as ia
 import imgaug.random as iarandom
-from imgaug.augmentables.bbs import _LabelOnImageDrawer
+from imgaug.imgaug.augmentables.bbs import _LabelOnImageDrawer
 from imgaug.testutils import wrap_shift_deprecation, assertWarns
 
 

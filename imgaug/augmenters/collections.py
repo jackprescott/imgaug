@@ -154,7 +154,7 @@ class RandAugment(meta.Sequential):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.RandAugment(n=2, m=9)
 
     Create a RandAugment augmenter similar to the suggested hyperparameters

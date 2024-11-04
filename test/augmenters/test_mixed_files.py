@@ -17,7 +17,7 @@ import skimage
 import skimage.data
 import six.moves as sm
 
-import imgaug as ia
+import imgaug.imgaug as ia
 from imgaug import augmenters as iaa
 from imgaug.testutils import (create_random_images, array_equal_lists,
                               keypoints_equal, reseed, assertWarns)

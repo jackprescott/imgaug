@@ -37,7 +37,7 @@ List of augmenters:
 Standard usage of these augmenters follows roughly the schema::
 
     import numpy as np
-    import imgaug.augmenters as iaa
+    import imgaug.imgaug.augmenters as iaa
 
     aug = iaa.pillike.Affine(translate_px={"x": (-5, 5)})
     image = np.full((32, 32, 3), 255, dtype=np.uint8)
@@ -57,8 +57,8 @@ import PIL.ImageOps
 import PIL.ImageEnhance
 import PIL.ImageFilter
 
-import imgaug as ia
-from imgaug.imgaug import _normalize_cv2_input_arr_
+import imgaug.imgaug as ia
+from imgaug.imgaug.imgaug import _normalize_cv2_input_arr_
 from . import meta
 from . import arithmetic
 from . import color as colorlib
@@ -1314,7 +1314,7 @@ class Solarize(arithmetic.Invert):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.Solarize(0.5, threshold=(32, 128))
 
     Invert the colors in ``50`` percent of all images for pixels with a
@@ -1386,7 +1386,7 @@ class Equalize(meta.Augmenter):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.pillike.Equalize()
 
     Equalize the histograms of all input images.
@@ -1467,7 +1467,7 @@ class Autocontrast(contrastlib._ContrastFuncWrapper):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.pillike.Autocontrast()
 
     Modify the contrast of images by cutting off the ``0`` to ``20%`` lowest
@@ -1583,7 +1583,7 @@ class EnhanceColor(_EnhanceBase):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.pillike.EnhanceColor()
 
     Create an augmenter to remove a random fraction of color from
@@ -1649,7 +1649,7 @@ class EnhanceContrast(_EnhanceBase):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.pillike.EnhanceContrast()
 
     Create an augmenter that worsens the contrast of an image by a random
@@ -1715,7 +1715,7 @@ class EnhanceBrightness(_EnhanceBase):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.pillike.EnhanceBrightness()
 
     Create an augmenter that worsens the brightness of an image by a random
@@ -1781,7 +1781,7 @@ class EnhanceSharpness(_EnhanceBase):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.pillike.EnhanceSharpness()
 
     Create an augmenter that randomly decreases or increases the sharpness
@@ -1858,7 +1858,7 @@ class FilterBlur(_FilterBase):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.pillike.FilterBlur()
 
     Create an augmenter that applies a blur filter kernel to images.
@@ -1908,7 +1908,7 @@ class FilterSmooth(_FilterBase):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.pillike.FilterSmooth()
 
     Create an augmenter that applies a smoothening filter kernel to images.
@@ -1958,7 +1958,7 @@ class FilterSmoothMore(_FilterBase):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.pillike.FilterSmoothMore()
 
     Create an augmenter that applies a strong smoothening filter kernel to
@@ -2010,7 +2010,7 @@ class FilterEdgeEnhance(_FilterBase):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.pillike.FilterEdgeEnhance()
 
     Create an augmenter that applies a edge enhancement filter kernel to
@@ -2062,7 +2062,7 @@ class FilterEdgeEnhanceMore(_FilterBase):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.pillike.FilterEdgeEnhanceMore()
 
     Create an augmenter that applies a strong edge enhancement filter kernel
@@ -2114,7 +2114,7 @@ class FilterFindEdges(_FilterBase):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.pillike.FilterFindEdges()
 
     Create an augmenter that applies an edge detection filter kernel to images.
@@ -2164,7 +2164,7 @@ class FilterContour(_FilterBase):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.pillike.FilterContour()
 
     Create an augmenter that applies a contour detection filter kernel to
@@ -2215,7 +2215,7 @@ class FilterEmboss(_FilterBase):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.pillike.FilterEmboss()
 
     Create an augmenter that applies an emboss filter kernel to images.
@@ -2265,7 +2265,7 @@ class FilterSharpen(_FilterBase):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.pillike.FilterSharpen()
 
     Create an augmenter that applies a sharpening filter kernel to images.
@@ -2315,7 +2315,7 @@ class FilterDetail(_FilterBase):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.pillike.FilterDetail()
 
     Create an augmenter that applies a detail enhancement filter kernel to
@@ -2411,7 +2411,7 @@ class Affine(geometric.Affine):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.pillike.Affine(scale={"x": (0.8, 1.2), "y": (0.5, 1.5)})
 
     Create an augmenter that applies affine scaling (zoom in/out) to images.
@@ -2462,7 +2462,7 @@ class Affine(geometric.Affine):
         cols = batch.get_column_names()
         assert len(cols) == 0 or (len(cols) == 1 and "images" in cols), (
             "pillike.Affine can currently only process image data. Got a "
-            "batch containing: %s. Use imgaug.augmenters.geometric.Affine for "
+            "batch containing: %s. Use imgaug.imgaug.augmenters.geometric.Affine for "
             "batches containing non-image data." % (", ".join(cols),))
 
         return super(Affine, self)._augment_batch_(

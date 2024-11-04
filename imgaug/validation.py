@@ -1,7 +1,7 @@
 """Helper functions to validate input data and produce error messages."""
 from __future__ import print_function, division, absolute_import
 
-import imgaug as ia
+import imgaug.imgaug as ia
 
 
 def convert_iterable_to_string_of_types(iterable_var):

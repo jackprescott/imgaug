@@ -7,7 +7,7 @@ Added in 0.4.0.
 
 """
 from __future__ import print_function, division, absolute_import
-import imgaug as ia
+import imgaug.imgaug as ia
 
 
 class SuspiciousMultiImageShapeWarning(UserWarning):

@@ -20,7 +20,7 @@ import numpy as np
 import cv2
 import six.moves as sm
 
-import imgaug as ia
+import imgaug.imgaug as ia
 from . import meta
 from .. import parameters as iap
 from .. import dtypes as iadt
@@ -224,7 +224,7 @@ class Convolve(meta.Augmenter):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> matrix = np.array([[0, -1, 0],
     >>>                    [-1, 4, -1],
     >>>                    [0, -1, 0]])
@@ -362,7 +362,7 @@ class Sharpen(Convolve):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.Sharpen(alpha=(0.0, 1.0))
 
     Sharpens input images and blends the sharpened image with the input image
@@ -479,7 +479,7 @@ class Emboss(Convolve):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.Emboss(alpha=(0.0, 1.0), strength=(0.5, 1.5))
 
     Emboss an image with a strength sampled uniformly from the interval
@@ -576,7 +576,7 @@ class EdgeDetect(Convolve):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.EdgeDetect(alpha=(0.0, 1.0))
 
     Detect edges in an image, mark them as black (non-edge) and white (edges)
@@ -692,7 +692,7 @@ class DirectedEdgeDetect(Convolve):
 
     Examples
     --------
-    >>> import imgaug.augmenters as iaa
+    >>> import imgaug.imgaug.augmenters as iaa
     >>> aug = iaa.DirectedEdgeDetect(alpha=1.0, direction=0)
 
     Turn input images into edge images in which edges are detected from

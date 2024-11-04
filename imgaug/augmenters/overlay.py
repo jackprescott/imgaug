@@ -5,7 +5,7 @@ Deprecated module. Original name for module blend.py. Was changed in 0.2.8.
 """
 from __future__ import print_function, division, absolute_import
 
-import imgaug as ia
+import imgaug.imgaug as ia
 from . import blend
 
 

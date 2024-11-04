@@ -51,20 +51,20 @@ class UnnormalizedBatch(object):
     images : None or (N,H,W,C) ndarray or (N,H,W) ndarray or iterable of (H,W,C) ndarray or iterable of (H,W) ndarray
         The images to augment.
 
-    heatmaps : None or (N,H,W,C) ndarray or imgaug.augmentables.heatmaps.HeatmapsOnImage or iterable of (H,W,C) ndarray or iterable of imgaug.augmentables.heatmaps.HeatmapsOnImage
+    heatmaps : None or (N,H,W,C) ndarray or imgaug.imgaug.augmentables.heatmaps.HeatmapsOnImage or iterable of (H,W,C) ndarray or iterable of imgaug.imgaug.augmentables.heatmaps.HeatmapsOnImage
         The heatmaps to augment.
         If anything else than ``HeatmapsOnImage``, then the number of heatmaps
         must match the number of images provided via parameter `images`.
         The number is contained either in ``N`` or the first iterable's size.
 
-    segmentation_maps : None or (N,H,W) ndarray or imgaug.augmentables.segmaps.SegmentationMapsOnImage or iterable of (H,W) ndarray or iterable of imgaug.augmentables.segmaps.SegmentationMapsOnImage
+    segmentation_maps : None or (N,H,W) ndarray or imgaug.imgaug.augmentables.segmaps.SegmentationMapsOnImage or iterable of (H,W) ndarray or iterable of imgaug.imgaug.augmentables.segmaps.SegmentationMapsOnImage
         The segmentation maps to augment.
         If anything else than ``SegmentationMapsOnImage``, then the number of
         segmaps must match the number of images provided via parameter
         `images`. The number is contained either in ``N`` or the first
         iterable's size.
 
-    keypoints : None or list of (N,K,2) ndarray or tuple of number or imgaug.augmentables.kps.Keypoint or iterable of (K,2) ndarray or iterable of tuple of number or iterable of imgaug.augmentables.kps.Keypoint or iterable of imgaug.augmentables.kps.KeypointOnImage or iterable of iterable of tuple of number or iterable of iterable of imgaug.augmentables.kps.Keypoint
+    keypoints : None or list of (N,K,2) ndarray or tuple of number or imgaug.imgaug.augmentables.kps.Keypoint or iterable of (K,2) ndarray or iterable of tuple of number or iterable of imgaug.imgaug.augmentables.kps.Keypoint or iterable of imgaug.imgaug.augmentables.kps.KeypointOnImage or iterable of iterable of tuple of number or iterable of iterable of imgaug.imgaug.augmentables.kps.Keypoint
         The keypoints to augment.
         If a tuple (or iterable(s) of tuple), then iterpreted as (x,y)
         coordinates and must hence contain two numbers.
@@ -80,13 +80,13 @@ class UnnormalizedBatch(object):
         in case of "iterable of iterable of tuples" in the first iterable's
         size.
 
-    bounding_boxes : None or (N,B,4) ndarray or tuple of number or imgaug.augmentables.bbs.BoundingBox or imgaug.augmentables.bbs.BoundingBoxesOnImage or iterable of (B,4) ndarray or iterable of tuple of number or iterable of imgaug.augmentables.bbs.BoundingBox or iterable of imgaug.augmentables.bbs.BoundingBoxesOnImage or iterable of iterable of tuple of number or iterable of iterable imgaug.augmentables.bbs.BoundingBox
+    bounding_boxes : None or (N,B,4) ndarray or tuple of number or imgaug.imgaug.augmentables.bbs.BoundingBox or imgaug.imgaug.augmentables.bbs.BoundingBoxesOnImage or iterable of (B,4) ndarray or iterable of tuple of number or iterable of imgaug.imgaug.augmentables.bbs.BoundingBox or iterable of imgaug.imgaug.augmentables.bbs.BoundingBoxesOnImage or iterable of iterable of tuple of number or iterable of iterable imgaug.imgaug.augmentables.bbs.BoundingBox
         The bounding boxes to augment.
         This is analogous to the `keypoints` parameter. However, each
         tuple -- and also the last index in case of arrays -- has size 4,
         denoting the bounding box coordinates ``x1``, ``y1``, ``x2`` and ``y2``.
 
-    polygons : None  or (N,#polys,#points,2) ndarray or imgaug.augmentables.polys.Polygon or imgaug.augmentables.polys.PolygonsOnImage or iterable of (#polys,#points,2) ndarray or iterable of tuple of number or iterable of imgaug.augmentables.kps.Keypoint or iterable of imgaug.augmentables.polys.Polygon or iterable of imgaug.augmentables.polys.PolygonsOnImage or iterable of iterable of (#points,2) ndarray or iterable of iterable of tuple of number or iterable of iterable of imgaug.augmentables.kps.Keypoint or iterable of iterable of imgaug.augmentables.polys.Polygon or iterable of iterable of iterable of tuple of number or iterable of iterable of iterable of tuple of imgaug.augmentables.kps.Keypoint
+    polygons : None  or (N,#polys,#points,2) ndarray or imgaug.imgaug.augmentables.polys.Polygon or imgaug.imgaug.augmentables.polys.PolygonsOnImage or iterable of (#polys,#points,2) ndarray or iterable of tuple of number or iterable of imgaug.imgaug.augmentables.kps.Keypoint or iterable of imgaug.imgaug.augmentables.polys.Polygon or iterable of imgaug.imgaug.augmentables.polys.PolygonsOnImage or iterable of iterable of (#points,2) ndarray or iterable of iterable of tuple of number or iterable of iterable of imgaug.imgaug.augmentables.kps.Keypoint or iterable of iterable of imgaug.imgaug.augmentables.polys.Polygon or iterable of iterable of iterable of tuple of number or iterable of iterable of iterable of tuple of imgaug.imgaug.augmentables.kps.Keypoint
         The polygons to augment.
         This is similar to the `keypoints` parameter. However, each polygon
         may be made up of several ``(x,y)`` coordinates (three or more are
@@ -96,16 +96,16 @@ class UnnormalizedBatch(object):
 
           * ``imgaug.augmentables.polys.Polygon``
           * ``iterable of tuple of number``
-          * ``iterable of imgaug.augmentables.kps.Keypoint``
+          * ``iterable of imgaug.imgaug.augmentables.kps.Keypoint``
 
         The following datatypes will be interpreted as multiple polygons on a
         single image:
 
           * ``imgaug.augmentables.polys.PolygonsOnImage``
-          * ``iterable of imgaug.augmentables.polys.Polygon``
+          * ``iterable of imgaug.imgaug.augmentables.polys.Polygon``
           * ``iterable of iterable of tuple of number``
-          * ``iterable of iterable of imgaug.augmentables.kps.Keypoint``
-          * ``iterable of iterable of imgaug.augmentables.polys.Polygon``
+          * ``iterable of iterable of imgaug.imgaug.augmentables.kps.Keypoint``
+          * ``iterable of iterable of imgaug.imgaug.augmentables.polys.Polygon``
 
         The following datatypes will be interpreted as multiple polygons on
         multiple images:
@@ -114,9 +114,9 @@ class UnnormalizedBatch(object):
           * ``iterable of (#polys,#points,2) ndarray``
           * ``iterable of iterable of (#points,2) ndarray``
           * ``iterable of iterable of iterable of tuple of number``
-          * ``iterable of iterable of iterable of tuple of imgaug.augmentables.kps.Keypoint``
+          * ``iterable of iterable of iterable of tuple of imgaug.imgaug.augmentables.kps.Keypoint``
 
-    line_strings : None or (N,#lines,#points,2) ndarray or imgaug.augmentables.lines.LineString or imgaug.augmentables.lines.LineStringOnImage or iterable of (#lines,#points,2) ndarray or iterable of tuple of number or iterable of imgaug.augmentables.kps.Keypoint or iterable of imgaug.augmentables.lines.LineString or iterable of imgaug.augmentables.lines.LineStringOnImage or iterable of iterable of (#points,2) ndarray or iterable of iterable of tuple of number or iterable of iterable of imgaug.augmentables.kps.Keypoint or iterable of iterable of imgaug.augmentables.polys.LineString or iterable of iterable of iterable of tuple of number or iterable of iterable of iterable of tuple of imgaug.augmentables.kps.Keypoint
+    line_strings : None or (N,#lines,#points,2) ndarray or imgaug.imgaug.augmentables.lines.LineString or imgaug.imgaug.augmentables.lines.LineStringOnImage or iterable of (#lines,#points,2) ndarray or iterable of tuple of number or iterable of imgaug.imgaug.augmentables.kps.Keypoint or iterable of imgaug.imgaug.augmentables.lines.LineString or iterable of imgaug.imgaug.augmentables.lines.LineStringOnImage or iterable of iterable of (#points,2) ndarray or iterable of iterable of tuple of number or iterable of iterable of imgaug.imgaug.augmentables.kps.Keypoint or iterable of iterable of imgaug.imgaug.augmentables.polys.LineString or iterable of iterable of iterable of tuple of number or iterable of iterable of iterable of tuple of imgaug.imgaug.augmentables.kps.Keypoint
         The line strings to augment.
         See `polygons` for more details as polygons follow a similar
         structure to line strings.
@@ -179,7 +179,7 @@ class UnnormalizedBatch(object):
 
         Returns
         -------
-        imgaug.augmentables.batches.Batch
+        imgaug.imgaug.augmentables.batches.Batch
             The batch, with ``*_unaug`` attributes being normalized.
 
         """
@@ -228,12 +228,12 @@ class UnnormalizedBatch(object):
 
         Parameters
         ----------
-        batch_aug_norm: imgaug.augmentables.batches.Batch
+        batch_aug_norm: imgaug.imgaug.augmentables.batches.Batch
             Batch after normalization and augmentation.
 
         Returns
         -------
-        imgaug.augmentables.batches.UnnormalizedBatch
+        imgaug.imgaug.augmentables.batches.UnnormalizedBatch
             This instance itself.
             All ``*_unaug`` attributes are unchanged.
             All ``*_aug`` attributes are taken from `batch_normalized`,
@@ -267,12 +267,12 @@ class UnnormalizedBatch(object):
 
         Parameters
         ----------
-        batch_aug_norm: imgaug.augmentables.batches.Batch
+        batch_aug_norm: imgaug.imgaug.augmentables.batches.Batch
             Batch after normalization and augmentation.
 
         Returns
         -------
-        imgaug.augmentables.batches.UnnormalizedBatch
+        imgaug.imgaug.augmentables.batches.UnnormalizedBatch
             New UnnormalizedBatch instance. All ``*_unaug`` attributes are
             taken from the old UnnormalizedBatch (without deepcopying them)
             and all ``*_aug`` attributes are taken from `batch_normalized`,
@@ -320,22 +320,22 @@ class Batch(object):
     images : None or (N,H,W,C) ndarray or list of (H,W,C) ndarray
         The images to augment.
 
-    heatmaps : None or list of imgaug.augmentables.heatmaps.HeatmapsOnImage
+    heatmaps : None or list of imgaug.imgaug.augmentables.heatmaps.HeatmapsOnImage
         The heatmaps to augment.
 
-    segmentation_maps : None or list of imgaug.augmentables.segmaps.SegmentationMapsOnImage
+    segmentation_maps : None or list of imgaug.imgaug.augmentables.segmaps.SegmentationMapsOnImage
         The segmentation maps to augment.
 
-    keypoints : None or list of imgaug.augmentables.kps.KeypointOnImage
+    keypoints : None or list of imgaug.imgaug.augmentables.kps.KeypointOnImage
         The keypoints to augment.
 
-    bounding_boxes : None or list of imgaug.augmentables.bbs.BoundingBoxesOnImage
+    bounding_boxes : None or list of imgaug.imgaug.augmentables.bbs.BoundingBoxesOnImage
         The bounding boxes to augment.
 
-    polygons : None or list of imgaug.augmentables.polys.PolygonsOnImage
+    polygons : None or list of imgaug.imgaug.augmentables.polys.PolygonsOnImage
         The polygons to augment.
 
-    line_strings : None or list of imgaug.augmentables.lines.LineStringsOnImage
+    line_strings : None or list of imgaug.imgaug.augmentables.lines.LineStringsOnImage
         The line strings to augment.
 
     data
@@ -424,7 +424,7 @@ class Batch(object):
 
         Returns
         -------
-        imgaug.augmentables.batches.Batch
+        imgaug.imgaug.augmentables.batches.Batch
             This batch (not copied).
 
         """
@@ -437,7 +437,7 @@ class Batch(object):
 
         Returns
         -------
-        imgaug.augmentables.batches._BatchInAugmentation
+        imgaug.imgaug.augmentables.batches._BatchInAugmentation
             The converted batch.
 
         """
@@ -504,72 +504,72 @@ class Batch(object):
 
         Parameters
         ----------
-        images_unaug : imgaug.augmentables.batches.DEFAULT or None or (N,H,W,C) ndarray or list of (H,W,C) ndarray
+        images_unaug : imgaug.imgaug.augmentables.batches.DEFAULT or None or (N,H,W,C) ndarray or list of (H,W,C) ndarray
             Copies the current attribute value without changes if set to
             ``imgaug.augmentables.batches.DEFAULT``.
             Otherwise same as in :func:`Batch.__init__`.
 
-        images_aug : imgaug.augmentables.batches.DEFAULT or None or (N,H,W,C) ndarray or list of (H,W,C) ndarray
+        images_aug : imgaug.imgaug.augmentables.batches.DEFAULT or None or (N,H,W,C) ndarray or list of (H,W,C) ndarray
             Copies the current attribute value without changes if set to
             ``imgaug.augmentables.batches.DEFAULT``.
             Otherwise same as in :func:`Batch.__init__`.
 
-        heatmaps_unaug : imgaug.augmentables.batches.DEFAULT or None or list of imgaug.augmentables.heatmaps.HeatmapsOnImage
+        heatmaps_unaug : imgaug.imgaug.augmentables.batches.DEFAULT or None or list of imgaug.imgaug.augmentables.heatmaps.HeatmapsOnImage
             Copies the current attribute value without changes if set to
             ``imgaug.augmentables.batches.DEFAULT``.
             Otherwise same as in :func:`Batch.__init__`.
 
-        heatmaps_aug : imgaug.augmentables.batches.DEFAULT or None or list of imgaug.augmentables.heatmaps.HeatmapsOnImage
+        heatmaps_aug : imgaug.imgaug.augmentables.batches.DEFAULT or None or list of imgaug.imgaug.augmentables.heatmaps.HeatmapsOnImage
             Copies the current attribute value without changes if set to
             ``imgaug.augmentables.batches.DEFAULT``.
             Otherwise same as in :func:`Batch.__init__`.
 
-        segmentation_maps_unaug : imgaug.augmentables.batches.DEFAULT or None or list of imgaug.augmentables.segmaps.SegmentationMapsOnImage
+        segmentation_maps_unaug : imgaug.imgaug.augmentables.batches.DEFAULT or None or list of imgaug.imgaug.augmentables.segmaps.SegmentationMapsOnImage
             Copies the current attribute value without changes if set to
             ``imgaug.augmentables.batches.DEFAULT``.
             Otherwise same as in :func:`Batch.__init__`.
 
-        segmentation_maps_aug : imgaug.augmentables.batches.DEFAULT or None or list of imgaug.augmentables.segmaps.SegmentationMapsOnImage
+        segmentation_maps_aug : imgaug.imgaug.augmentables.batches.DEFAULT or None or list of imgaug.imgaug.augmentables.segmaps.SegmentationMapsOnImage
             Copies the current attribute value without changes if set to
             ``imgaug.augmentables.batches.DEFAULT``.
             Otherwise same as in :func:`Batch.__init__`.
 
-        keypoints_unaug : imgaug.augmentables.batches.DEFAULT or None or list of imgaug.augmentables.kps.KeypointOnImage
+        keypoints_unaug : imgaug.imgaug.augmentables.batches.DEFAULT or None or list of imgaug.imgaug.augmentables.kps.KeypointOnImage
             Copies the current attribute value without changes if set to
             ``imgaug.augmentables.batches.DEFAULT``.
             Otherwise same as in :func:`Batch.__init__`.
 
-        keypoints_aug : imgaug.augmentables.batches.DEFAULT or None or list of imgaug.augmentables.kps.KeypointOnImage
+        keypoints_aug : imgaug.imgaug.augmentables.batches.DEFAULT or None or list of imgaug.imgaug.augmentables.kps.KeypointOnImage
             Copies the current attribute value without changes if set to
             ``imgaug.augmentables.batches.DEFAULT``.
             Otherwise same as in :func:`Batch.__init__`.
 
-        bounding_boxes_unaug : imgaug.augmentables.batches.DEFAULT or None or list of imgaug.augmentables.bbs.BoundingBoxesOnImage
+        bounding_boxes_unaug : imgaug.imgaug.augmentables.batches.DEFAULT or None or list of imgaug.imgaug.augmentables.bbs.BoundingBoxesOnImage
             Copies the current attribute value without changes if set to
             ``imgaug.augmentables.batches.DEFAULT``.
             Otherwise same as in :func:`Batch.__init__`.
 
-        bounding_boxes_aug : imgaug.augmentables.batches.DEFAULT or None or list of imgaug.augmentables.bbs.BoundingBoxesOnImage
+        bounding_boxes_aug : imgaug.imgaug.augmentables.batches.DEFAULT or None or list of imgaug.imgaug.augmentables.bbs.BoundingBoxesOnImage
             Copies the current attribute value without changes if set to
             ``imgaug.augmentables.batches.DEFAULT``.
             Otherwise same as in :func:`Batch.__init__`.
 
-        polygons_unaug : imgaug.augmentables.batches.DEFAULT or None or list of imgaug.augmentables.polys.PolygonsOnImage
+        polygons_unaug : imgaug.imgaug.augmentables.batches.DEFAULT or None or list of imgaug.imgaug.augmentables.polys.PolygonsOnImage
             Copies the current attribute value without changes if set to
             ``imgaug.augmentables.batches.DEFAULT``.
             Otherwise same as in :func:`Batch.__init__`.
 
-        polygons_aug : imgaug.augmentables.batches.DEFAULT or None or list of imgaug.augmentables.polys.PolygonsOnImage
+        polygons_aug : imgaug.imgaug.augmentables.batches.DEFAULT or None or list of imgaug.imgaug.augmentables.polys.PolygonsOnImage
             Copies the current attribute value without changes if set to
             ``imgaug.augmentables.batches.DEFAULT``.
             Otherwise same as in :func:`Batch.__init__`.
 
-        line_strings_unaug : imgaug.augmentables.batches.DEFAULT or None or list of imgaug.augmentables.lines.LineStringsOnImage
+        line_strings_unaug : imgaug.imgaug.augmentables.batches.DEFAULT or None or list of imgaug.imgaug.augmentables.lines.LineStringsOnImage
             Copies the current attribute value without changes if set to
             ``imgaug.augmentables.batches.DEFAULT``.
             Otherwise same as in :func:`Batch.__init__`.
 
-        line_strings_aug : imgaug.augmentables.batches.DEFAULT or None or list of imgaug.augmentables.lines.LineStringsOnImage
+        line_strings_aug : imgaug.imgaug.augmentables.batches.DEFAULT or None or list of imgaug.imgaug.augmentables.lines.LineStringsOnImage
             Copies the current attribute value without changes if set to
             ``imgaug.augmentables.batches.DEFAULT``.
             Otherwise same as in :func:`Batch.__init__`.
@@ -646,22 +646,22 @@ class _BatchInAugmentation(object):
     images : None or (N,H,W,C) ndarray or list of (H,W,C) ndarray
         The images to augment.
 
-    heatmaps : None or list of imgaug.augmentables.heatmaps.HeatmapsOnImage
+    heatmaps : None or list of imgaug.imgaug.augmentables.heatmaps.HeatmapsOnImage
         The heatmaps to augment.
 
-    segmentation_maps : None or list of imgaug.augmentables.segmaps.SegmentationMapsOnImage
+    segmentation_maps : None or list of imgaug.imgaug.augmentables.segmaps.SegmentationMapsOnImage
         The segmentation maps to augment.
 
-    keypoints : None or list of imgaug.augmentables.kps.KeypointOnImage
+    keypoints : None or list of imgaug.imgaug.augmentables.kps.KeypointOnImage
         The keypoints to augment.
 
-    bounding_boxes : None or list of imgaug.augmentables.bbs.BoundingBoxesOnImage
+    bounding_boxes : None or list of imgaug.imgaug.augmentables.bbs.BoundingBoxesOnImage
         The bounding boxes to augment.
 
-    polygons : None or list of imgaug.augmentables.polys.PolygonsOnImage
+    polygons : None or list of imgaug.imgaug.augmentables.polys.PolygonsOnImage
         The polygons to augment.
 
-    line_strings : None or list of imgaug.augmentables.lines.LineStringsOnImage
+    line_strings : None or list of imgaug.imgaug.augmentables.lines.LineStringsOnImage
         The line strings to augment.
 
     """
@@ -842,7 +842,7 @@ class _BatchInAugmentation(object):
         Examples
         --------
         >>> import numpy as np
-        >>> from imgaug.augmentables.batches import _BatchInAugmentation
+        >>> from imgaug.imgaug.augmentables.batches import _BatchInAugmentation
         >>> images = np.zeros((2, 10, 20, 3), dtype=np.uint8)
         >>> batch = _BatchInAugmentation(images=images)
         >>> batch_sub = batch.subselect_rows_by_indices([0])
@@ -894,13 +894,13 @@ class _BatchInAugmentation(object):
 
         Parameters
         ----------
-        augmenter : imgaug.augmenters.meta.Augmenter
+        augmenter : imgaug.imgaug.augmenters.meta.Augmenter
             Augmenter to provide to the propagation hook function.
 
         hooks : imgaug.imgaug.HooksImages or imgaug.imgaug.HooksKeypoints
             The hooks that might contain a propagation hook function.
 
-        parents : list of imgaug.augmenters.meta.Augmenter
+        parents : list of imgaug.imgaug.augmenters.meta.Augmenter
             The list of parents to provide to the propagation hook function.
 
         Returns
@@ -921,13 +921,13 @@ class _BatchInAugmentation(object):
 
         Parameters
         ----------
-        augmenter : imgaug.augmenters.meta.Augmenter
+        augmenter : imgaug.imgaug.augmenters.meta.Augmenter
             Augmenter to provide to the propagation hook function.
 
         hooks : imgaug.imgaug.HooksImages or imgaug.imgaug.HooksKeypoints
             The hooks that might contain a propagation hook function.
 
-        parents : list of imgaug.augmenters.meta.Augmenter
+        parents : list of imgaug.imgaug.augmenters.meta.Augmenter
             The list of parents to provide to the propagation hook function.
 
         Returns
@@ -990,7 +990,7 @@ class _BatchInAugmentation(object):
 
         Returns
         -------
-        imgaug.augmentables.batches._BatchInAugmentation
+        imgaug.imgaug.augmentables.batches._BatchInAugmentation
             The batch itself. (Not copied.)
 
         """
@@ -1035,14 +1035,14 @@ class _BatchInAugmentation(object):
 
         Parameters
         ----------
-        batch_before_aug : imgaug.augmentables.batches.Batch
+        batch_before_aug : imgaug.imgaug.augmentables.batches.Batch
             The batch before augmentation. It is required to set the input
             data of the :class:`Batch` instance, e.g. ``images_unaug``
             or ``data``.
 
         Returns
         -------
-        imgaug.augmentables.batches.Batch
+        imgaug.imgaug.augmentables.batches.Batch
             Batch, with original unaugmented inputs from `batch_before_aug`
             and augmented outputs from this :class:`_BatchInAugmentation`
             instance.

@@ -23,7 +23,7 @@ class TestRandAugment(unittest.TestCase):
         reseed()
 
     # for some reason these mocks don't work with
-    # imgaug.augmenters.collections.(...)
+    # imgaug.imgaug.augmenters.collections.(...)
     @mock.patch("imgaug.augmenters.RandAugment._create_initial_augmenters_list")
     @mock.patch("imgaug.augmenters.RandAugment._create_main_augmenters_list")
     def test_n(self, mock_main, mock_initial):
@@ -44,7 +44,7 @@ class TestRandAugment(unittest.TestCase):
                 assert img_aug[0, 0, 0] in expected[n]
 
     # for some reason these mocks don't work with
-    # imgaug.augmenters.collections.(...)
+    # imgaug.imgaug.augmenters.collections.(...)
     @mock.patch("imgaug.augmenters.RandAugment._create_initial_augmenters_list")
     @mock.patch("imgaug.augmenters.RandAugment._create_main_augmenters_list")
     def test_m(self, mock_main, mock_initial):
