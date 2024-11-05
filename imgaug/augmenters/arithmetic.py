@@ -54,8 +54,8 @@ from ..imgaug import _normalize_cv2_input_arr_
 # to mock. (mock.patch() seems to not automatically replace functions
 # assigned in that way.)
 _CUTOUT_FILL_MODES = {
-    "constant": ("imgaug.augmenters.arithmetic", "_fill_rectangle_constant_"),
-    "gaussian": ("imgaug.augmenters.arithmetic", "_fill_rectangle_gaussian_")
+    "constant": ("imgaug.imgaug.augmenters.arithmetic", "_fill_rectangle_constant_"),
+    "gaussian": ("imgaug.imgaug.augmenters.arithmetic", "_fill_rectangle_gaussian_")
 }
 
 
