@@ -2486,7 +2486,7 @@ class AddToHueAndSaturation(meta.Augmenter):
 
         # code with using cache (at best maybe 10% faster for 64x64):
         if AddToHueAndSaturation._LUT_CACHE is None:
-            AddToHueAndSaturation._LUT_CACHE = self._generate_lut_table()
+            AddToHueAndSaturation._LUT_CACHE = AddToHueAndSaturation._generate_lut_table()
         table_hue = cls._LUT_CACHE[0]
         table_saturation = cls._LUT_CACHE[1]
         tables = [
